@@ -1,6 +1,7 @@
 
 const { Fragment, useState } = React
 const { Link } = ReactRouterDOM
+import { LongTxt } from './LongTxt.jsx';
 
 import { utilService } from '../../../services/util.service.js';
 
@@ -71,7 +72,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                 
                 <td className="mail-content">
                     <span className={mail.isRead ? "mail-subject read" : "mail-subject"}>{mail.subject}</span> 
-                    <span className="mail-preview-body"> - {mail.body}</span>
+                    <LongTxt txt={mail.body} length={20} />
                 </td>
                 
                 <td className="mail-actions">

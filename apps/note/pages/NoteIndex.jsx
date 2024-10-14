@@ -34,11 +34,29 @@ export function NoteIndex() {
             })
     }
 
+    // function onEditNote(updatedNote) {
+    //     noteService.editColor(updatedNote)
+    //         .then(() => {
+    //             console.log(`Note with ID: ${updatedNote.id} edited`)
+    //             setNotes(notes => notes.map(note => (note.id === updatedNote.id ? updatedNote : note)))
+    //         })
+    //         .catch(err => {
+    //             console.log('Problems editing note:', err)
+    //         })
+    // }
+
+    function editColor(updatedNote) {
+        setNotes((prevNotes) => 
+            prevNotes.map(note => (note.id === updatedNote.id ? updatedNote : note))
+        )
+        return Promise.resolve()
+    }
+
     function onEditNote(updatedNote) {
         noteService.editColor(updatedNote)
             .then(() => {
                 console.log(`Note with ID: ${updatedNote.id} edited`)
-                setNotes(notes => notes.map(note => (note.id === updatedNote.id ? updatedNote : note)))
+                editColor(updatedNote)
             })
             .catch(err => {
                 console.log('Problems editing note:', err)

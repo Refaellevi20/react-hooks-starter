@@ -2,9 +2,10 @@
 
 import { storageService } from "../../../services/async-storage.service.js" 
 import { storageServices } from "../../../services/storage.service.js"
-
+import { utilService } from "../../../services/util.service.js"
 
 const NOTE_KEY = 'noteDB'
+let notesDB = []
 _createNotes()
 
 export const noteService = {
@@ -48,7 +49,7 @@ function editColor(updatedNote) {
     if (index !== -1) {
         notesDB[index] = updatedNote
     }
-    return Promise.resolve('Felid to add')
+    return save(NOTE_KEY, notesDB)
 }
 
 function addColor(newNote) {

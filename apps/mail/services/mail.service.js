@@ -5,8 +5,8 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 const loggedinUser = {
-  email: 'maoraknin125@appsus.com',
-  fullname: 'Maor Aknin'
+  email: 'Refaelisrael125@appsus.com',
+  fullName: 'Elinor Levi'
 }
 _createMails()
 
@@ -103,7 +103,7 @@ function getDefaultFilter() {
 function getEmptyMailToSend() {
   return {
     subject: '',
-    from: loggedinUser.fullname,
+    from: loggedinUser.fullName,
     fromEmail: loggedinUser.email,
     body: '',
     isRead: false,
@@ -117,7 +117,7 @@ function getEmptyMailToSend() {
 function getEmptyMailToDraft() {
   return {
     subject: '',
-    from: loggedinUser.fullname,
+    from: loggedinUser.fullName,
     fromEmail: loggedinUser.email,
     body: '',
     isRead: false,
@@ -185,7 +185,7 @@ function _createMails() {
       {
         id: 'e105',
         subject: 'not you!',
-        from: loggedinUser.fullname,
+        from: loggedinUser.fullName,
         fromEmail: loggedinUser.email,
         body: 'wrong email... you sent me a long long span to check if the css shit is still working and how is it',
         isRead: true,
@@ -197,7 +197,7 @@ function _createMails() {
       {
         id: 'e106',
         subject: 'Pukiii!!',
-        from: loggedinUser.fullname,
+        from: loggedinUser.fullName,
         fromEmail: loggedinUser.email,
         body: 'hey puki, tou are trully missed. we talk about you all the time in the course. come and visit when you have the chance.',
         isRead: true,
@@ -245,7 +245,7 @@ function _createMails() {
       {
         id: 'e110',
         subject: 'about yesterday',
-        from: loggedinUser.fullname,
+        from: loggedinUser.fullName,
         fromEmail: loggedinUser.email,
         body: 'hey i had fun yesterday, would like to see you again',
         isRead: true,
@@ -269,7 +269,7 @@ function _createMails() {
       {
         id: 'e112',
         subject: 'hey shuki!',
-        from: loggedinUser.fullname,
+        from: loggedinUser.fullName,
         fromEmail: loggedinUser.email,
         body: 'i thought about yesterday and i am very upset... you need to say you are sorry for what you did!',
         isRead: true,
@@ -305,7 +305,7 @@ function _createMails() {
       {
         id: 'e115',
         subject: 'How are you!',
-        from: loggedinUser.fullname,
+        from: loggedinUser.fullName,
         fromEmail: loggedinUser.email,
         body: 'i have missed you and just wanted to let you know that every thing is ok so dont worry and be happy',
         isRead: true,

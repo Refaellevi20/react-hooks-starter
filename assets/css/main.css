@@ -27,7 +27,7 @@
 
 /* Cmps mail */
 @import './apps/mail/cmps/modal.css';
-@import '';
+@import './apps/mail/cmps/mail.preview.css';
 @import '';
 @import '';
 @import '';

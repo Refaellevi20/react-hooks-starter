@@ -13,6 +13,7 @@ export const utilService = {
     animateCSS,
     debounce,
     getRandomColor,
+    getMonthDay
 
 }
 function makeId(length = 6) {
@@ -75,6 +76,18 @@ function getFormattedDay(timestamp) {
 
 }
 
+function getMonthDay() {
+    const date = new Date()
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    const month = months[date.getMonth()]
+    const day = date.getDate()
+    return `${month} ${day}`
+  }
+  
+  console.log(getMonthDay())
+  
+
 function getFormattedDate(timestamp) {
     const today = new Date()
     const yyyy = today.getFullYear()
@@ -95,8 +108,6 @@ function _isBeforeToday(date) {
 
     return date > today
 }
-
-
 
 function getMonthName(timestamp) {
     const date = new Date(timestamp)

@@ -42,7 +42,7 @@ export function MailCompose({ addMail, onToggleCompose,  saveDraft }) {
 
     }
 
-    return <div className="compose-modal animate__animated animate__slideInUp">
+    return <div className="compose-modal">
         <div className="compose-header"><p>New Messege</p><span className="close-compose" onClick={onCloseCompose}>X</span></div>
         <form onSubmit={onAddMail} className="compose-form">
             <input type="text"

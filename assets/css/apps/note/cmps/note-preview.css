@@ -8,9 +8,13 @@
 
 .note-preview h2,h4 {
     text-transform: capitalize;
-    color: white;
 }
 
 .note-preview img {
     max-width: 100px;
+}
+
+.note-text {
+    padding: 1.875em;
+    background-color: aqua;
 }

@@ -14,6 +14,10 @@ export const noteService = {
     save,
     getEmptyNote,
     getDefaultFilter,
+    generateId,
+    removeColor,
+    editColor,
+    addColor
 }
 
 function query(filterBy = {}) {
@@ -29,6 +33,34 @@ function query(filterBy = {}) {
             return notes
         })
 }
+
+function generateId() {
+    return Math.random().toString(36).substr(2, 9)
+}
+
+function removeColor(noteId) {
+    notesDB = notesDB.filter(note => note.id !== noteId)
+    return Promise.resolve()
+}
+
+function editColor(updatedNote) {
+    const index = notesDB.findIndex(note => note.id === updatedNote.id)
+    if (index !== -1) {
+        notesDB[index] = updatedNote
+    }
+    return Promise.resolve('Felid to add')
+}
+
+function addColor(newNote) {
+    newNote.id = generateId()
+    notesDB.push(newNote)
+    return Promise.resolve()
+}
+
+function getDefaultFilter(){
+    return { text: '' }
+}
+
 
 function getById(noteId) {
     return storageService.get(NOTE_KEY, noteId)
@@ -67,7 +99,7 @@ function _createNotes() {
               backgroundColor: '#00d' 
             }, 
             info: { 
-              txt: 'Fullstack Me Baby!' 
+              txt: 'Fullstack Me Babyyy!' 
             } 
         },
         {
@@ -79,7 +111,7 @@ function _createNotes() {
               backgroundColor: '#00d' 
             }, 
             info: { 
-              txt: 'Fullstack Me Baby!' 
+              txt: 'Fullstack Me Babyss!' 
             } 
         },
         {

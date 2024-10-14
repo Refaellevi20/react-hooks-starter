@@ -1,58 +1,72 @@
-import { noteService } from "../services/note.service.js"
-import { NoteList } from  "../cmps/NoteList.jsx"
+import { noteService } from "../services/note.service.js" 
+import { NoteList } from "../cmps/NoteList.jsx"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
 
-const {useState, useEffect} = React
+const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
-    const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
+    const [loading, setLoading] = useState(true)
 
-    useEffect(() =>{
+    useEffect(() => {
         loadNotes()
-    }, [filterBy])
+    }, [])
 
-    function loadNotes(){
-        noteService.query(filterBy)
-        .then(setNotes)
-        .catch(err => {
-            console.log('err:', err)
-        })
+    function loadNotes() {
+        noteService.query()
+            .then(setNotes)
+            .catch(err => {
+                console.log('Error loading notes:', err)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }
 
     function onRemoveNote(noteId) {
         noteService.remove(noteId)
             .then(() => {
-                setNotes(notes =>
-                    notes.filter(note => note.id !== noteId)
-                )
+                setNotes(notes => notes.filter(note => note.id !== noteId))
+                console.log(`Note with ID: ${noteId} removed`)
             })
             .catch(err => {
                 console.log('Problems removing note:', err)
             })
     }
 
-    function onSelectNoteId(noteId) {
-        setSelectedNoteId(noteId)
+    function onEditNote(updatedNote) {
+        noteService.editColor(updatedNote)
+            .then(() => {
+                console.log(`Note with ID: ${updatedNote.id} edited`)
+                setNotes(notes => notes.map(note => (note.id === updatedNote.id ? updatedNote : note)))
+            })
+            .catch(err => {
+                console.log('Problems editing note:', err)
+            })
     }
 
-    
+    function onAddNote(newNote) {
+        noteService.add(newNote)
+            .then(() => {
+                setNotes(notes => [...notes, newNote])
+                console.log(`New note added: ${JSON.stringify(newNote)}`)
+            })
+            .catch(err => {
+                console.log('Problems adding note:', err)
+            })
+    }
 
-    if (!notes) return <div>Loading...</div>
+    if (loading) return <div>Loading...</div>
+
     return (
         <section className="note-index">
-            <h2>list of notes</h2>
-            <div>
-                {notes.map(note => 
-                    <div key={note.id}>
-                        {note.info.txt}
-                       
-                        <button onClick={() => onRemoveNote(note.id)} >🗑</button>
-                    </div>
-                )}
-            </div>
+            <h2>List of Notes</h2>
+            <NoteList 
+                notes={notes} 
+                removeNote={onRemoveNote} 
+                editNote={onEditNote} 
+                addNote={onAddNote} 
+            />
         </section>
     )
-
 }
-

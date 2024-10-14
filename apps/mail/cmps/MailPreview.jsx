@@ -75,7 +75,6 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                 </td>
                 
                 <td className="mail-actions">
-                    {/* Conditional rendering based on hover state */}
                     {isHovered ? (
                         <span>
                             <span onClick={(ev) => onRemoveMail(ev)} className="material-symbols-outlined icon">delete</span>

@@ -1,13 +1,12 @@
 // mail service
 
-import { storageService } from "../../../services/storage.service.js"
-import { utilService } from "../../../services/util.service.js"
-
+import { storageService } from "../../../services/async-storage.service.js" 
+import { storageServices } from "../../../services/storage.service.js"
 const MAIL_KEY = 'mailDB'
 
 const loggedinUser = {
     email: 'RefaelIsrael125@appsus.com',
-    fullname: 'Elinor Levi lol'
+    fullname: 'Elinor Levi '
 }
 
 _createMails()
@@ -17,7 +16,7 @@ export const mailService = {
     get,
     remove,
     save,
-
+    getDefaultFilter,
 }
 
 function query(filterBy = {}) {
@@ -27,7 +26,7 @@ function query(filterBy = {}) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regExp.test(mail.from))
             }
-            //* chacking if isRead true or false
+            //* checking if isRead true or false
             //! another way or if (filterBy.isRead !== null)
             //! another way or if (filterBy.isRead)
             if (filterBy.isRead !== undefined) {
@@ -61,8 +60,13 @@ function save(mail) {
     else return storageService.post(MAIL_KEY, mail)
 }
 
+function getDefaultFilter() {
+    return { txt: '', isRead: null, status: 'all' }
+  }
+  
+
 function _createMails() {
-    let mails = utilService.loadFromStorage(MAIL_KEY)
+    let mails = storageServices.loadFromStorage(MAIL_KEY)
     console.log('mails:', mails)
     if (!mails || !mails.length) {
         mails = [
@@ -246,8 +250,7 @@ function _createMails() {
                 status: 'sent',
                 isStared: true
             }
-
         ]
     }
-    utilService.saveToStorage(MAIL_KEY, mails)
+    storageServices.saveToStorage(MAIL_KEY, mails)
 }

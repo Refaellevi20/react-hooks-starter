@@ -6,19 +6,24 @@ import { About } from "./pages/About.jsx"
 import { Home } from "./pages/Home.jsx"
 import { MailIndex } from "./apps/mail/pages/MailIndex.jsx"
 import { NoteIndex } from "./apps/note/pages/NoteIndex.jsx"
-
+import { UserMsg } from "./cmps/UserMsg.jsx"
 
 
 export function App() {
-    return <Router>
-        <section className="app main-layout">
-            <AppHeader />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/mail" element={<MailIndex />} />
-                <Route path="/note" element={<NoteIndex />} />
-            </Routes>
-        </section>
-    </Router>
+    return (
+        <Router>
+            <section className="app main-layout">
+                <AppHeader />
+                <main>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/mail" element={<MailIndex />} />
+                        <Route path="/note" element={<NoteIndex />} />
+                    </Routes>
+                </main>
+                <UserMsg />
+            </section>
+        </Router>
+    )
 }

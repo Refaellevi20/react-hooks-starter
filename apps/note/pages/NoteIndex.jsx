@@ -1,4 +1,7 @@
 import { noteService } from "../services/note.service.js"
+import { NoteList } from  "../cmps/NoteList.jsx"
+import { NoteFilter } from "../cmps/NoteFilter.jsx"
+
 const {useState, useEffect} = React
 
 export function NoteIndex() {
@@ -11,7 +14,7 @@ export function NoteIndex() {
 
     function loadNotes(){
         noteService.query(filterBy)
-        .then(setBooks)
+        .then(setNotes)
         .catch(err => {
             console.log('err:', err)
         })
@@ -23,26 +26,31 @@ export function NoteIndex() {
                 setNotes(notes =>
                     notes.filter(note => note.id !== noteId)
                 )
-                showSuccessMsg('Note removed successfully')
             })
             .catch(err => {
                 console.log('Problems removing note:', err)
-                showErrorMsg(`Problems removing note (${noteId})`)
             })
     }
 
+    function onSelectNoteId(noteId) {
+        setSelectedNoteId(noteId)
+    }
+
     
+
+    if (!notes) return <div>Loading...</div>
     return (
-        <section className="app-note">
+        <section className="note-index">
             <h2>list of notes</h2>
-            <ul>
+            <div>
                 {notes.map(note => 
-                    <li key={note.id}>
-                        {note.type}
-                        <button onClick={() => onRemoveNote(note.id)} >x</button>
-                    </li>
+                    <div key={note.id}>
+                        {note.info.txt}
+                       
+                        <button onClick={() => onRemoveNote(note.id)} >🗑</button>
+                    </div>
                 )}
-            </ul>
+            </div>
         </section>
     )
 

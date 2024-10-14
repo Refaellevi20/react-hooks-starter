@@ -1,0 +1,16 @@
+.note-preview {
+    text-align: center;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-preview h2,h4 {
+    text-transform: capitalize;
+    color: white;
+}
+
+.note-preview img {
+    max-width: 100px;
+}

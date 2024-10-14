@@ -2,11 +2,19 @@ const { useState, useEffect } = React
 
 import { mailService } from '../services/mail.service.js';
 
-export function MailFolderList({ onSetFilter, onToggleCompose, mails }) {
+export function MailFolderList({ onSetFilter, onToggleCompose, mails,onResizeClick  }) {
 
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCheckedStar, setIsCheckedStar] = useState(false)
     const [inboxCount, setInboxCount] = useState('')
+    const [language, setLanguage] = useState('English')
+    const [labels, setLabels] = useState({
+        sent: 'Sent',
+        inbox: 'Inbox',
+        all: 'All',
+        draft: 'Draft',
+        delete: 'Delete',
+    })
 
     useEffect(() => {
         onSetFilter(filterBy)
@@ -26,37 +34,100 @@ export function MailFolderList({ onSetFilter, onToggleCompose, mails }) {
         })
     }
 
-    return <div className="side-bar-container animate__animated animate__slideInLeft">
-        <button className="compose-btn" onClick={onToggleCompose}><span className="material-symbols-outlined">edit</span>Compose</button>
-        <ul className="folder-list-container">
-            <li onClick={() => onSetListFilter('all')}
-                className={filterBy.status === 'all' ?
-                    "folder-list-item checked" : "folder-list-item"}>
-                <span className="material-symbols-outlined icon">mail</span>All</li>
-            <li onClick={() => onSetListFilter('inbox')}
-                className={filterBy.status === 'inbox' ?
-                    "folder-list-item checked inbox" : "folder-list-item inbox"}>
-                <span className="material-symbols-outlined icon">inbox
-                </span>Inbox <span>{inboxCount}</span></li>
-            <li onClick={() => onSetListFilter('sent')}
-                className={filterBy.status === 'sent' ?
-                    "folder-list-item checked" : "folder-list-item"}>
-                <span className="material-symbols-outlined icon">send
-                </span>Sent</li>
-            <li onClick={() => onStarFilter(!isCheckedStar)}
-                className={isCheckedStar ?
-                    "folder-list-item checked" : "folder-list-item"}>
-                <span className="material-symbols-outlined icon">star</span>Stared</li>
-            <li onClick={() => onSetListFilter('trash')}
-                className={filterBy.status === 'trash' ?
-                    "folder-list-item checked" : "folder-list-item"}>
-                <span className="material-symbols-outlined icon">delete
-                </span>Trash</li>
-            <li onClick={() => onSetListFilter('draft')}
-                className={filterBy.status === 'draft' ?
-                    "folder-list-item checked" : "f"}>
-                <span className="material-symbols-outlined icon">draft
-                </span>Draft</li>
-        </ul>
-    </div>
+   function handleLanguageChange (ev){
+        setLanguage(ev.target.value)
+    }
+
+    function handleTranslate () {
+        switch (language) {
+            case 'Hebrew':
+                setLabels({
+                    sent: 'נשלח',
+                    inbox: 'תיבת דואר נכנס',
+                    all: 'הכל',
+                    draft: 'טיוטה',
+                    delete: 'מחק',
+                });
+                break;
+            case 'Spanish':
+                setLabels({
+                    sent: 'Enviado',
+                    inbox: 'Bandeja de entrada',
+                    all: 'Todos',
+                    draft: 'Borrador',
+                    delete: 'Eliminar',
+                });
+                break;
+            case 'French':
+                setLabels({
+                    sent: 'Envoyé',
+                    inbox: 'Boîte de réception',
+                    all: 'Tous',
+                    draft: 'Brouillon',
+                    delete: 'Supprimer',
+                });
+                break;
+            case 'German':
+                setLabels({
+                    sent: 'Gesendet',
+                    inbox: 'Posteingang',
+                    all: 'Alle',
+                    draft: 'Entwurf',
+                    delete: 'Löschen',
+                });
+                break;
+            case 'Italian':
+                setLabels({
+                    sent: 'Inviato',
+                    inbox: 'Posta in arrivo',
+                    all: 'Tutti',
+                    draft: 'Bozza',
+                    delete: 'Elimina',
+                });
+                break;
+            default: 
+                setLabels({
+                    sent: 'Sent',
+                    inbox: 'Inbox',
+                    all: 'All',
+                    draft: 'Draft',
+                    delete: 'Delete',
+                })
+                break;
+        }
+    }
+
+    return (
+        <div className="side-bar-container animate__animated animate__slideInLeft">
+            <button className="resize-btn" onClick={onResizeClick}>
+                <span className="material-symbols-outlined">zoom_out</span>Resize
+            </button>
+            <button className="compose-btn" onClick={onToggleCompose}>
+                <span className="material-symbols-outlined">edit</span>Compose
+            </button>
+            <select value={language} onChange={handleLanguageChange}>
+    <option value="English">English</option>
+    <option value="Hebrew">Hebrew</option>
+    <option value="Spanish">Spanish</option>
+    <option value="French">French</option>
+    <option value="German">German</option>
+    <option value="Italian">Italian</option>
+</select>
+            <button onClick={handleTranslate}>Translate</button>
+            <ul className="folder-list-container">
+                <li onClick={() => onSetListFilter('all')} className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">mail</span>{labels.all}</li>
+                <li onClick={() => onSetListFilter('inbox')} className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}>
+                    <span className="material-symbols-outlined icon">inbox</span>{labels.inbox} <span>{inboxCount}</span></li>
+                <li onClick={() => onSetListFilter('sent')} className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">send</span>{labels.sent}</li>
+                <li onClick={() => onStarFilter(!isCheckedStar)} className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">star</span>Stared</li>
+                <li onClick={() => onSetListFilter('trash')} className={filterBy.status === 'trash' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">delete</span>{labels.delete}</li>
+                <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
+            </ul>
+        </div>
+    )
 }

@@ -1,0 +1,21 @@
+
+
+.resize-btn {
+    background-color: #f1f3f4;
+    color: #5f6368;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.mail-container {
+    display: flex; 
+    flex-grow: 3; 
+    transition: all 0.3s ease; 
+    /* height: 100vh */
+}

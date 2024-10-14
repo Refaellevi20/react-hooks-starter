@@ -28,10 +28,12 @@
 /* Cmps mail */
 @import './apps/mail/cmps/modal.css';
 @import './apps/mail/cmps/mail.preview.css';
-@import '';
-@import '';
-@import '';
-@import '';
+@import './apps/mail/cmps/compose.css';
+@import './apps/mail/cmps/MailFolderList.css';
+@import './apps/mail/cmps/smaller-cpmpos.css';
+@import './apps/mail/cmps/emojis.css';
+@import './apps/mail/cmps/compose.css';
+@import './apps/mail/cmps/Filter.css';
 
 /* Cmps note */
 

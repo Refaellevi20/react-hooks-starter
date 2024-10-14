@@ -1,1 +1,13 @@
  /* home */
+ 
+ .home {
+    background-image: url('.img/Home.png');
+    background-size: cover; 
+    background-position: center; 
+    height: 100vh;
+    color: white; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}

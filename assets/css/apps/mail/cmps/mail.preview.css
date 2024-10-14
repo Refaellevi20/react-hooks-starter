@@ -1,3 +1,54 @@
+.mail-preview {
+    display: grid;
+    grid-template-columns: 170px 1fr 50px;
+    padding: 0.6rem;
+    box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
+    cursor: pointer;
+}
+
+
+.mail-preview td:first-child{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+td {
+    border: none;
+}
+
+.mail-subject.read,
+.mail-sender.read,
+.mail-date.read{
+    font-weight: 700;
+
+}
+
+td.mail-content {
+    display: flex;
+}
+
+td.mail-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mail-date{
+    text-align: end;
+}
+
+.mail-preview:hover .mail-date{
+    display: none;
+}
+
+.mail-hidden-container{
+    background-color: white;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
 .fullscreen{
     position: absolute;
     cursor: pointer;
@@ -12,28 +63,87 @@
     background-color: rgb(228, 228, 228);
 }
 
-.mail-hidden-container{
-    background-color: white;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    position: relative;
+.mail-sender {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 1.2rem;
 }
 
-.mail-date{
-    text-align: end;
+
+
+.mail-preview.read {
+    background-color: rgb(255, 255, 255);
+    font-weight: 400;
 }
 
-.mail-subject.read,
-.mail-sender.read,
-.mail-date.read{
-    font-weight: 700;
+.mail-preview:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+
+
+
+.mail-preview-body {
+    color: rgb(130, 130, 130);
+    font-weight: 400;
 
 }
 
-.mail-preview {
-    display: grid;
-    grid-template-columns: 170px 1fr 50px;
-    padding: 0.6rem;
-    box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
-    cursor: pointer;
+.mail-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 1.2rem;
+    padding-left: 1rem;
+
 }
+
+.stared{
+    color: rgb(255, 162, 0);
+    font-weight: 800;
+}
+
+
+
+@media (max-width: 780px) {
+    .mail-content {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .mail-preview {
+        grid-template-columns: 100px 1fr 50px;
+    }
+ 
+}
+
+
+/* <td className="mail-actions">
+{isHovered ? (
+    // style={{ display: 'flex', alignItems: 'center' }}
+    <span>
+        <span onClick={(ev) => onRemoveMail(ev)} className="material-symbols-outlined icon">delete</span>
+        <span onClick={(ev) => onToggleRead(ev)} className="material-symbols-outlined icon">
+            {mail.isRead ? 'delete' : ' drafts'}
+        </span>
+        {isEditingTime ? (
+            <input 
+                type="datetime-local" 
+                value={new Date(customTime).toISOString().slice(0, 16)}
+                onChange={handleTimeChange}
+            />
+        ) : (
+            <span onClick={toggleTimeEdit} className="material-symbols-outlined clock-icon">schedule</span>
+        )}
+    </span>
+) : (
+    <span>{getMonthDay(customTime)}</span>
+)}
+</td> */

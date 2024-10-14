@@ -1,6 +1,5 @@
 const {useState} = React
 
-
 export function Validate({ name = 'Jojo', onValidate = () => { }, onIncreaseSize, onClose }) {
     const [isSideScreen, setIsSideScreen] = useState(false)
 

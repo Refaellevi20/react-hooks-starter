@@ -53,35 +53,49 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
 
     return (
         <Fragment>
-            <tr 
-                onClick={() => setIsExpanded(!isExpanded)} 
-                onMouseEnter={() => setIsHovered(true)} 
-                onMouseLeave={() => setIsHovered(false)} 
-                className={mail.isRead ? "mail-preview read" : "mail-preview"} 
+            {/* Main Mail Row */}
+            <tr
+                onClick={() => setIsExpanded(!isExpanded)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className={mail.isRead ? "mail-preview read" : "mail-preview"}
                 key={mail.id}
             >
+                {/* Sender and Star */}
                 <td className={mail.isRead ? "mail-sender read" : "mail-sender"}>
-                    <span 
-                        onClick={onSetStared} 
+                    <span
+                        onClick={(ev) => { ev.stopPropagation(); onSetStared(); }}
                         className={mail.isStared ? "material-symbols-outlined icon stared" : "material-symbols-outlined icon"}
                     >
                         star
-                    </span> 
+                    </span>
                     {mail.from}
                 </td>
-                
+
+                {/* Subject and Body Preview */}
                 <td className="mail-content">
-                    <span className={mail.isRead ? "mail-subject read" : "mail-subject"}>{mail.subject}</span> 
+                    <span className={mail.isRead ? "mail-subject read" : "mail-subject"}>{mail.subject}</span>
                     <LongTxt txt={mail.body} length={20} />
                 </td>
-                
+
+                {/* Date or Mail Actions */}
                 <td className="mail-actions">
                     {isHovered ? (
-                        <span>
-                            <span onClick={(ev) => onRemoveMail(ev)} className="material-symbols-outlined icon">delete</span>
-                            <span onClick={(ev) => onToggleRead(ev)} className="material-symbols-outlined icon">
-                                {mail.isRead ? 'delete' : ' drafts'}
+                        <span className="mail-actions-container">
+                            <span onClick={(ev) => { ev.stopPropagation(); onRemoveMail(ev); }} className="material-symbols-outlined icon">delete</span>
+                            <span onClick={(ev) => { ev.stopPropagation(); onToggleRead(ev); }} className="material-symbols-outlined icon">
+                                {mail.isRead ? 'mark_as_unread' : 'drafts'}
                             </span>
+                            {isEditingTime ? (
+                                <input
+                                    type="datetime-local"
+                                    value={new Date(customTime).toISOString().slice(0, 16)}
+                                    onClick={(ev) => ev.stopPropagation()} // Prevent click propagation
+                                    onChange={handleTimeChange}
+                                />
+                            ) : (
+                                <span onClick={(ev) => { ev.stopPropagation(); toggleTimeEdit(); }} className="material-symbols-outlined clock-icon">schedule</span>
+                            )}
                         </span>
                     ) : (
                         <span>{getMonthDay(customTime)}</span>
@@ -89,27 +103,20 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                 </td>
             </tr>
 
+            {/* Expanded Mail Content */}
             <tr hidden={!isExpanded}>
                 <td colSpan="3" className="mail-hidden-container">
                     <h2>{mail.subject}</h2>
-                    <Link onClick={onEnterMail} to={`/mail/${mail.id}`}>
+                    <Link onClick={onEnterMail} to={`/mail/${mail.id}`} aria-label={`View mail ${mail.id}`}>
                         <span className="material-symbols-outlined fullscreen">fullscreen</span>
                     </Link>
+
                     <div className="flex space-between">
                         <h5>
-                            from: {mail.from} 
+                            From: {mail.from}
                             <span className="details-email">{`<${mail.fromEmail}>`}</span>
                         </h5>
                         <h5 className="details-date">
-                            {isEditingTime ? (
-                                <input 
-                                    type="datetime-local" 
-                                    value={new Date(customTime).toISOString().slice(0, 16)}
-                                    onChange={handleTimeChange}
-                                />
-                            ) : (
-                                <span onClick={toggleTimeEdit} className="material-symbols-outlined clock-icon">schedule</span>
-                            )}
                             <span>{utilService.getFormattedDate(customTime)}</span>
                         </h5>
                     </div>

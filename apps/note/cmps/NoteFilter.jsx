@@ -24,7 +24,8 @@ export function NoteFilter({ onSetFilter }) {
   }
 
 
-  return (<section className="note-filter">
+  return (
+  <section className="note-filter">
     <form className="text-filter-form" onSubmit={onSubmitFilter}>
       <input className="input-filter" type="text" id="txt"
         name="txt"
@@ -36,10 +37,10 @@ export function NoteFilter({ onSetFilter }) {
 
     <select onChange={onChangeType}>
       <option value=''>All</option>
-      <option value='note-txt'>Text</option>
-      <option value='note-img'>Image</option>
-      <option value='note-vid'>Video</option>
-      <option value='note-todos'> Todos</option>
+      <option value='NoteTxt'>Text</option>
+      <option value='NoteImg'>Image</option>
+      <option value='NoteVid'>Video</option>
+      <option value='NoteTodos'> Todos</option>
     </select>
   </section>
   )

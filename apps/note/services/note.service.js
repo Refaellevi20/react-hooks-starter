@@ -119,7 +119,7 @@ function _createNotes() {
             type: 'NoteTxt', 
             isPinned: true, 
             style: { 
-              backgroundColor: '#00d' 
+              backgroundColor: '#FFFFFF' 
             }, 
             info: { 
               txt: 'Fullstack Me Babyyy!' 
@@ -131,7 +131,7 @@ function _createNotes() {
             type: 'NoteTxt', 
             isPinned: true, 
             style: { 
-              backgroundColor: '#00d' 
+              backgroundColor: '#FFFFFF' 
             }, 
             info: { 
               txt: 'Fullstack Me Babyss!' 
@@ -159,7 +159,7 @@ function _createNotes() {
               title: 'Bobi and Me' 
             }, 
             style: { 
-              backgroundColor: '#00d' 
+              backgroundColor: '##FFFFFF' 
             }
         },
         {
@@ -183,12 +183,12 @@ function _createNotes() {
   
   
   function createNote(noteType, textInput, noteData) {
-    const color = utilService.getRandomColor()
+    const backgroundColor = ' #FFFFFF'
     if (noteType === 'NoteTxt') {
       return {
         type: 'NoteTxt',
         isPinned: false,
-        info: { txt: textInput }, color
+        info: { txt: textInput },  backgroundColor
       }
     }
   
@@ -199,7 +199,7 @@ function _createNotes() {
         info: {
           url: noteData,
           title: textInput
-        }, color
+        },  backgroundColor
       }
     }
   
@@ -210,7 +210,7 @@ function _createNotes() {
         info: {
           url: noteData,
           title: textInput
-        }, color
+        },  backgroundColor
       }
     }
   
@@ -221,7 +221,7 @@ function _createNotes() {
         isPinned: false,
         info: {
           label: textInput, todos
-        }, color
+        },  backgroundColor
       }
     }
   

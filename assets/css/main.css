@@ -17,7 +17,9 @@
 
 
 
-/* @import './apps/mail/pages/MailIndex.css'; */
+@import './apps/mail/pages/MailIndex.css';
+@import './apps/mail/pages/MailDetails.css';
+
 
 /* Cmps */
 
@@ -36,6 +38,7 @@
 @import './apps/mail/cmps/compose.css';
 @import './apps/mail/cmps/Filter.css';
 @import './apps/mail/cmps/star.css';
+@import './apps/mail/cmps/MailTableHeader.css';
 
 /* Cmps note */
 

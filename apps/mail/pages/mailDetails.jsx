@@ -38,19 +38,23 @@ export function MailDetails() {
     //* mail details when the user open the mail
     return (
         <section className="mail-details-main-container">
-            {mail && <div className="mail-details-container">
-                <MailDetailsHeader mail={mail} onRemoveMail={onRemoveMail} />
-                <h2>{mail.subject}</h2>
-                <div className="flex space-between">
-                    <h5>from: {mail.from} <span className="details-email">
-                        {`<${mail.fromEmail}>`}
-                        </span>
+            {mail ? (
+                <div className="mail-details-container">
+                    <MailDetailsHeader mail={mail} onRemoveMail={onRemoveMail} />
+                    <h2 className="mail-subject">{mail.subject}</h2>
+                    <div className="flex space-between">
+                        <h5 className="mail-from">
+                            from: {mail.from} <span className="details-email">
+                                {`<${mail.fromEmail}>`}
+                            </span>
                         </h5>
-                    <h5 className="details-date">{utilService.getFormattedDate(mail.sentAt)}</h5>
+                        <h5 className="details-date">{utilService.getFormattedDate(mail.sentAt)}</h5>
+                    </div>
+                    <p className="mails-details-body">{mail.body}</p>
                 </div>
-                <p className="mails-details-body">{mail.body}</p>
-            </div>}
+            ) : (
+                <div className="loading-state">Loading mail details...</div>
+            )}
         </section>
     )
-
 }

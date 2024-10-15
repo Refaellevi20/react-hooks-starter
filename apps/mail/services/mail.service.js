@@ -8,6 +8,9 @@ const loggedinUser = {
   email: 'Refaelisrael125@appsus.com',
   fullName: 'Elinor Levi'
 }
+
+// let mails = []
+
 _createMails()
 
 export const mailService = {
@@ -21,12 +24,17 @@ export const mailService = {
   getEmptyMailToDraft,
   getInboxNum,
   getReadPersent,
+  getMails,
+
   // addReview,
   // getNextBookId,
   // getPrevBookId
 }
 
 
+function getMails() {
+  return storageService.query(MAIL_KEY) 
+}
 
 // function query() {
 //     return storageService.query(MAIL_KEY) 
@@ -130,8 +138,8 @@ function getEmptyMailToDraft() {
 
 
 function _createMails() {
-  let mails = utilService.loadFromStorage(MAIL_KEY)
-  console.log('mails:',mails)
+  let mails = utilService.loadFromStorage(MAIL_KEY) || []
+    // console.log('mails:',mails)
   if (!mails || !mails.length) {
     mails = [
       {

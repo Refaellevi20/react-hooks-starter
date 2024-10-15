@@ -75,7 +75,7 @@ function query(filterBy) {
           })
         }
       }
-      console.log('mails:',mails)
+    //   console.log('mails:',mails)
       return mails
     })
 }
@@ -145,18 +145,6 @@ function _createMails() {
         to: loggedinUser.email,
         status: 'inbox',
         isStared: true
-      },
-      {
-        id: 'e102',
-        subject: 'Love you!',
-        from: 'yehuda223@gmail.com',
-        fromEmail: 'yehuda223@gmail.com',
-        body: 'Would LOVE to catch up sometimes',
-        isRead: true,
-        sentAt: 1672056049000,
-        to: loggedinUser.email,
-        status: 'inbox',
-        isStared: false
       },
       {
         id: 'e103',

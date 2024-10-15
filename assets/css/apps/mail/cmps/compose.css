@@ -1,6 +1,7 @@
 
 .compose-modal{
-    position: absolute;
+    position: fixed;
+    /* position: absolute; */
     bottom: 0;
     right: 10px;
     height: 500px;
@@ -71,16 +72,16 @@
 
 .compose-header {
     display: flex;
-    justify-content: space-between; /* Space out the children */
-    align-items: center; /* Center vertically */
-    padding: 10px; /* Add padding */
-    background-color: #f1f1f1; /* Background color */
-    border-bottom: 1px solid #ccc; /* Optional bottom border */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    background-color: #f1f1f1; 
+    border-bottom: 1px solid #ccc; 
 }
 
 
 .Hq.aUG {
-    width: 20px; /* Set icon size */
-    height: 20px; /* Set icon size */
-    cursor: pointer; /* Change cursor to pointer */
+    width: 20px;
+    height: 20px;
+    cursor: pointer; 
 }

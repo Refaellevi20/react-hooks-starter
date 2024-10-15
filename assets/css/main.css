@@ -1,6 +1,7 @@
 /* Setup */
 
 @import './setup/variables.css';
+@import './setup/mq.css';
 /* @import './setup/fonts.css'; */
 
 /* Basics */
@@ -34,6 +35,7 @@
 @import './apps/mail/cmps/emojis.css';
 @import './apps/mail/cmps/compose.css';
 @import './apps/mail/cmps/Filter.css';
+@import './apps/mail/cmps/star.css';
 
 /* Cmps note */
 

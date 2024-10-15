@@ -19,7 +19,7 @@ export function NoteFilter({ onSetFilter }) {
   }
 
   function onChangeType({ target }) {
-    console.log(FilterByEdit)
+    // console.log(FilterByEdit)
     onSetFilter({ ...FilterByEdit, noteType: target.value })
   }
 

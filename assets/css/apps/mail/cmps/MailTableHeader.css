@@ -1,0 +1,32 @@
+.mail-table-header {
+    display: flex;
+    flex-direction: column; 
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-header-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-filter-modal {
+    margin-top: 10px; 
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.read-filter-option {
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.2s;
+}
+
+.read-filter-option:hover {
+    background-color: #f0f0f0; 
+}

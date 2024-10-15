@@ -15,7 +15,7 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
   
   const [editMode, setEditMode] = useState(false)
   const [showColorPicker, setShowColorPicker] = useState(false)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function getNoteType(type) {
     switch (type) {
@@ -64,7 +64,7 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
   return (
     <section className='note-preview' style={{ backgroundColor: note.color ? note.color : 'white' }}>
       {getNoteType(type)}
-      <div className='note-actions-container'>
+      <div className='note-actions-container hidden'>
         <div className='note-actions'>
           <span onClick={() => removeNote(note.id)} className="material-symbols-outlined ">delete</span>
           <span onClick={duplicateNote} className="material-symbols-outlined">content_copy</span>

@@ -1,44 +1,59 @@
 .note-preview {
-    min-width: 320px;
-    position: relative;
-    min-height: 100px;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, .35) 0 5px 15px;
-    padding: 15px;
-    break-inside: avoid-column;
-    margin: 0 15px 15px 15px;
-    overflow-wrap: break-word;
-  }
+  position: relative;
+
+  min-width: 50px;
+  min-height: 50px;
+
+  max-width: 350px;
+  max-height: 500px;
   
-  .note-actions {
-    margin: 0 auto;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 1rem;
-    
-  }
-  
-  .icon-btn:hover {
-    transform: scale(1.2);
-    cursor:pointer;
-  }
-  
-  .note-img {
-    height: 100%;
-  
-  }
-  
-  .image-container {
-    height: 80%;
-  }
-  
-  .image-container img {
-    margin: 0 auto;
-  }
-  
-  .pinned {
-    color: black(255, 106, 0);
-    font-weight: 800;
-  }
+  background-color: #f1f3f4;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  break-inside: avoid-column;
+  margin: 10px auto;
+  overflow-wrap: break-word;
+  transition: transform 0.2s ease-in-out;
+  font-size: 15px;
+
+}
+
+.note-preview:hover {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+.note-actions {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 10px;
+
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.note-img {
+  height: 100%;
+
+}
+
+.image-container {
+  height: 80%;
+}
+
+.image-container img {
+  margin: 0 auto;
+}
+
+.pinned {
+  color: black(255, 106, 0);
+  font-weight: 800;
+}

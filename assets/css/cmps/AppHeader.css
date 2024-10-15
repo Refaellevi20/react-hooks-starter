@@ -2,45 +2,67 @@ header {
     background-color: #f2f6fc;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px 0px, rgb(218, 220, 224) 0px -1px 0px 0px inset;
     color: rgb(40, 40, 40);
+    padding: 1rem; 
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
+    align-items: center; 
 }
 
-
-
-.img-logo{
-    width: 50px;
+.img-logo {
+    width: 50px; 
 }
 
-.img-home{
-    /* margin-left: 200px; */
-    width:150px;
-    /* max-width: 60%; */
+.img-home {
+    width: 80px;
+    margin-left: 20px; 
 }
 
-
-.header-modal img{
-    width: 100%;
-}
-
-nav{
+.header-modal {
+    position: absolute;
+    /* top: 80px;  */
+    right: 80px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
     display: flex;
-    justify-content: center;
+    flex-direction: row; 
+    padding: 1rem;
+    border-radius: 5px;
+    min-width: 300px; 
+    max-width: 90vw; 
+    overflow: hidden; 
+}
+
+.header-modal img {
+    width: auto; 
+    height: 40px; 
+    margin: 0.5rem; 
+}
+
+nav {
+    display: flex;
     align-items: center;
-    padding-right: 2rem;
+}
+
+nav .menu {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 20px;
 }
 
 nav a {
-    margin: .5em;
-    font-family: roboto;
     margin: 0;
-    padding: 1.5rem 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav a:hover{
+nav a:hover {
     background: #e2f3ff;
 }
 
@@ -48,6 +70,6 @@ nav a:active {
     color: darkblue;
 }
 
-nav a.active { 
-    font-weight: bold;
+nav a.active {
+    font-weight: bold; 
 }

@@ -30,7 +30,8 @@ td {
 .mail-subject.read,
 .mail-sender.read,
 .mail-date.read{
-    font-weight: 700;
+    font-weight: 70;
+    /* font-weight: 700; */
     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; 
 }
 

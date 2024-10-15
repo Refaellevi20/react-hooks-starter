@@ -1,7 +1,7 @@
 
 const { useState, useEffect } = React
 
-import { MailFilter } from '../cmps/mainFilter.jsx';
+import { MailFilter } from '../cmps/MainFilter.jsx';
 import { MailFolderList } from '../cmps/MailFolderList.jsx';
 import { MailList } from '../cmps/MailList.jsx';
 import { MailCompose } from '../cmps/mailCompose.jsx';

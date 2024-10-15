@@ -1,4 +1,4 @@
-export function NoteVideo({ note }) {
+export function NoteVid({ note }) {
 
     let idx = note.info.url.indexOf('=')
     const urlCode = note.info.url.substring(idx + 1)

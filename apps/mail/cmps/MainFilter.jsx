@@ -6,7 +6,7 @@ const { useState, useEffect } = React
 import { mailService } from "../services/mail.service.js"
 
 export function MailFilter({ onSetFilter }) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    // const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [showIconsOnly, setShowIconsOnly] = useState(false)
 
     // const [language, setLanguage] = useState('English')
@@ -39,69 +39,6 @@ export function MailFilter({ onSetFilter }) {
         setShowIconsOnly(prevState => !prevState)
       }
 
-
-    // function handleLanguageChange(ev) {
-    //     setLanguage(ev.target.value)
-    // }
-
-    // const handleTranslate = () => {
-    //     switch (language) {
-    //         case 'Hebrew':
-    //             setLabels({
-    //                 sent: 'נשלח',
-    //                 inbox: 'תיבת דואר נכנס',
-    //                 all: 'הכל',
-    //                 draft: 'טיוטה',
-    //                 delete: 'מחק',
-    //             });
-    //             break;
-    //         case 'Spanish':
-    //             setLabels({
-    //                 sent: 'Enviado',
-    //                 inbox: 'Bandeja de entrada',
-    //                 all: 'Todos',
-    //                 draft: 'Borrador',
-    //                 delete: 'Eliminar',
-    //             });
-    //             break;
-    //         case 'French':
-    //             setLabels({
-    //                 sent: 'Envoyé',
-    //                 inbox: 'Boîte de réception',
-    //                 all: 'Tous',
-    //                 draft: 'Brouillon',
-    //                 delete: 'Supprimer',
-    //             });
-    //             break;
-    //         case 'German':
-    //             setLabels({
-    //                 sent: 'Gesendet',
-    //                 inbox: 'Posteingang',
-    //                 all: 'Alle',
-    //                 draft: 'Entwurf',
-    //                 delete: 'Löschen',
-    //             });
-    //             break;
-    //         case 'Italian':
-    //             setLabels({
-    //                 sent: 'Inviato',
-    //                 inbox: 'Posta in arrivo',
-    //                 all: 'Tutti',
-    //                 draft: 'Bozza',
-    //                 delete: 'Elimina',
-    //             });
-    //             break;
-    //         default:
-    //             setLabels({
-    //                 sent: 'Sent',
-    //                 inbox: 'Inbox',
-    //                 all: 'All',
-    //                 draft: 'Draft',
-    //                 delete: 'Delete',
-    //             })
-    //             break;
-    //     }
-    // }
 
     return (
         <section className="mail-filter">

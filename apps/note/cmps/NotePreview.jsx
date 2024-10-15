@@ -1,7 +1,7 @@
 import { NoteTxt } from '../cmps/NoteTxt.jsx';
 import { NoteImg } from '../cmps/NoteImg.jsx';
 import { NoteTodos } from '../cmps/NoteTodos.jsx';
-import { NoteVideo } from './NoteVideo.jsx';
+import { NoteVid } from './NoteVid.jsx'; 
 import { NoteEdit } from './NoteEdit.jsx';
 import { noteService } from "../services/note.service.js";
 const { useState } = React;
@@ -26,7 +26,7 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
         return <NoteTodos note={note} />
 
       case 'NoteVid':
-        return <NoteVideo note={note} />
+        return <NoteVid note={note} />
     }
   }
 

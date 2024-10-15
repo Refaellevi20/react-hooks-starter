@@ -3,7 +3,7 @@ const { Fragment, useState } = React
 const { Link } = ReactRouterDOM
 import { LongTxt } from './LongTxt.jsx';
 
-import { utilService } from '../../../services/util.service.js';
+import { utilService } from '../../../services/util.service.js'; 
 
 export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggleRead }) {
 

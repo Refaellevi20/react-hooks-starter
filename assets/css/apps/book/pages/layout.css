@@ -1,0 +1,36 @@
+.main-layout {
+    margin: 0 auto;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  */
+    gap: 15px;
+    align-items: start; 
+}
+
+.book-preview {
+
+    max-width: 200px; 
+    box-sizing: border-box; 
+    transition: transform 0.2s ease-in-out;
+}
+
+.container {
+    max-width: 1000px; 
+    padding: 1em;
+    margin: auto;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .main-layout {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* .book-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 30px 50px;
+} */

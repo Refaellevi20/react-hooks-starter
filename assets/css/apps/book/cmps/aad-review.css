@@ -1,0 +1,85 @@
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  flex-basis: 30%;
+  transition: color 0.3s ease; 
+}
+
+.form-group input,
+.form-group select {
+  flex-basis: 65%;
+  transition: color 0.3s ease; 
+}
+
+.form-group:hover label,
+.form-group:hover input,
+.form-group:hover select {
+  color: #4CAF50; 
+}
+
+button.review-button {
+  text-align: center;
+}
+
+.form-group label.switch-label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.label-text {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  transition: color 0.3s ease; 
+}
+
+
+.form-group:hover .label-text {
+  color: #4CAF50; 
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked+.slider::before {
+  transform: translateX(25px);
+  background-color: #4CAF50;
+}
+
+.checkbox:not(:checked)+.slider::before {
+  background-color: #ccc;
+}
+
+.slider {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: background-color 0.5s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.switch-label:hover .label-text {
+  color: #4CAF50;
+}
+

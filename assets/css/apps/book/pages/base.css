@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+  margin: 0;
+  color: var(--gray3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: .5em 0 .5em;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+ul.book-list {
+  padding: 0; 
+  margin: 0; 
+}
+
+ul.book-list li {
+  list-style: none; 
+}
+
+ul.book-list li::marker {
+  content: '';
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Dont stretch my Media */
+img,
+embed,
+video,
+object {
+  max-width: 100%
+}
+
+/* Simple and useful CSS Debugging Technique */
+.debug * {
+  outline: 1px solid gold
+}
+
+.card .card-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.9em 1.625em;
+  font-family: inherit;
+  font-size: 1em;
+  color: var(--clr-card-button);
+  background-color: white;
+  border: 2px solid var(--clr-card-button);
+}
+
+
+.btn:hover {
+  color: var(--clr-card-button-focus);
+  border-color: var(--clr-card-button-focus);
+}
+
+/* rounded */
+
+.btn.rounded {
+  border-radius: 2em;
+}
+
+/* arrow */
+
+.btn.arrow {
+  position: relative;
+
+  transition: padding .4s;
+}
+
+.btn.arrow:hover {
+  padding-inline-end: 2.5em;
+}
+
+.btn.arrow:hover::after {
+  content: " →";
+  position: absolute;
+  right: 0.875em;
+  
+}
+
+.card-btn {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.btn.arrow {
+  position: relative;
+  transition: padding 0.4s;
+}
+
+/* Arrow Prev Book */
+.btn.arrow.prev:hover::after {
+  content: " ←"; 
+  position: absolute;
+  right: 0.875em; 
+}
+
+/* Arrow Next Book */
+.btn.arrow.next:hover::after {
+  content: " →"; 
+  position: absolute;
+  right: 0.875em; 
+}
+
+.book-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.book-btns i {
+  font-size: 34px;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+  color: #333;
+  margin-top: 175px;
+}
+
+/* Animation on hover */
+.book-btns i:hover {
+  transform: rotate(20deg);
+}
+
+.book-btns i:hover {
+  animation: rotateHover 0.6s ease forwards;
+}
+
+@keyframes rotateHover {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(-180deg); 
+  }
+}
+
+.book-preview.add-book {
+  text-align: center; 
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}

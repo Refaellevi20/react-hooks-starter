@@ -20,8 +20,8 @@ export function AppHeader() {
                         <NavLink onClick={() => setIsClicked(false)} to="/">
                             <img src="assets/img/home.png" className="img-logo" alt="Home" />
                         </NavLink>
-                        <NavLink onClick={() => setIsClicked(false)} to="/about">
-                            <img src="assets/img/about.png" className="img-logo" alt="About" />
+                        <NavLink onClick={() => setIsClicked(false)} to="/book">
+                            <img src="assets/img/books.png" className="img-logo" alt="Book" />
                         </NavLink>
                         <NavLink onClick={() => setIsClicked(false)} to="/mail">
                             <img src="assets/img/email.png" className="img-logo" alt="Mail" />

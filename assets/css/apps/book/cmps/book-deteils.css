@@ -1,0 +1,141 @@
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.serious-tag {
+    background-color: #ffcccc;
+}
+
+.descent-tag {
+    background-color: #ffe0b3;
+}
+
+.light-tag {
+    background-color: #cce5ff;
+}
+
+.vintage-tag {
+    background-color: #d4edda;
+}
+
+.new-tag {
+    background-color: #cce5ff;
+}
+
+.on-sale-tag {
+    color: yellow;
+    font-weight: bold;
+}
+
+.book-details {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    text-align: center;
+}
+
+.book-info,
+.book-description,
+.book-price {
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.on-sale-tag {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ffcc00;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.book-thumbnail {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.book-description {
+    font-size: 1.3em;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+
+.show-reviews {
+    list-style: none;
+}
+
+.show-reviews {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    /* margin: 0; */
+}
+
+.review-card {
+    /* width: 100%;  */
+}
+
+ul.show-reviews {
+    display: flex;
+    flex-wrap: wrap;
+}
+.no-reviews {
+    font-family: 'Bangers',cursive;   
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+}
+
+div.show-reviews.review-card {
+    margin: 0;
+}

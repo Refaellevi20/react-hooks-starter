@@ -2,12 +2,19 @@ const { Route, Routes } = ReactRouterDOM
 const Router = ReactRouterDOM.HashRouter
 
 import { AppHeader } from "./cmps/AppHeader.jsx"
-import { About } from "./pages/About.jsx"
+// import { About } from "./pages/About.jsx"
 import { Home } from "./pages/Home.jsx"
-import { MailIndex } from "./apps/mail/pages/MailIndex.jsx"  
+import { MailIndex } from "./apps/mail/pages/MailIndex.jsx"
 import { NoteIndex } from "./apps/note/pages/NoteIndex.jsx"
-import { UserMsg } from "./cmps/UserMsg.jsx"
+// import { UserMsg } from "./cmps/UserMsg.jsx"
 import { MailDetails } from "./apps/mail/pages/mailDetails.jsx"
+import { BookIndex } from "./apps/book/pages/BookIndex.jsx" 
+import { BookBDetails } from "./apps/book/pages/BookDeteils.jsx" 
+import { BookEdit} from "./apps/book/pages/BookEdit.jsx" 
+// import { UserMsg } from './cmps/UserMsg.jsx'
+// import { SurveyIndex } from './cmps/SurveyIndex.jsx'
+// import { Category } from './cmps/Category.jsx'
+
 
 
 
@@ -19,13 +26,16 @@ export function App() {
                 <main>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="/book/:bookId" element={<BookBDetails />} />
+                        <Route path='/book/edit' element={<BookEdit />}  />
+                        <Route path='/book/edit/:bookId' element={<BookEdit />}/>
+                        <Route path="/book" element={<BookIndex />} />
                         <Route path="/mail" element={<MailIndex />} />
                         <Route path="/mail/:mailId" element={<MailDetails />} />
                         <Route path="/note" element={<NoteIndex />} />
                     </Routes>
                 </main>
-                <UserMsg />
+                {/* <UserMsg /> */}
             </section>
         </Router>
     )

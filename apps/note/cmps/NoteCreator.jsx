@@ -16,22 +16,22 @@ export function NoteCreator({ addNote }) {
     function handleSubmitNote(ev) {
         ev.preventDefault()
         const { target } = ev;
-        const textInput = target.txt.value;
-        const noteData = target.noteData ? target.noteData.value : false;
+        const textInput = target.txt.value
+        const noteData = target.noteData ? target.noteData.value : false
         target.txt.value = ''
         if (noteData) target.noteData.value = ''
-        const note = noteService.createNote(noteType, textInput, noteData);
+        const note = noteService.createNote(noteType, textInput, noteData)
         addNote(note)
     }
 
     const handleNoteTypeChange = (e) => {
-        const { id } = e.target;
+        const { id } = e.target
         const mappedType = id === 'note-txt' ? 'NoteTxt' :
                        id === 'note-img' ? 'NoteImg' :
                        id === 'note-vid' ? 'NoteVid' :
                        id === 'note-todos' ? 'NoteTodos' : 'NoteTxt'
 
-    setNoteType(mappedType);
+    setNoteType(mappedType)
   }
 
     return (

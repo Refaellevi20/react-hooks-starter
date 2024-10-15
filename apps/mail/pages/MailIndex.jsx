@@ -1,7 +1,7 @@
 
 const { useState, useEffect } = React
 
-import { MailFilter } from '../cmps/mainFilter.jsx';
+import { MainFilter } from '../cmps/MainFilter.jsx';
 import { MailFolderList } from '../cmps/MailFolderList.jsx';
 import { MailList } from '../cmps/MailList.jsx';
 import { MailCompose } from '../cmps/mailCompose.jsx';
@@ -83,7 +83,7 @@ export function MailIndex() {
     return (
         <main className={`mail-index-container ${isSmall ? 'small' : ''}`}>
 
-            <MailFilter
+            <MainFilter
                 onSetFilter={onSetFilter} />
             <section  className="mail-container">
                 <MailFolderList

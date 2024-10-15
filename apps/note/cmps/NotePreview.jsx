@@ -1,7 +1,7 @@
 import { NoteTxt } from '../cmps/NoteTxt.jsx';
 import { NoteImg } from '../cmps/NoteImg.jsx';
 import { NoteTodos } from '../cmps/NoteTodos.jsx';
-import { NoteVid } from './NoteVid.jsx';
+import { NoteVid } from './NoteVid.jsx'; 
 import { NoteEdit } from './NoteEdit.jsx';
 import { noteService } from "../services/note.service.js";
 import { ColorInput } from './ColorInput.jsx';

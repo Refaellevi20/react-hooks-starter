@@ -83,8 +83,6 @@ td.mail-content {
     line-height: 1.2rem;
 }
 
-
-
 .mail-preview.read {
     background-color: rgb(255, 255, 255);
     font-weight: 400;
@@ -93,9 +91,6 @@ td.mail-content {
 .mail-preview:hover {
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
-
-
-
 
 .mail-preview-body {
     color: rgb(130, 130, 130);
@@ -179,3 +174,22 @@ td.mail-content {
     width: 100%;
 }
 
+.mail-content {
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
+
+.mail-body-preview {
+    color: rgb(130, 130, 130);
+    font-weight: 400;
+    margin-left: 10px; 
+    display: inline; 
+}
+
+.mail-preview {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+}

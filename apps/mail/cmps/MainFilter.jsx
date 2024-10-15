@@ -1,23 +1,12 @@
 const { useState, useEffect } = React
 
-// import {img} ./
-// import img from './apps/cmps/img'
-
 import { mailService } from "../services/mail.service.js"
 
-export function MainFilter({ onSetFilter }) {
-    // const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const [showIconsOnly, setShowIconsOnly] = useState(false)
+export function MainFilter({ onSetFilter, toggleIconsOnly }) {
+    // const [showIconsOnly, setShowIconsOnly] = useState(false)
 
-    // const [language, setLanguage] = useState('English')
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-    // const [labels, setLabels] = useState({
-    //     sent: 'Sent',
-    //     inbox: 'Inbox',
-    //     all: 'All',
-    //     draft: 'Draft',
-    //     delete: 'Delete',
-    // })
+
 
     useEffect(() => {
         console.log(filterBy)
@@ -31,19 +20,14 @@ export function MainFilter({ onSetFilter }) {
         })
     }
 
-    // function handleMenuToggle() {
-    //     setIsMenuOpen(prevState => !prevState)
+    // function toggleIconsOnly  (){
+    //     setShowIconsOnly(prevState => !prevState)
     // }
-
-    function toggleIconsOnly  (){
-        setShowIconsOnly(prevState => !prevState)
-      }
-
 
     return (
         <section className="mail-filter">
 
-
+            {/* <onlyIcons /> */}
             <div
                 className="hamburger-menu"
                 aria-expanded="true"
@@ -77,16 +61,6 @@ export function MainFilter({ onSetFilter }) {
                     />
                 </form>
             </div>
-            {/* <select value={language} onChange={handleLanguageChange}>
-                <option value="English">English</option>
-                <option value="Hebrew">Hebrew</option>
-                <option value="Spanish">Spanish</option>
-                <option value="French">French</option>
-                <option value="German">German</option>
-                <option value="Italian">Italian</option>
-            </select>
-            <button onClick={handleTranslate}>Translate</button> */}
-
         </section>
     )
 }

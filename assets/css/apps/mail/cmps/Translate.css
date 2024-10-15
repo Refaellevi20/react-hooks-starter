@@ -1,0 +1,50 @@
+.compose-btn {
+    margin-bottom: 0.625em;
+}
+
+.custom-select {
+    padding: 0.5em 0.75em;
+    width: 13.75em;
+    border-radius: 0.25em;
+    border: 0.0625em solid #ccc;
+    background-color: #fff; 
+    color: #333;
+    font-size: 0.875em;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    margin-bottom: 0.625em;
+}
+
+.custom-select:hover {
+    border-color: #007bff;
+}
+
+.custom-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0.3125em rgba(0, 123, 255, 0.5);
+}
+
+.custom-button {
+    padding: 0.5em 1em; 
+    margin-left: 0.625em;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.2);
+}
+
+.custom-button i {
+    margin-right: 0.3125em; 
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03); 
+}

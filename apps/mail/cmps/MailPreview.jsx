@@ -95,7 +95,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                                 )}
                             </div>
                         ) : (
-                            <span>{getMonthDay()}</span>
+                            <span className="mail-date">{getMonthDay()}</span>
                         )}
                     </div>
                 </div>

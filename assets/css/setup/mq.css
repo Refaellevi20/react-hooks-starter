@@ -1,56 +1,84 @@
 /* Styles for mobile devices mails */
 @media (max-width: 860px) {
     .mail-preview {
-        display: block; 
-        padding: 10px 0; 
+        display: block;
+        padding: 10px 0;
         width: 100%;
     }
 
     .mail-row {
         display: flex;
         flex-direction: column;
-        padding: 10px; 
+        padding: 10px;
     }
 
     .mail-sender {
         display: flex;
         align-items: center;
-        gap: 10px; 
-        padding: 5px; 
-        font-size: 0.9rem; 
-        font-weight: bold; 
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        white-space: nowrap; 
+        gap: 10px;
+        padding: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .mail-content {
-        padding: 5px; 
+        padding: 5px;
         display: flex;
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
     }
+    
+    .icon {
+        cursor: pointer;
+    }
+    
+    .clock-icon {
+        cursor: pointer;
+    }
 
+    .mail-actions {
+        display: flex;
+        justify-content: end; 
+        align-items: center; 
+    }
+    
     .mail-actions-container {
-        display: flex; 
-        justify-content: flex-start; 
+        display: flex;
         gap: 10px;
-        padding-top: 5px; 
+    }
+    
+    .mail-date {
+        margin-left: auto;
+        font-size: 14px; 
+        color: #888; 
+    }
+    
+    .icon, .clock-icon {
+        cursor: pointer;
+    }
+    
+    input[type="datetime-local"] {
+        font-size: 14px;
+        padding: 4px;
     }
 
     .mail-hidden-container {
-        padding: 10px; 
+        padding: 10px;
     }
 
     .material-symbols-outlined.icon {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
     }
 
     .mail-preview:hover .mail-date {
-        display: none; 
+        display: none;
     }
 
     .mail-preview-body {
-        font-size: 0.85rem; 
+        font-size: 0.85rem;
     }
 }
+

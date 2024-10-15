@@ -74,14 +74,19 @@ td.mail-content {
 }
 
 .mail-sender {
+    display: flex; 
+    align-items: center; 
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    line-height: 1.2rem;
+    white-space: nowrap; 
+    padding-right: 10px; 
 }
+
+.material-symbols-outlined.icon {
+    cursor: pointer;
+    margin-right: 5px; 
+}
+
 
 .mail-preview.read {
     background-color: rgb(255, 255, 255);
@@ -187,9 +192,19 @@ td.mail-content {
     display: inline; 
 }
 
-.mail-preview {
-    display: flex; 
-    justify-content: space-between; 
+.mail-actions {
+    display: flex;
+    justify-content: end; 
     align-items: center; 
-    width: 100%; 
+}
+
+.mail-actions-container {
+    display: flex;
+    gap: 10px;
+}
+
+.mail-date {
+    margin-left: auto;
+    font-size: 14px; 
+    color: #888; 
 }

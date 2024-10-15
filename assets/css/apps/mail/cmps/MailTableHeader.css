@@ -1,32 +1,39 @@
 .mail-table-header {
-    display: flex;
-    flex-direction: column; 
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #ccc;
-}
-
-.table-header-btn-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 .read-filter-modal {
-    margin-top: 10px; 
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    position: absolute;
+    top: 40px; 
+    right: 0; 
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    z-index: 10; 
+    width: 150px; 
 }
 
 .read-filter-option {
+    margin: 10px 0;
     cursor: pointer;
     padding: 5px;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease;
 }
 
 .read-filter-option:hover {
     background-color: #f0f0f0; 
+    border-radius: 4px;
+}
+
+.table-header-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; 
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    font-size: 24px; 
 }

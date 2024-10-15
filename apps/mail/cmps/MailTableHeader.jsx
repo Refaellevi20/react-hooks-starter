@@ -3,15 +3,12 @@ const { useState, useEffect } = React
 import { mailService } from "../services/mail.service.js"
 
 export function MailTableHeader({ onSetFilter }) {
-
-
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isClicked, setIsClicked] = useState(false)
     const [readCount, setReadCount] = useState(0)
     const [unreadCount, setUnreadCount] = useState(0)
 
     useEffect(() => {
-        // console.log(filterBy)
         onSetFilter(filterBy)
     }, [filterBy])
 
@@ -31,7 +28,7 @@ export function MailTableHeader({ onSetFilter }) {
         })
     }
 
-    //* filter on everything
+    //* Filter on everything
     return (
         <div className="mail-table-header">
             <div className="table-header-btn-container flex">
@@ -39,15 +36,15 @@ export function MailTableHeader({ onSetFilter }) {
                 <span onClick={() => window.location.reload()} className="material-symbols-outlined refresh">refresh</span>
             </div>
             {isClicked && (
-                <div className="read-filter-modal">
+                <div className="read-filter-modal card">
                     <p className="read-filter-option" onClick={() => handleChange(null)}>
                         All
                     </p>
-                    <p className="read-filter-option" onClick={() => handleChange(false)}>
-                        Read ({readCount}) 
-                    </p>
                     <p className="read-filter-option" onClick={() => handleChange(true)}>
-                        Unread ({unreadCount}) 
+                        Read ({readCount})  {/* Corrected here */}
+                    </p>
+                    <p className="read-filter-option" onClick={() => handleChange(false)}>
+                        Unread ({unreadCount})  {/* Corrected here */}
                     </p>
                 </div>
             )}

@@ -23,8 +23,8 @@
 
 .emojis-module.grid {
     display: grid;
-    grid-template-columns: repeat(4, 20px);
-    grid-template-rows: repeat(6, 20px);
+    grid-template-columns: repeat(5, 20px);
+    grid-template-rows: repeat(5, 20px);
     gap: 10px;
     justify-content: center;
 }
@@ -54,7 +54,7 @@
 .prev-page,
 .next-page {
     border: none;
-    background-color: var(--clr1);
+    background-color: goldenrod;
     color: var(--white);
     border-radius: 50%;
     width: 30px;
@@ -64,11 +64,12 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s ease;
+
 }
 
 .prev-page:hover,
 .next-page:hover {
-    background-color: var(--clr2);
+    background-color: gray;
 }
 
 

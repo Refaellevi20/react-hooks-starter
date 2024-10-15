@@ -1,19 +1,21 @@
 import { noteService } from "../services/note.service.js" 
 import { NoteList } from "../cmps/NoteList.jsx"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
+import { NoteCreator } from "../cmps/NoteCreator.jsx"
 
 const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
     const [loading, setLoading] = useState(true)
+    const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
 
     useEffect(() => {
         loadNotes()
-    }, [])
+    }, [filterBy])
 
     function loadNotes() {
-        noteService.query()
+        noteService.query(filterBy)
             .then(setNotes)
             .catch(err => {
                 console.log('Error loading notes:', err)
@@ -34,51 +36,52 @@ export function NoteIndex() {
             })
     }
 
-    // function onEditNote(updatedNote) {
-    //     noteService.editColor(updatedNote)
-    //         .then(() => {
-    //             console.log(`Note with ID: ${updatedNote.id} edited`)
-    //             setNotes(notes => notes.map(note => (note.id === updatedNote.id ? updatedNote : note)))
-    //         })
-    //         .catch(err => {
-    //             console.log('Problems editing note:', err)
-    //         })
+
+    // function editColor(updatedNote) {
+    //     setNotes((prevNotes) => 
+    //         prevNotes.map(note => (note.id === updatedNote.id ? updatedNote : note))
+    //     )
+    //     return Promise.resolve()
     // }
 
-    function editColor(updatedNote) {
-        setNotes((prevNotes) => 
-            prevNotes.map(note => (note.id === updatedNote.id ? updatedNote : note))
-        )
-        return Promise.resolve()
-    }
-
     function onEditNote(updatedNote) {
-        noteService.editColor(updatedNote)
+        noteService.save(updatedNote)
             .then(() => {
-                console.log(`Note with ID: ${updatedNote.id} edited`)
-                editColor(updatedNote)
+                setNotes((prevNotes) => {
+                    const updatedNotes = prevNotes.map(note => 
+                        note.id === updatedNote.id ? updatedNote : note
+                    )
+                    return updatedNotes
+                })
+                loadNotes() // Reload all notes to ensure consistency
             })
             .catch(err => {
                 console.log('Problems editing note:', err)
             })
     }
 
+    
+
     function onAddNote(newNote) {
-        noteService.add(newNote)
-            .then(() => {
-                setNotes(notes => [...notes, newNote])
-                console.log(`New note added: ${JSON.stringify(newNote)}`)
+        noteService.save(newNote)
+            .then((savedNote) => {
+                setNotes((prevNotes) => [...prevNotes, savedNote])
             })
             .catch(err => {
                 console.log('Problems adding note:', err)
             })
     }
 
+    function onSetFilter(filterByToEdit) {
+        setFilterBy(prevFilter => ({...prevFilter, ...filterByToEdit}))
+    }
+
     if (loading) return <div>Loading...</div>
 
     return (
         <section className="note-index">
-            <h2>List of Notes</h2>
+            <NoteCreator addNote={onAddNote} />
+            <NoteFilter onSetFilter={onSetFilter} filterBy={filterBy} />
             <NoteList 
                 notes={notes} 
                 removeNote={onRemoveNote} 
@@ -87,4 +90,5 @@ export function NoteIndex() {
             />
         </section>
     )
+
 }

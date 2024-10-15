@@ -1,0 +1,53 @@
+.note-filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 3rem;
+  }
+  
+  .text-filter-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  
+  .filterBtn {
+    Border: none;
+    background-color: inherit;
+  }
+  
+  .filterBtn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  select {
+    margin-left: 7px;
+    padding: 5px;
+    border: lightgrey 1px solid;
+    border-radius: 4px;
+  }
+  
+  select:hover {
+    cursor: pointer;
+  }
+  
+  .input-filter {
+    border: none;
+    border-bottom: lightgray 1px solid;
+    padding: 5px;
+    width: 220px;
+  }
+  
+  .input-filter:focus-visible {
+    outline: none;
+  }
+  
+  .input-filter::placeholder {
+    /* font-weight: bold; */
+    opacity: 0.5;
+  }

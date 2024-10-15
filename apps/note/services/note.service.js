@@ -18,22 +18,26 @@ export const noteService = {
     generateId,
     removeColor,
     editColor,
-    addColor
+    addColor,
+    getNoteEditData,
+    createNote
 }
 
-function query(filterBy = {}) {
+function query(filterBy = getDefaultFilter()) {
     return storageService.query(NOTE_KEY)
-        .then(notes => {
-            if (filterBy.txt) {
-                const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.txt))
-            }
-            if (filterBy.isPinned) {
-                notes = notes.filter(note => note.isPinned >= filterBy.isPinned)
-            }
-            return notes
-        })
-}
+      .then(notes => {
+        if (filterBy.txt) {
+          const regex = new RegExp(filterBy.txt, 'i')
+          notes = notes.filter(note => (regex.test(note.info.title) || regex.test(note.info.label) || regex.test(note.info.txt)))
+        }
+        if (filterBy.noteType) {
+          notes = notes.filter(note => (note.type === filterBy.noteType))
+        }
+  
+        console.log(notes)
+        return notes
+      })
+  }
 
 function generateId() {
     return Math.random().toString(36).substr(2, 9)
@@ -58,14 +62,32 @@ function addColor(newNote) {
     return Promise.resolve()
 }
 
-function getDefaultFilter(){
-    return { text: '' }
-}
-
 
 function getById(noteId) {
     return storageService.get(NOTE_KEY, noteId)
 }
+
+function getNoteEditData(note) {
+    if (note.type === 'NoteTxt') {
+      return { title: note.info.txt, content: '', titleField: 'txt' }
+    }
+  
+    if (['NoteImg', 'NoteVid'].includes(note.type)) {
+      return { title: note.info.title, content: note.info.url, titleField: 'title', contentField: 'url' }
+    }
+  
+    if (note.type === 'NoteTodos') {
+      return {
+        title: note.info.label, content: note.info.todos.map(todo => todo.txt).join(', '),
+        titleField: 'title',
+        contentField: 'todos'
+      }
+    }
+  
+    throw new Error('noteType is unknown')
+  
+  }
+  
 
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
@@ -127,32 +149,32 @@ function _createNotes() {
               txt: 'Fullstack Me Baby!' 
             } 
         },
-        // {
-        //     id: 'n102', 
-        //     createdAt: 1112223, 
-        //     type: 'NoteImg', 
-        //     isPinned: false, 
-        //     info: { 
-        //       url: 'http://some-img/me', 
-        //       title: 'Bobi and Me' 
-        //     }, 
-        //     style: { 
-        //       backgroundColor: '#00d' 
-        //     }
-        // },
-        // {
-        //     id: 'n103', 
-        //     createdAt: 1112224, 
-        //     type: 'NoteTodos', 
-        //     isPinned: false, 
-        //     info: { 
-        //       title: 'Get my stuff together', 
-        //       todos: [ 
-        //         { txt: 'Driving license', doneAt: null }, 
-        //         { txt: 'Coding power', doneAt: 187111111 } 
-        //       ] 
-        //   }
-        // }
+        {
+            id: 'n102', 
+            createdAt: 1112223, 
+            type: 'NoteImg', 
+            isPinned: false, 
+            info: { 
+              url: 'http://some-img/me', 
+              title: 'Bobi and Me' 
+            }, 
+            style: { 
+              backgroundColor: '#00d' 
+            }
+        },
+        {
+            id: 'n103', 
+            createdAt: 1112224, 
+            type: 'NoteTodos', 
+            isPinned: false, 
+            info: { 
+              title: 'Get my stuff together', 
+              todos: [ 
+                { txt: 'Driving license', doneAt: null }, 
+                { txt: 'Coding power', doneAt: 187111111 } 
+              ] 
+          }
+        }
   
       ]
       storageServices.saveToStorage(NOTE_KEY, notes)
@@ -160,28 +182,54 @@ function _createNotes() {
   }
   
   
+  function createNote(noteType, textInput, noteData) {
+    const color = utilService.getRandomColor()
+    if (noteType === 'NoteTxt') {
+      return {
+        type: 'NoteTxt',
+        isPinned: false,
+        info: { txt: textInput }, color
+      }
+    }
+  
+    if (noteType ===  'NoteImg') {
+      return {
+        type:  'NoteImg',
+        isPinned: false,
+        info: {
+          url: noteData,
+          title: textInput
+        }, color
+      }
+    }
+  
+    if (noteType === 'NoteVid') {
+      return {
+        type: 'NoteVid',
+        isPinned: false,
+        info: {
+          url: noteData,
+          title: textInput
+        }, color
+      }
+    }
+  
+    if (noteType === 'NoteTodos') {
+      const todos = noteData.split(',').map(todo => ({ txt: todo.trim(), doneAt: null }))
+      return {
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+          label: textInput, todos
+        }, color
+      }
+    }
+  
+    throw new Error('noteType is unknown')
+  }
+  
+  
+  
   
 
 
-// function _createNote() {
-// return {
-//     id: utilService.makeId(),
-//     title: "metus hendrerit",
-//     subtitle: utilService.makeLorem(15),
-//     authors: ["Oren Yaniv"],
-//     publishedDate: utilService.getRandomInt(1700, 2022),
-//     description: utilService.makeLorem(50),
-//     pageCount: utilService.getRandomInt(1, 700),
-//     categories: [
-//         "Computers",
-//         "Hack"
-//     ],
-//     thumbnail: "http://coding-academy.org/books-photos/20.jpg",
-//     language: "en",
-//     listPrice: {
-//         amount: utilService.getRandomInt(10, 30),
-//         currencyCode: "EUR",
-//         isOnSale: false
-//     }
-// }
-// }

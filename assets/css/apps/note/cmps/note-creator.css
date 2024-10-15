@@ -1,0 +1,55 @@
+.note-creator-container {
+    display: flex;
+    padding: 0.7rem 1rem;
+    gap: 10px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    border-radius: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f1f3f4;
+    line-height:27px;
+    font-size: 27px;
+    width:1000px;
+    height: 70px;
+}
+
+.input{
+    background-color: #f1f3f4;
+}
+
+.options-container{
+    display: flex;
+    align-items: baseline;
+}
+
+.options-container label{
+    padding-top: 2px;
+}
+
+.create-form {
+    justify-content: center;
+}
+
+.create-form input {
+    padding: 0.5rem;
+    border: none;
+}
+
+.create-form input:focus-visible {
+    outline: none;
+}
+
+.create-note-btn {
+    background-color: white;
+    border: none;
+    padding: 2px 2px 0 2px;
+}
+
+.create-note-btn:hover {
+    background-color: rgb(240, 240, 240);
+    border-radius: 50%;
+}
+
+.radio-btn-hidden {
+    display: none;
+}

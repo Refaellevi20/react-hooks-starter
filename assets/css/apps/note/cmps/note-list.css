@@ -1,6 +1,6 @@
  /* note list */
 
- .note-list {
+ /* .note-list {
     list-style: none;
     padding: 15px 0 0;
     display: grid;
@@ -16,4 +16,43 @@
     align-items: center;
     background-color: var(--purple1);
     border-radius: 10px;
-}
+} */
+
+.memo-container {
+    column-count: 3;
+    column-gap: 20px;
+  }
+  
+  
+  .memo-pined-container {
+    column-count: 3;
+    column-gap: 20px;
+    margin-bottom: 90px;
+  }
+
+  .memo {
+    border: 1px solid black;
+  
+  }
+  
+  @media screen and (max-width: 1050px) {
+    .memo-container {
+      column-count: 2;
+    }
+  
+  
+    .memo-pined-container {
+      column-count: 2;
+    }
+  }
+  
+  @media screen and (max-width: 700px) {
+    .memo-container {
+      column-count: 1;
+    }
+  
+  
+    .memo-pined-container {
+      column-count: 1;
+    }
+  }

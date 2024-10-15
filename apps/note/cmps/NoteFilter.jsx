@@ -1,45 +1,46 @@
-const { useState, useEffect } = React
+import { noteService } from "../services/note.service.js";
+const { useState } = React;
+
+export function NoteFilter({ onSetFilter }) {
+  const [FilterByEdit, setFilterByEdit] = useState(noteService.getDefaultFilter)
+  
+
+  function handleTypeChange(ev) {
+    const { value } = ev.target
+    setFilterByEdit((prevFilter) => {
+      return { ...prevFilter, txt: value }
+    })
+    console.log(FilterByEdit)
+  }
+
+  function onSubmitFilter(ev) {
+    ev.preventDefault()
+    onSetFilter(FilterByEdit)
+  }
+
+  function onChangeType({ target }) {
+    console.log(FilterByEdit)
+    onSetFilter({ ...FilterByEdit, noteType: target.value })
+  }
 
 
+  return (<section className="note-filter">
+    <form className="text-filter-form" onSubmit={onSubmitFilter}>
+      <input className="input-filter" type="text" id="txt"
+        name="txt"
+        placeholder="Please text to filter "
+        onChange={handleTypeChange}
+        value={FilterByEdit.txt} />
+      <button className="filterBtn" type="submit"><span className="material-symbols-outlined">filter_list</span></button>
+    </form>
 
-export function NoteFilter({ filterBy, onSetFilter }) {
-
-    const [filterByToEdit, setFilterByToEdit] = useState(noteService.getDefaultFillter)
-    
-
-    const { txt } = filterByToEdit
-
-    useEffect(() => {
-        onSetFilter(filterByToEdit)
-    }, [filterByToEdit])
-
-    function handleChange({ target }) {
-        const field = target.name
-        let value = target.value
-        switch (target.type) {
-            case 'number':
-            case 'range':
-                value = +value
-                break;
-
-            case 'checkbox':
-                value = target.checked
-                break
-        }
-
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
-    }
-
-
-
-    return (
-        <section className="note-filter">
-            <form>
-                <label htmlFor="txt">Title</label>
-                <input onChange={handleChange} value={txt} type="text" name="txt" id="txt" />
-
-                <button>Submit</button>
-            </form>
-        </section>
-    )
+    <select onChange={onChangeType}>
+      <option value=''>All</option>
+      <option value='note-txt'>Text</option>
+      <option value='note-img'>Image</option>
+      <option value='note-vid'>Video</option>
+      <option value='note-todos'> Todos</option>
+    </select>
+  </section>
+  )
 }

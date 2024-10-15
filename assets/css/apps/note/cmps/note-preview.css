@@ -1,20 +1,44 @@
 .note-preview {
+    min-width: 320px;
+    position: relative;
+    min-height: 100px;
     text-align: center;
-    padding: 0.3em;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, .35) 0 5px 15px;
+    padding: 15px;
+    break-inside: avoid-column;
+    margin: 0 15px 15px 15px;
+    overflow-wrap: break-word;
+  }
+  
+  .note-actions {
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.note-preview h2,h4 {
-    text-transform: capitalize;
-}
-
-.note-preview img {
-    max-width: 100px;
-}
-
-.note-text {
-    padding: 1.875em;
-    background-color: aqua;
-}
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    
+  }
+  
+  .icon-btn:hover {
+    transform: scale(1.2);
+    cursor:pointer;
+  }
+  
+  .note-img {
+    height: 100%;
+  
+  }
+  
+  .image-container {
+    height: 80%;
+  }
+  
+  .image-container img {
+    margin: 0 auto;
+  }
+  
+  .pinned {
+    color: rgb(255, 106, 0);
+    font-weight: 800;
+  }

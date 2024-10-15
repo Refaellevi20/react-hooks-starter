@@ -116,7 +116,6 @@ export function MailFolderList({ onSetFilter, onToggleCompose, mails, onResizeCl
 
 
     return (
-
         <div className="side-bar-container ">
             <button className="resize-btn" onClick={onResizeClick}>
                 <span className="material-symbols-outlined">zoom_out</span>Resize

@@ -54,7 +54,6 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
              onMouseEnter={() => setIsHovered(true)} 
              onMouseLeave={() => setIsHovered(false)}>
 
-            {/* mail Row */}
             <div className="mail-row">
                 {/* sender and Star */}
                 <div className={`mail-sender ${mail.isRead ? "read" : ""}`}>
@@ -68,7 +67,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                 {/* subject and Body Preview */}
                 <div className="mail-content">
                     <span className={`mail-subject ${mail.isRead ? "read" : ""}`}>{mail.subject}</span>
-                    <LongTxt txt={mail.body} length={20} />
+                    <LongTxt txt={mail.body} length={30} />
                 </div>
 
                 {/* date or Mail Actions */}
@@ -77,7 +76,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                         <div className="mail-actions-container">
                             <span onClick={onRemoveMail} className="material-symbols-outlined icon">delete</span>
                             <span onClick={onToggleRead} className="material-symbols-outlined icon">
-                                {mail.isRead ? 'mark_as_unread' : 'drafts'}
+                                {mail.isRead ? 'mail' : 'drafts'}
                             </span>
                             {isEditingTime ? (
                                 <input

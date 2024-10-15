@@ -1,0 +1,56 @@
+/* Styles for mobile devices mails */
+@media (max-width: 860px) {
+    .mail-preview {
+        display: block; 
+        padding: 10px 0; 
+        width: 100%;
+    }
+
+    .mail-row {
+        display: flex;
+        flex-direction: column;
+        padding: 10px; 
+    }
+
+    .mail-sender {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+        padding: 5px; 
+        font-size: 0.9rem; 
+        font-weight: bold; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
+    }
+
+    .mail-content {
+        padding: 5px; 
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .mail-actions-container {
+        display: flex; 
+        justify-content: flex-start; 
+        gap: 10px;
+        padding-top: 5px; 
+    }
+
+    .mail-hidden-container {
+        padding: 10px; 
+    }
+
+    .material-symbols-outlined.icon {
+        font-size: 1.2rem; 
+    }
+
+    .mail-preview:hover .mail-date {
+        display: none; 
+    }
+
+    .mail-preview-body {
+        font-size: 0.85rem; 
+    }
+}

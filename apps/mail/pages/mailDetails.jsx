@@ -53,7 +53,8 @@ export function MailDetails() {
                     <p className="mails-details-body">{mail.body}</p>
                 </div>
             ) : (
-                <div className="loading-state">Loading mail details...</div>
+                <img src="assets/img/svg/email.svg" className="img-email" />
+                // <div className="loading-state">Loading mail details...</div>
             )}
         </section>
     )

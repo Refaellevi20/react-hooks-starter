@@ -1,9 +1,10 @@
 * {
     box-sizing: border-box;
-  }
+}
 
 body {
     margin: 0;
+    font-family: arial, sans-serif;
 }
 
 h1,
@@ -35,7 +36,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
@@ -47,4 +49,32 @@ th {
 
 tr:hover {
     background-color: #f1f1f1;
+}
+
+.img-email {
+    opacity: 0; 
+    transform: scale(0.8); 
+    animation: fadeInZoom 0.5s forwards;
+}
+
+@keyframes fadeInZoom {
+    to {
+        opacity: 1;
+        transform: scale(1); 
+    }
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 30px; 
+    height: 30px;
+    animation: spin 1s linear infinite; 
+    margin: 20px auto; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

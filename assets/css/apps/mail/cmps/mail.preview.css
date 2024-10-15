@@ -31,7 +31,13 @@ td {
 .mail-sender.read,
 .mail-date.read{
     font-weight: 700;
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; 
+}
 
+.mail-subject,
+.mail-sender,
+.mail-date{
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; 
 }
 
 td.mail-content {
@@ -190,6 +196,7 @@ td.mail-content {
     font-weight: 400;
     margin-left: 10px; 
     display: inline; 
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif; 
 }
 
 .mail-actions {

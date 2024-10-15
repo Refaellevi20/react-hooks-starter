@@ -41,13 +41,14 @@ export function MailTableHeader({ onSetFilter }) {
                         All
                     </p>
                     <p className="read-filter-option" onClick={() => handleChange(true)}>
-                        Read ({readCount})  {/* Corrected here */}
+                        Read ({readCount}) 
                     </p>
                     <p className="read-filter-option" onClick={() => handleChange(false)}>
-                        Unread ({unreadCount})  {/* Corrected here */}
+                        Unread ({unreadCount}) 
                     </p>
                 </div>
             )}
         </div>
     )
 }
+

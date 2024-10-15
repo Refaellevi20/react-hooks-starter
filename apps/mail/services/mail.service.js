@@ -75,7 +75,7 @@ function query(filterBy) {
           })
         }
       }
-      console.log('mails:',mails)
+    //   console.log('mails:',mails)
       return mails
     })
 }

@@ -125,25 +125,59 @@ td.mail-content {
 }
 
 
-/* <td className="mail-actions">
-{isHovered ? (
-    // style={{ display: 'flex', alignItems: 'center' }}
-    <span>
-        <span onClick={(ev) => onRemoveMail(ev)} className="material-symbols-outlined icon">delete</span>
-        <span onClick={(ev) => onToggleRead(ev)} className="material-symbols-outlined icon">
-            {mail.isRead ? 'delete' : ' drafts'}
-        </span>
-        {isEditingTime ? (
-            <input 
-                type="datetime-local" 
-                value={new Date(customTime).toISOString().slice(0, 16)}
-                onChange={handleTimeChange}
-            />
-        ) : (
-            <span onClick={toggleTimeEdit} className="material-symbols-outlined clock-icon">schedule</span>
-        )}
-    </span>
-) : (
-    <span>{getMonthDay(customTime)}</span>
-)}
-</td> */
+.mail-list {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.mail-preview {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.mail-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mail-sender, .mail-content, .mail-actions {
+    padding: 10px;
+}
+
+.mail-actions-container {
+    display: flex;
+    gap: 10px;
+}
+
+.mail-hidden-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    width: 100%;
+}
+
+.read {
+    font-weight: normal;
+    color: #666;
+}
+
+.material-symbols-outlined.icon {
+    cursor: pointer;
+}
+
+.full-width {
+    grid-column: span 3;
+}
+
+.flex.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+

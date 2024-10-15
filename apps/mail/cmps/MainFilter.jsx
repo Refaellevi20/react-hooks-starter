@@ -7,6 +7,8 @@ import { mailService } from "../services/mail.service.js"
 
 export function MailFilter({ onSetFilter }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [showIconsOnly, setShowIconsOnly] = useState(false)
+
     // const [language, setLanguage] = useState('English')
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     // const [labels, setLabels] = useState({
@@ -29,9 +31,13 @@ export function MailFilter({ onSetFilter }) {
         })
     }
 
-    function handleMenuToggle() {
-        setIsMenuOpen(prevState => !prevState)
-    }
+    // function handleMenuToggle() {
+    //     setIsMenuOpen(prevState => !prevState)
+    // }
+
+    function toggleIconsOnly  (){
+        setShowIconsOnly(prevState => !prevState)
+      }
 
 
     // function handleLanguageChange(ev) {
@@ -107,7 +113,7 @@ export function MailFilter({ onSetFilter }) {
                 aria-label="Main menu"
                 role="button"
                 tabIndex="0"
-                onClick={handleMenuToggle}
+                onClick={toggleIconsOnly}
             >
                 <span className="material-symbols-outlined">menu</span>
             </div>

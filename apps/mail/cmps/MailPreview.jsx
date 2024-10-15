@@ -15,16 +15,14 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
     function getMonthDay() {
         const date = new Date(mail.sentAt)
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const month = months[date.getMonth()];
-        const day = date.getDate();
-        return `${month} ${day}`;
+        const month = months[date.getMonth()]
+        const day = date.getDate()
+        return `${month} ${day}`
     }
-
 
     function onRemoveMail(ev) {
         ev.stopPropagation()
         removeMail(mail)
-
     }
 
     function onToggleRead(ev) {
@@ -50,62 +48,58 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
         setIsEditingTime(!isEditingTime)
     }
 
-
     return (
-        <Fragment>
-            {/* Main Mail Row */}
-            <tr
-                onClick={() => setIsExpanded(!isExpanded)}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className={mail.isRead ? "mail-preview read" : "mail-preview"}
-                key={mail.id}
-            >
-                {/* Sender and Star */}
-                <td className={mail.isRead ? "mail-sender read" : "mail-sender"}>
-                    <span
-                        onClick={(ev) => { ev.stopPropagation(); onSetStared(); }}
-                        className={mail.isStared ? "material-symbols-outlined icon stared" : "material-symbols-outlined icon"}
-                    >
+        <div className={`mail-preview ${mail.isRead ? "read" : ""}`} 
+             onClick={() => setIsExpanded(!isExpanded)}
+             onMouseEnter={() => setIsHovered(true)} 
+             onMouseLeave={() => setIsHovered(false)}>
+
+            {/* mail Row */}
+            <div className="mail-row">
+                {/* sender and Star */}
+                <div className={`mail-sender ${mail.isRead ? "read" : ""}`}>
+                    <span onClick={onSetStared}
+                        className={`material-symbols-outlined icon ${mail.isStared ? "stared" : ""}`}>
                         star
                     </span>
                     {mail.from}
-                </td>
+                </div>
 
-                {/* Subject and Body Preview */}
-                <td className="mail-content">
-                    <span className={mail.isRead ? "mail-subject read" : "mail-subject"}>{mail.subject}</span>
+                {/* subject and Body Preview */}
+                <div className="mail-content">
+                    <span className={`mail-subject ${mail.isRead ? "read" : ""}`}>{mail.subject}</span>
                     <LongTxt txt={mail.body} length={20} />
-                </td>
+                </div>
 
-                {/* Date or Mail Actions */}
-                <td className="mail-actions">
+                {/* date or Mail Actions */}
+                <div className="mail-actions">
                     {isHovered ? (
-                        <span className="mail-actions-container">
-                            <span onClick={(ev) => { ev.stopPropagation(); onRemoveMail(ev); }} className="material-symbols-outlined icon">delete</span>
-                            <span onClick={(ev) => { ev.stopPropagation(); onToggleRead(ev); }} className="material-symbols-outlined icon">
+                        <div className="mail-actions-container">
+                            <span onClick={onRemoveMail} className="material-symbols-outlined icon">delete</span>
+                            <span onClick={onToggleRead} className="material-symbols-outlined icon">
                                 {mail.isRead ? 'mark_as_unread' : 'drafts'}
                             </span>
                             {isEditingTime ? (
                                 <input
                                     type="datetime-local"
                                     value={new Date(customTime).toISOString().slice(0, 16)}
-                                    onClick={(ev) => ev.stopPropagation()} // Prevent click propagation
+                                    onClick={(ev) => ev.stopPropagation()}
                                     onChange={handleTimeChange}
                                 />
                             ) : (
-                                <span onClick={(ev) => { ev.stopPropagation(); toggleTimeEdit(); }} className="material-symbols-outlined clock-icon">schedule</span>
+                                <span onClick={(ev) => { ev.stopPropagation(); toggleTimeEdit(); }} 
+                                      className="material-symbols-outlined clock-icon">schedule</span>
                             )}
-                        </span>
+                        </div>
                     ) : (
-                        <span>{getMonthDay(customTime)}</span>
+                        <span>{getMonthDay()}</span>
                     )}
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            {/* Expanded Mail Content */}
-            <tr hidden={!isExpanded}>
-                <td colSpan="3" className="mail-hidden-container">
+            {/* expanded Mail Content */}
+            {isExpanded && (
+                <div className="mail-hidden-container">
                     <h2>{mail.subject}</h2>
                     <Link onClick={onEnterMail} to={`/mail/${mail.id}`} aria-label={`View mail ${mail.id}`}>
                         <span className="material-symbols-outlined fullscreen">fullscreen</span>
@@ -121,8 +115,8 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                         </h5>
                     </div>
                     <p>{mail.body}</p>
-                </td>
-            </tr>
-        </Fragment>
+                </div>
+            )}
+        </div>
     )
 }

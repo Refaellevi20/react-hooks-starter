@@ -85,7 +85,7 @@ export function MailIndex() {
 
             <MailFilter
                 onSetFilter={onSetFilter} />
-            <section className="mail-container">
+            <section  className="mail-container">
                 <MailFolderList
                     mails={mails}
                     onSetFilter={onSetFilter}
@@ -104,10 +104,6 @@ export function MailIndex() {
                     onToggleCompose={onToggleCompose}
                     saveDraft={saveDraft} />}
             </section>
-            <div>
-            <h1>Email Labels</h1>
-            <LanguageSwitcher />
-        </div>
         </main>
     )
 }

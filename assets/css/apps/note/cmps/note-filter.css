@@ -1,58 +1,4 @@
-/* .note-filter {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    margin-bottom: 3rem;
-  }
-  
-  .text-filter-form {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  
-  .filterBtn {
-    Border: none;
-    background-color: inherit;
-  }
-  
-  .filterBtn:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
-  select {
-    margin-left: 7px;
-    padding: 5px;
-    border: lightgrey 1px solid;
-    border-radius: 4px;
-  }
-  
-  select:hover {
-    cursor: pointer;
-  }
-  
-  .input-filter {
-    border: none;
-    border-bottom: lightgray 1px solid;
-    padding: 5px;
-    width: 220px;
-  }
-  
-  .input-filter:focus-visible {
-    outline: none;
-  }
-  
-  .input-filter::placeholder {
-    font-weight: bold;
-    opacity: 0.5;
-  } */
 
-/* Style the filter section */
 .note-filter {
   width: 100%;
   display: flex;
@@ -60,73 +6,81 @@
   align-items: center;
   gap: 12px;
   padding: 10px 15px;
-  background-color: #f1f3f4; /* Light grey background like Google Keep */
-  border-radius: 8px; /* Rounded corners for the whole filter */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  background-color: #f1f3f4; 
+  border-radius: 8px; 
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
   margin-bottom: 3rem;
 }
 
-/* Style for the text filter form (alignment and spacing) */
+
 .text-filter-form {
   display: flex;
   align-items: center;
-  gap: 10px; /* Slight gap between elements */
+  gap: 10px; 
 }
 
-/* Style for filter button */
+
 .filterBtn {
   border: none;
-  background-color: #ffffff; /* White background for the button */
-  border-radius: 4px; /* Slightly rounded button */
+  background-color: #ffffff; 
+  border-radius: 4px; 
   padding: 6px 12px;
   font-size: 14px;
-  color: #5f6368; /* Subtle text color for the button */
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #5f6368; 
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); 
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .filterBtn:hover {
-  transform: scale(1.05); /* Slight scale on hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow increases on hover */
-}
+  transform: scale(1.05); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 
-/* Select styling */
+}
 select {
   margin-left: 7px;
   padding: 6px 10px;
-  border: 1px solid #e0e0e0; /* Light grey border */
-  border-radius: 4px;
-  background-color: #ffffff; /* White background for select */
+  border: 1px solid #e0e0e0; 
+  background-color: #ffffff; 
   transition: border-color 0.2s ease;
 }
 
 select:hover {
   cursor: pointer;
-  border-color: #5f6368; /* Darker border on hover */
+  border-color: #5f6368;
 }
 
-/* Input filter styling */
+
 .input-filter {
   border: none;
   border-radius: 4px;
   padding: 8px;
   width: 220px;
-  background-color: #ffffff; /* White background for input */
-  border: 1px solid #e0e0e0; /* Light grey border */
-  color: #202124; /* Dark text */
+  background-color: #ffffff; 
+  border: 1px solid #e0e0e0; 
+  color: #202124; 
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-filter:focus-visible {
   outline: none;
-  border-color: #1a73e8; /* Blue border when focused */
-  box-shadow: 0 2px 4px rgba(26, 115, 232, 0.2); /* Subtle blue shadow on focus */
+  border-color: #1a73e8; 
+  box-shadow: 0 2px 4px rgba(26, 115, 232, 0.2); 
 }
 
 .input-filter::placeholder {
-  color: #9e9e9e; /* Light grey placeholder text */
+  color: #9e9e9e; 
   opacity: 0.8;
 }
+
+.side-bar-container{
+  
+    display: flex; 
+    flex-direction: column; 
+    padding: 10px; 
+    width: 250px; 
+    background-color: #f5f5f5;
+}
+
 
   

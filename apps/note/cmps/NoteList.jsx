@@ -22,7 +22,7 @@ export function NoteList({ notes, editNote, removeNote, addNote }) {
     return (
         <div>
             {pinned && pinned.length ? <div className="memo-pined-container">
-                <h3>pin note: {pinned.length}</h3>
+                <h3>PINNED </h3>
                 {
                     pinned.map(note =>
                         <NotePreview
@@ -32,7 +32,8 @@ export function NoteList({ notes, editNote, removeNote, addNote }) {
                 }
             </div> : null}
             <div className="memo-container">
-                {
+            <h3>OTHERS </h3>
+                {  
                     unpinned && unpinned.length ? unpinned.map(note =>
                         <NotePreview
                             key={note.id}

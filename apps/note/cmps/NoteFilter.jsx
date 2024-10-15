@@ -35,7 +35,7 @@ export function NoteFilter({ onSetFilter }) {
       <button className="filterBtn" type="submit"><span className="material-symbols-outlined">filter_list</span></button>
     </form>
 
-    <select onChange={onChangeType}>
+    <select className="side-bar-container" onChange={onChangeType}>
       <option value=''>All</option>
       <option value='NoteTxt'>Text</option>
       <option value='NoteImg'>Image</option>

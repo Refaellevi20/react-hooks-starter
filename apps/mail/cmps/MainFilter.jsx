@@ -5,7 +5,7 @@ const { useState, useEffect } = React
 
 import { mailService } from "../services/mail.service.js"
 
-export function MailFilter({ onSetFilter }) {
+export function MainFilter({ onSetFilter }) {
     // const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [showIconsOnly, setShowIconsOnly] = useState(false)
 

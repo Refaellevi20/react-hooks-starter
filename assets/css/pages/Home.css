@@ -1,22 +1,17 @@
- /* home */
 
- .home {
-    background-image: url("../../img/Home.png");
-     background-size: cover;
-     background-position: center;
-     height: 100vh;
-     color: white;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
- }
 
- .img-logo{
-    width: 50px;
+.home {
+   background-image: url("../../img/background-image.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
- /* .app-header {
-    background-image: url("../../img/hours.png");
-    height: 100vh;
- } */
+.img-logo{
+   width: 50px;
+}

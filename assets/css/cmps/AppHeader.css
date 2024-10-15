@@ -1,24 +1,53 @@
 header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
+    background-color: #f2f6fc;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px 0px, rgb(218, 220, 224) 0px -1px 0px 0px inset;
+    color: rgb(40, 40, 40);
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+}
+
+
+
+.img-logo{
+    width: 50px;
+}
+
+.img-home{
+    /* margin-left: 200px; */
+    width:150px;
+    /* max-width: 60%; */
+}
+
+
+.header-modal img{
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2rem;
 }
 
 nav a {
     margin: .5em;
+    font-family: roboto;
+    margin: 0;
+    padding: 1.5rem 2rem;
+}
+
+nav a:hover{
+    background: #e2f3ff;
 }
 
 nav a:active {
-    color: purple;
+    color: darkblue;
 }
 
-nav a.active {
-    color: darkblue;
+nav a.active { 
     font-weight: bold;
-    text-decoration: overline;
 }

@@ -5,9 +5,9 @@ import { noteService } from "../services/note.service.js";
 
 
 const PLACEHOLDER = {
-    'note-img': 'Enter image url',
-    'note-vid': 'Enter video url',
-    'note-todos': 'Enter comma-separated todos',
+    'NoteImg': 'Enter image url',
+    'NoteVid': 'Enter video url',
+    'NoteTodos': 'Enter comma-separated todos',
 }
 
 export function NoteCreator({ addNote }) {
@@ -32,7 +32,7 @@ export function NoteCreator({ addNote }) {
                        id === 'note-todos' ? 'NoteTodos' : 'NoteTxt'
 
     setNoteType(mappedType);
-  };
+  }
 
     return (
         <form onSubmit={handleSubmitNote} className="flex create-form">

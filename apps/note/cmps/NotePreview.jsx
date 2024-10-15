@@ -1,17 +1,20 @@
 import { NoteTxt } from '../cmps/NoteTxt.jsx';
 import { NoteImg } from '../cmps/NoteImg.jsx';
 import { NoteTodos } from '../cmps/NoteTodos.jsx';
-import { NoteVideo } from './NoteVideo.jsx';
+import { NoteVid } from './NoteVid.jsx';
 import { NoteEdit } from './NoteEdit.jsx';
 import { noteService } from "../services/note.service.js";
+import { ColorInput } from './ColorInput.jsx';
 const { useState } = React;
 const { useNavigate } = ReactRouterDOM
 
 
+
 export function NotePreview({ type, note, editNote, removeNote, addNote }) {
-    console.log("NotePreview note:", note);
+    // console.log("NotePreview note:", note);
   
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false)
+  const [showColorPicker, setShowColorPicker] = useState(false)
   const navigate = useNavigate();
 
   function getNoteType(type) {
@@ -26,7 +29,7 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
         return <NoteTodos note={note} />
 
       case 'NoteVid':
-        return <NoteVideo note={note} />
+        return <NoteVid note={note} />
     }
   }
 
@@ -59,7 +62,7 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
 
 
   return (
-    <section className='note-preview' style={{ backgroundColor: note.color ? note.color : 'lightblue' }}>
+    <section className='note-preview' style={{ backgroundColor: note.color ? note.color : 'white' }}>
       {getNoteType(type)}
       <div className='note-actions-container'>
         <div className='note-actions'>

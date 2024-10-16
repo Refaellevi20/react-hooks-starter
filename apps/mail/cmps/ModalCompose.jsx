@@ -9,19 +9,19 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
     const [isTimePassed, setIsTimePassed] = useState(false)
     const [file, setFile] = useState(null)
     const navigate = useNavigate()
-    const { composeId } = useParams()
+    // const { send  } = useParams()
 
-    useEffect(() => {
-        const { composeId } = useParams()
-        if (composeId) {
-            const mailDetails = mailService.getMailById(composeId)
-            if (mailDetails) {
-                setDraftMail(mailDetails)
-            } else {
-                console.error(`Mail with ID ${composeId} not found.`)
-            }
-        }
-    }, [composeId,navigate])
+    // useEffect(() => {
+    //     const { send  } = useParams()
+    //     if (send ) {
+    //         const mailDetails = mailService.getMailById(send )
+    //         if (mailDetails) {
+    //             setDraftMail(mailDetails)
+    //         } else {
+    //             console.error(`Mail with ID ${send } not found.`)
+    //         }
+    //     }
+    // }, [send])
 
     
 
@@ -36,7 +36,7 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
 
         addMail(newMail)
         onCloseCompose()
-        navigate('/mail')
+        navigate('send')
     }
 
     function createNewMail(target) {
@@ -107,7 +107,7 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
                     />
                 </div>
 
-                <span className="material-symbols-outlined arrow_forward" onClick={onCloseCompose}>arrow_forward</span>
+                <span className="material-symbols-outlined arrow_forward" onClick={onCloseCompose} >arrow_forward</span>
             </div>
 
             <form onSubmit={onAddMail} className="email-compose-form">

@@ -16,7 +16,7 @@ import { BookBDetails } from "./apps/book/pages/BookDeteils.jsx"
 import { BookEdit} from "./apps/book/pages/BookEdit.jsx" 
 // import { MailCompose } from "./apps/mail/pages/ModalDetails.jsx" 
 import { MailDetails } from "./apps/mail/pages/mailDetails.jsx"
-import { ModalCompose } from "./apps/mail/cmps/ModalCompose.jsx"
+import { ModalCompose } from "./apps/mail/cmps/ModalCompose.jsx" 
 
 
 
@@ -35,9 +35,9 @@ export function App() {
                         <Route path='/book/edit' element={<BookEdit />}  />
                         <Route path='/book/edit/:bookId' element={<BookEdit />}/>
                         <Route path="/book" element={<BookIndex />} />
+                        <Route path="/mail/send" element={<ModalCompose />} />
                         <Route path="/mail" element={<MailIndex />} />
                         <Route path="/mail/:mailId" element={<MailDetails />} />
-                        <Route path="/mail/:composeId" element={<ModalCompose />} />
                         <Route path="/note" element={<NoteIndex />} />
                     </Routes>
                 </main>

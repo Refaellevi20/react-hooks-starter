@@ -1,5 +1,5 @@
 const { useState, useEffect, useRef } = React
-const { useNavigate,Link } = ReactRouterDOM
+const { useNavigate, Link } = ReactRouterDOM
 
 import { ModalDeteils } from "../pages/mailDetails.jsx"
 import { mailService } from "../services/mail.service.js"
@@ -8,7 +8,7 @@ import { MailTableHeader } from "./MailTableHeader.jsx"
 import { ModalCompose } from "./ModalCompose.jsx"
 import { MailFolderList2 } from "./Validate.jsx"
 
-export function MainFilter2({ onSetFilter, onToggleCompose,addMail,saveDraft  }) {
+export function MainFilter2({ onSetFilter, onToggleCompose, addMail, saveDraft }) {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const sidebarRef = useRef(null)
@@ -81,26 +81,32 @@ export function MainFilter2({ onSetFilter, onToggleCompose,addMail,saveDraft  })
         }
     }, [])
 
-  
+
 
     return (
         <section>
-          <section>
-            {/* Compose Button */}
-            <div className="compose-container">
-                <button className="compose-btn2" onClick={handleComposeClick}>
-                    <span className="material-symbols-outlined"></span>Compose
-                </button>
-            </div>
+            <section>
+                {/* Compose Button */}
+                <div className="compose-container">
+                    <button
+                        className="compose-btn2"
+                        onClick={() => {
+                            handleComposeClick()
+                            navigate("send")
+                        }}
+                    >
+                        <span className="material-symbols-outlined"></span>Compose
+                    </button>
+                </div>
 
-            {/* Compose Link */}
-            {/* <Link 
+                {/* Compose Link */}
+                {/* <Link 
                 to={`/mail/:compose:id`} 
                 aria-label="Compose a new mail" 
                 className="compose-btn2">
                 <span className="material-symbols-outlined compose">compose</span>
             </Link> */}
-        </section>
+            </section>
 
             {/* <div className="app">
 
@@ -115,8 +121,8 @@ export function MainFilter2({ onSetFilter, onToggleCompose,addMail,saveDraft  })
                     />
                 )} 
             </div> */}
-            
-    {/* <div>
+
+            {/* <div>
             <ModalCompose addMail={addMail} onToggleCompose={onToggleCompose} saveDraft={saveDraft} />
         </div>  */}
 

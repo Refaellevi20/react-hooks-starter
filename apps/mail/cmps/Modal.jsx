@@ -52,7 +52,11 @@ export function MainFilter2({ onSetFilter }) {
     }
 
     function handleClickOutside(event) {
-        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        if (
+            sidebarRef.current &&
+            !sidebarRef.current.contains(event.target) &&
+            !event.target.classList.contains('material-symbols-outlined')
+        ) {
             setIsModalOpen(false)
         }
     }
@@ -66,10 +70,6 @@ export function MainFilter2({ onSetFilter }) {
 
     return (
         <div className="filter-container2" ref={sidebarRef}>
-
-            {/* <button className="compose-btn" onClick={onToggleCompose}>
-                <span className="material-symbols-outlined">edit</span>Compose
-            </button> */}
 
             <span className="material-symbols-outlined" onClick={toggleModal}>menu</span>
             <form className="filter-form">
@@ -85,92 +85,96 @@ export function MainFilter2({ onSetFilter }) {
             </form>
 
             {isModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="main-screen" onClick={toggleModal} >
 
-                        <img
-                            className="gmail-logo"
-                            src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png"
-                            srcSet="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png 1x, https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r5.png 2x"
-                            alt="Gmail Logo"
-                            aria-hidden="true"
-                            role="presentation"
-                            style={{ width: '109px', height: '40px' }}
-                        />
+                    <div className="modal">
+                        <div className="modal-content">
 
-                        <div className="side-bar-container ">
+                            <img
+                                className="gmail-logo"
+                                src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png"
+                                srcSet="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png 1x, https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r5.png 2x"
+                                alt="Gmail Logo"
+                                aria-hidden="true"
+                                role="presentation"
+                                style={{ width: '109px', height: '40px' }}
+                            />
+
+                            <div className="side-bar-container ">
+                            </div>
+                            <span className="close" onClick={toggleModal}></span>
+
+                            <ul className="filter-mob">
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onSetListFilter('all')
+                                    }}
+                                    className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}
+                                >
+                                    <span className="material-symbols-outlined icon">mail</span>
+                                    {labels.all}
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onSetListFilter('inbox')
+                                    }}
+                                    className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}
+                                >
+                                    <span className="material-symbols-outlined icon">inbox</span>
+                                    {labels.inbox} <span>{inboxCount}</span>
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onSetListFilter('sent')
+                                    }}
+                                    className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}
+                                >
+                                    <span className="material-symbols-outlined icon">send</span>
+                                    {labels.sent}
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onStarFilter(!isCheckedStar)
+                                    }}
+                                    className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}
+                                >
+                                    <span className="material-symbols-outlined icon">star</span>stared
+                                    {labels.stared}
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onSetListFilter('trash')
+                                    }}
+                                    className={filterBy.status === 'trash' ? "folder-list-item checked" : "folder-list-item"}
+                                >
+                                    <span className="material-symbols-outlined icon">delete</span>
+                                    {labels.delete}
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        // toggleModal()
+                                        onSetListFilter('draft')
+                                    }}
+                                    className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}
+                                >
+                                    <span className="material-symbols-outlined icon">draft</span>
+                                    {labels.draft}
+                                </li>
+                            </ul>
+
                         </div>
-                        <span className="close" onClick={toggleModal}></span>
-                        {/* <h2>modal title</h2>
-                        <p>modal content goes here.</p> */}
-                        <ul className="filter-mob">
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onSetListFilter('all')
-                                }}
-                                className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}
-                            >
-                                <span className="material-symbols-outlined icon">mail</span>
-                                {labels.all}
-                            </li>
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onSetListFilter('inbox')
-                                }}
-                                className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}
-                            >
-                                <span className="material-symbols-outlined icon">inbox</span>
-                                {labels.inbox} <span>{inboxCount}</span>
-                            </li>
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onSetListFilter('sent')
-                                }}
-                                className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}
-                            >
-                                <span className="material-symbols-outlined icon">send</span>
-                                {labels.sent}
-                            </li>
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onStarFilter(!isCheckedStar)
-                                }}
-                                className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}
-                            >
-                                <span className="material-symbols-outlined icon">star</span>stared
-                                {labels.stared}
-                            </li>
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onSetListFilter('trash')
-                                }}
-                                className={filterBy.status === 'trash' ? "folder-list-item checked" : "folder-list-item"}
-                            >
-                                <span className="material-symbols-outlined icon">delete</span>
-                                {labels.delete}
-                            </li>
-                            <li
-                                onClick={() => {
-                                    toggleModal()
-                                    onSetListFilter('draft')
-                                }}
-                                className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}
-                            >
-                                <span className="material-symbols-outlined icon">draft</span>
-                                {labels.draft}
-                            </li>
-                        </ul>
-
                     </div>
                 </div>
             )}
         </div>
+
     )
+
 }
 
 

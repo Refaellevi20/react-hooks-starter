@@ -1,0 +1,183 @@
+.email-compose-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+.email-compose-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #f1f3f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.email-compose-header p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.close-compose-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+/* Form styling */
+.email-compose-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 1;
+}
+
+/* Input styling */
+.email-compose-input {
+    padding: 12px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    /* border-bottom: 1px solid #ddd;  */
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Textarea styling */
+.email-compose-textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: none; 
+    border-bottom: 1px solid #ddd;
+    border-radius: 0; 
+    resize: none;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+.email-compose-actions {
+    padding: 10px;
+    border-top: 1px solid #ddd; 
+}
+
+.email-compose-send-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    color: white;
+    background-color: #1a73e8;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.email-compose-input-container {
+    border-bottom: 1px solid #ccc; 
+    margin: 0; 
+    padding: 0; 
+    margin-bottom: 15px; 
+}
+
+input.email-compose-input,
+textarea.email-compose-textarea {
+    margin: 0; 
+    padding: 10px; 
+    width: 100%;
+    box-sizing: border-box; 
+    border: none; 
+}
+
+input#to.email-compose-input,
+input#subject.email-compose-input,
+input#from.email-compose-input {
+    margin-left: 5px; 
+}
+
+label.input-label-from,
+label.input-label-to,
+label.input-label-subject,
+label.input-label-body {
+    margin-left: -5px; 
+    font-weight: bold; 
+    color: #333; 
+}
+
+.email-compose-textarea {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    resize: none;
+}
+
+
+.compose-send-btn1 {
+    border: none; 
+}
+
+.possibilities-send-btn1 {
+    border: none; 
+}
+
+.compose-send-btn1 {
+    border: none; 
+}
+
+.email-compose-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 10px 15px; 
+    border-bottom: 1px solid #ccc; 
+}
+
+.possibilities-actions1,
+.compose-actions1,
+.mobile-attachment-container {
+    display: flex;
+    align-items: center; 
+    margin-right: 10px;
+}
+
+.arrow_forward {
+    margin-left: auto; 
+    cursor: pointer; 
+    font-size: 24px;
+}
+
+.mobile-attachment-label {
+    cursor: pointer; 
+}
+
+.email-compose-input-container {
+    display: flex; 
+    align-items: center; 
+}
+
+
+div.email-compose-input-container {
+    border-bottom: 1px solid #ccc; 
+    margin: 0;
+    padding: 0;
+}
+
+input#from.email-compose-input {
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+}
+
+label.input-label-from {
+    margin-left: -5px;
+}

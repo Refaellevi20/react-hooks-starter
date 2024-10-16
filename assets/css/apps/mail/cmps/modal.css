@@ -95,3 +95,25 @@
 input#txt.search-input2 {
     background-color: #fff;
 }
+
+.compose-container {
+    position: fixed;
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 1000;  
+}
+
+.compose-btn2 {
+    padding: 10px 20px; 
+    /* background-color: #007BFF; */
+    /* color: white;  */
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s; 
+}
+
+/* .compose-btn:hover {
+    background-color: #0056b3; 
+} */

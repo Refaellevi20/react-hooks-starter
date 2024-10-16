@@ -42,13 +42,13 @@ export function MailCompose({ addMail, onToggleCompose, saveDraft }) {
         }
     }
     function handleAddLine(emoji) {
-        const textarea = document.getElementById('body');
-        const start = textarea.selectionStart;
+        const textarea = document.getElementById('body')
+        const start = textarea.selectionStart
         const end = textarea.selectionEnd;
-        const newBody = draftMail.body.substring(0, start) + emoji + draftMail.body.substring(end);
-        setDraftMail(prev => ({ ...prev, body: newBody }));
+        const newBody = draftMail.body.substring(0, start) + emoji + draftMail.body.substring(end)
+        setDraftMail(prev => ({ ...prev, body: newBody }))
         // Move cursor to the right of the inserted emoji
-        textarea.setSelectionRange(start + emoji.length, start + emoji.length);
+        textarea.setSelectionRange(start + emoji.length, start + emoji.length)
         textarea.focus();
     }
     return (

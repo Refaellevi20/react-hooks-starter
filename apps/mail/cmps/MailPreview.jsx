@@ -121,5 +121,5 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                 )}
             </div>
         </Fragment>
-    );
+    )
 }

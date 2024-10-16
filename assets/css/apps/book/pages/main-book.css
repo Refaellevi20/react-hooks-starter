@@ -10,7 +10,7 @@
 @import 'base/book-preview.css'; */
 
 /* Components */
-@import '/assets/css/apps/book/cmps/user-msg.css';
+/* @import '/assets/css/apps/book/cmps/user-msg.css';
 @import '/assets/css/apps/book/cmps/aad-review.css';
 @import '/assets/css/apps/book/cmps/sale.css';
 @import '/assets/css/apps/book/cmps/app-header.css';
@@ -25,7 +25,8 @@
 @import '/assets/css/apps/book/cmps/helpers.css';
 @import '/assets/css/apps/book/cmps/base.css';
 @import '/assets/css/apps/book/cmps/typography.css';
-@import '/assets/css/apps/book/cmps/vars.css';
+@import '/assets/css/apps/book/cmps/vars.css'; */
+
 /* @import 'cmps/app-header.css'; */
 /* @import 'cmps/user-msg.css'; */
 /* @import 'cmps/aad-review.css'; */

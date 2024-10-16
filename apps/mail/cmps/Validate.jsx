@@ -1,61 +1,56 @@
-const {useState} = React
+const  { useState, useEffect, useRef } = React
+import { mailService } from '../services/mail.service.js'; 
 
-export function Validate({ name = 'Jojo', onValidate = () => { }, onIncreaseSize, onClose }) {
-    const [isSideScreen, setIsSideScreen] = useState(false)
+export function MailFolderList2({ onSetFilter, onToggleCompose }) {
+    const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+    const [isCheckedStar, setIsCheckedStar] = useState(false)
+    const [inboxCount, setInboxCount] = useState('')
+    const [labels, setLabels] = useState(
+        {
+            sent: 'Sent',
+            inbox: 'Inbox',
+            all: 'All',
+            draft: 'Draft',
+            delete: 'Delete',
+        }
+    )
 
-    function handleToggleFullscreen() {
-        setIsSideScreen(!isSideScreen)
+    useEffect(() => {
+        onSetFilter(filterBy)
+    }, [filterBy, isCheckedStar])
+
+    function onSetListFilter(value) {
+        onStarFilter(false)
+        setFilterBy((prevFilter) => {
+            return { ...prevFilter, status: value }
+        })
     }
 
-    function handleSubmit(event) {
-        event.preventDefault()
-        onValidate()
+    function onStarFilter(isFilterOn) {
+        setIsCheckedStar(isFilterOn)
+        setFilterBy((prevFilter) => {
+            return { ...prevFilter, isStared: isFilterOn, status: '' }
+        })
     }
-
-    function closeModal() {
-        setIsModalOpen(false)
-      }
-
 
     return (
+        <div className="side-bar-container ">
 
-        <section className={`validate-container ${isSideScreen ? 'side-fullscreen ' : ''}`}>
-            <div className="header-container">
-            <h2 className="email-header">New Message</h2>
-            <button className="close-btn" onClick={onClose}>x</button>
-
-           
-            </div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">To:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="Enter recipient's email"
-                />
-                <label htmlFor="subject">Subject:</label>
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    placeholder="Enter subject"
-                />
-                <label htmlFor="message">Message:</label>
-                <textarea
-                    id="message"
-                    name="message"
-                    required
-                    placeholder="Type your message here..."
-                    rows="10"
-                ></textarea>
-                <button type="submit" className="compose-send-btn">Send</button>
-            </form>
-            <button onClick={handleToggleFullscreen} className="side-fullscreen-toggle-btn">
-                {isSideScreen ? 'Exit Fullscreen' : 'Go Fullscreen'}
-            </button>
-        </section>
+            <ul className="folder-list-container">
+                <li onClick={() => onSetListFilter('all')} className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">mail</span>{labels.all}</li>
+                <li onClick={() => onSetListFilter('inbox')} className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}>
+                    <span className="material-symbols-outlined icon">inbox</span>{labels.inbox} <span>{inboxCount}</span></li>
+                <li onClick={() => onSetListFilter('sent')} className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">send</span>{labels.sent}</li>
+                <li onClick={() => onStarFilter(!isCheckedStar)} className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">star</span>Stared</li>
+                <li onClick={() => onSetListFilter('trash')} className={filterBy.status === 'trash' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">delete</span>{labels.delete}</li>
+                <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
+                    <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
+            </ul>
+        </div>
     )
 }
+

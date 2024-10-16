@@ -30,36 +30,37 @@
         justify-content: space-between;
         align-items: center;
     }
-    
+
     .icon {
         cursor: pointer;
     }
-    
+
     .clock-icon {
         cursor: pointer;
     }
 
     .mail-actions {
         display: flex;
-        justify-content: end; 
-        align-items: center; 
+        justify-content: end;
+        align-items: center;
     }
-    
+
     .mail-actions-container {
         display: flex;
         gap: 10px;
     }
-    
+
     .mail-date {
         margin-left: auto;
-        font-size: 14px; 
-        color: #888; 
+        font-size: 14px;
+        color: #888;
     }
-    
-    .icon, .clock-icon {
+
+    .icon,
+    .clock-icon {
         cursor: pointer;
     }
-    
+
     input[type="datetime-local"] {
         font-size: 14px;
         padding: 4px;
@@ -80,5 +81,28 @@
     .mail-preview-body {
         font-size: 0.85rem;
     }
+}
+
+@media (max-width: 650px) {
+    section.mail-filter {
+        display: none;
+    }
+
+    div.side-bar-container {
+        display: none;
+    }
+
+    div.table-header-btn-container.flex {
+        display: none;
+    }
+}
+
+@media (min-width: 650px) {
+
+    div.filter-container2 {
+        display: none;
+    }
+
+    
 }
 

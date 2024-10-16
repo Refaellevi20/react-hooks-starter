@@ -6,7 +6,8 @@ import { MailFolderList } from '../cmps/MailFolderList.jsx';
 import { MailList } from '../cmps/MailList.jsx';
 import { MailCompose } from '../cmps/mailCompose.jsx';
 import { mailService } from '../services/mail.service.js';
-import { LanguageSwitcher } from '../cmps/hebrowEnglish.jsx';
+import { MainFilter2 } from '../cmps/Modal.jsx';
+import { MailFolderList2 } from '../cmps/Validate.jsx';
 
 export function MailIndex() {
 
@@ -14,7 +15,25 @@ export function MailIndex() {
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isComposeClicked, setIsComposeClicked] = useState(false)
     const [isSmall, setIsSmall] = useState(false)
+    const [activeFilter, setActiveFilter] = useState('')
 
+    const updateFilter = () => {
+        if (window.innerWidth <= 650) {
+            setActiveFilter('MainFilter2')
+        } else {
+            setActiveFilter('MainFilter')
+        }
+    }
+
+    useEffect(() => {
+        updateFilter()
+
+        window.addEventListener('resize', updateFilter)
+
+        return () => {
+            window.removeEventListener('resize', updateFilter)
+        }
+    }, [])
 
     useEffect(() => {
         loadMails()
@@ -78,20 +97,26 @@ export function MailIndex() {
         setIsSmall(!isSmall)
     }
 
-
-
     return (
-        <main className={`mail-index-container ${isSmall ? 'small' : ''}`}>
-
-            <MainFilter
-                onSetFilter={onSetFilter} />
-            <section  className="mail-container">
+        <main>
+            <section className={`mail-index-container ${isSmall ? 'small' : ''}`}>
+                <div>
+                    {activeFilter === 'MainFilter2' && (
+                        <MainFilter2 onSetFilter={onSetFilter} />
+                    )}
+                    {activeFilter === 'MainFilter' && (
+                        <MainFilter onSetFilter={onSetFilter} />
+                    )}
+                    {/*the other components */}
+                </div>
+            </section>
+            <section className="mail-container">
                 <MailFolderList
                     mails={mails}
                     onSetFilter={onSetFilter}
-                    onToggleCompose={onToggleCompose} 
-                    onResizeClick={onResizeClick} 
-                    />
+                    onToggleCompose={onToggleCompose}
+                    onResizeClick={onResizeClick}
+                />
                 <MailList
                     mails={mails}
                     setStared={setStared}

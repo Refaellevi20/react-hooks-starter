@@ -4,6 +4,7 @@ const { useNavigate,Link } = ReactRouterDOM
 import { ModalDeteils } from "../pages/mailDetails.jsx"
 import { mailService } from "../services/mail.service.js"
 import { MailFolderList } from "./MailFolderList.jsx"
+import { MailTableHeader } from "./MailTableHeader.jsx"
 import { ModalCompose } from "./ModalCompose.jsx"
 import { MailFolderList2 } from "./Validate.jsx"
 
@@ -28,7 +29,7 @@ export function MainFilter2({ onSetFilter, onToggleCompose,addMail,saveDraft  })
     )
 
     function handleComposeClick() {
-        navigate('/mail/compose')
+        navigate('/mail')
     }
 
     useEffect(() => {
@@ -217,6 +218,7 @@ export function MainFilter2({ onSetFilter, onToggleCompose,addMail,saveDraft  })
                                         {labels.draft}
                                     </li>
                                 </ul>
+                                <MailTableHeader onSetFilter={onSetFilter} />
 
                             </div>
                         </div>

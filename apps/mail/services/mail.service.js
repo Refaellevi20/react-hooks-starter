@@ -25,10 +25,16 @@ export const mailService = {
   getInboxNum,
   getReadPersent,
   getMails,
+  getMailById,
 
   // addReview,
   // getNextBookId,
   // getPrevBookId
+}
+
+function getMailById(id) {
+  const mail = mails.find(mail => mail.id === id)
+  return mail || null
 }
 
 

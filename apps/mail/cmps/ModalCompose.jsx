@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { useNavigate } = ReactRouterDOM
+const { useNavigate,useParams } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
 import { EmojiSelector } from "./emojis.jsx"
@@ -9,6 +9,21 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
     const [isTimePassed, setIsTimePassed] = useState(false)
     const [file, setFile] = useState(null)
     const navigate = useNavigate()
+    const { composeId } = useParams()
+
+    useEffect(() => {
+        const { composeId } = useParams()
+        if (composeId) {
+            const mailDetails = mailService.getMailById(composeId)
+            if (mailDetails) {
+                setDraftMail(mailDetails)
+            } else {
+                console.error(`Mail with ID ${composeId} not found.`)
+            }
+        }
+    }, [composeId,navigate])
+
+    
 
     function onAddMail(ev) {
         ev.preventDefault()

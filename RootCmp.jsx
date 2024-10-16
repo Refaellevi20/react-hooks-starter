@@ -37,9 +37,7 @@ export function App() {
                         <Route path="/book" element={<BookIndex />} />
                         <Route path="/mail" element={<MailIndex />} />
                         <Route path="/mail/:mailId" element={<MailDetails />} />
-                        {/* <Route path="/mail/details" element={<MailDetails />} />
-                        <Route path="/mail/compose" element={<ModalDetails />} /> */}
-                        <Route path="/mail/:compose:id" element={<ModalCompose />} />
+                        <Route path="/mail/:composeId" element={<ModalCompose />} />
                         <Route path="/note" element={<NoteIndex />} />
                     </Routes>
                 </main>
@@ -48,4 +46,17 @@ export function App() {
         </Router>
     )
 }
+
+
+//! He only entered one of them
+{/* <Route path="/mail/:mailId" element={<MailDetails />} />
+<Route path="/mail/:composeId" element={<ModalCompose />} /> */}
+//!
+
+
+
+{/* <Route path="/mail/details" element={<MailDetails />} />
+<Route path="/mail/compose" element={<ModalDetails />} /> */}
+{/* <Route path="/mail/compose/:composeId" element={<ModalCompose />} /> */}
+{/* <Route path="/mail/compose/mailId" element={<ModalCompose />} /> */}
 

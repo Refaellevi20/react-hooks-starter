@@ -181,3 +181,7 @@ input#from.email-compose-input {
 label.input-label-from {
     margin-left: -5px;
 }
+
+h5.details-date {
+    margin-left: -39px;
+}

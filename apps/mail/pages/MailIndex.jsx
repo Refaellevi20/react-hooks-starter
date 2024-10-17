@@ -17,7 +17,7 @@ export function MailIndex() {
     const [isSmall, setIsSmall] = useState(false)
     const [activeFilter, setActiveFilter] = useState('')
 
-    const updateFilter = () => {
+    function updateFilter  (){
         if (window.innerWidth <= 650) {
             setActiveFilter('MainFilter2')
         } else {

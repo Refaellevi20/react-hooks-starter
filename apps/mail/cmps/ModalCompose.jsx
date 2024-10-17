@@ -8,6 +8,7 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
     const [draftMail, setDraftMail] = useState(mailService.getEmptyMailToDraft())
     const [isTimePassed, setIsTimePassed] = useState(false)
     const [file, setFile] = useState(null)
+    const [mails, setMails] = useState([])
     const [isComposeClicked, setIsComposeClicked] = useState(false)
 
     const navigate = useNavigate()
@@ -38,7 +39,7 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
 
         addMail(newMail)
         onCloseCompose()
-        navigate('send')
+        navigate('/mail')
     }
 
     function createNewMail(target) {
@@ -83,26 +84,42 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
         const file = event.target.files[0]
         if (file) {
             setSelectedFile(file)
+            // setFile(file)
             console.log('Selected file:', file)
         }
     }
 
+    function addMail(newMail) {
+        mailService.save(newMail).then((mail) => {
+            mails.unshift(mail)
+            setMails(mails)
+        })
+    }
+
+    function saveDraft(mail) {
+        mailService.save(mail)
+            .then(() => {
+                console.log('Draft saved successfully')
+            }).catch(err => {
+                console.error('Error saving draft:', err)
+            })
+    }
+
+
+    // {isComposeClicked && <MailCompose
+    //     addMail={addMail}
+    //     onToggleCompose={onToggleCompose}
+    //     saveDraft={saveDraft} />}
+    
     return (
         <div className="email-compose-modal">
             <div className="email-compose-header">
-                <div className="possibilities-actions1">
-                    <button type="button" className="possibilities-send-btn1">
+                <div className="mobile-compose-container">
+                    <button type="button" className="icon-button">
                         <span className="material-symbols-outlined">more_vert</span>
                     </button>
-                </div>
-                <div className="compose-actions1">
-                    <button type="submit" className="compose-send-btn1">
-                        <span className="material-symbols-outlined send_back">send</span>
-                    </button>
-                </div>
-                <div className="mobile-attachment-container">
-                    <label htmlFor="file-input" className="mobile-attachment-label">
-                        <span className="material-symbols-outlined">attach_file</span>
+                    <label htmlFor="file-input" className="icon-button">
+                        <span className="material-symbols-outlined attach_file">attach_file</span>
                     </label>
                     <input
                         type="file"
@@ -111,70 +128,31 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
                         onChange={handleFileChange}
                         style={{ display: 'none' }}
                     />
+                    <span
+                        className="material-symbols-outlined arrow_forward"
+                        onClick={onCloseCompose}
+                    >
+                        arrow_forward
+                    </span>
                 </div>
-
-                <span
-                    className="material-symbols-outlined arrow_forward"
-                    onClick={onCloseCompose}
-                >
-                    arrow_forward
-                </span>            </div>
-
+            </div>
             <form onSubmit={onAddMail} className="email-compose-form">
                 <div className="email-compose-input-container">
-                    <label htmlFor="from" className="input-label-from">From:</label>
-                    <input
-                        type="text"
-                        id="from"
-                        name="from"
-                        placeholder="Your Name or Email"
-                        className="email-compose-input"
-                        value={draftMail.from}
-                        onChange={handleChange}
-                        required
-                    />
+                    <label htmlFor="to">To:</label>
+                    <input type="email" id="to" name="to" placeholder="Recipient email" required />
                 </div>
-
                 <div className="email-compose-input-container">
-                    <label htmlFor="to" className="input-label-to">To:</label>
-                    <input
-                        type="email"
-                        id="to"
-                        name="to"
-                        placeholder="To"
-                        className="email-compose-input"
-                        value={draftMail.to}
-                        onChange={handleChange}
-                        required
-                    />
+                    <label htmlFor="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Email subject" required />
                 </div>
-
                 <div className="email-compose-input-container">
-                    <label htmlFor="subject" className="input-label-subject">Subject:</label>
-                    <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        placeholder="Subject"
-                        className="email-compose-input"
-                        value={draftMail.subject}
-                        onChange={handleChange}
-                        required
-                    />
+                    <label htmlFor="body"></label>
+                    <textarea id="body" name="body" rows="8" placeholder="Compose your message" required></textarea>
                 </div>
-
-                <div className="email-compose-input-container">
-                    <label htmlFor="body" className="input-label-body"></label>
-                    <textarea
-                        className="email-compose-textarea"
-                        name="body"
-                        id="body"
-                        rows="8"
-                        placeholder="Compose email"
-                        value={draftMail.body}
-                        onChange={handleChange}
-                        required
-                    ></textarea>
+                <div className="compose-actions">
+                    <button type="submit" className="icon-button-send">
+                        <span className="material-symbols-outlined send_back">send</span>
+                    </button>
                 </div>
             </form>
         </div>

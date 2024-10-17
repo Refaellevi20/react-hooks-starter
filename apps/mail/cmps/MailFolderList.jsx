@@ -154,7 +154,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
             </ul>
-            <div class="persent-bar-container"><div class="persent-bar" style={{width: `${readPersent}`}}>{readPersent}</div></div>
+            <div className="persent-bar-container"><div className="persent-bar" style={{width: `${readPersent}`}}>{readPersent}</div></div>
         </div>
     )
 }

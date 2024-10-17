@@ -85,3 +85,11 @@
     height: 20px;
     cursor: pointer; 
 }
+
+input#to.compose-input {
+    border-bottom: 1px solid wheat;
+}
+
+input#subject.compose-input {
+    border-bottom: 1px solid wheat;
+}

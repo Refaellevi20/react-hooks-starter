@@ -81,10 +81,10 @@
 .emoji-select {
     cursor: pointer; 
 }
-.compose-actions {
+div.compose-actions {
     display: flex;
     align-items: center; 
-    margin-top: 125px;
+    margin-top: 85px;
     margin-left: 100px;
 }
 
@@ -97,3 +97,4 @@
     cursor: pointer; 
     font-size: 1.5rem; 
 }
+

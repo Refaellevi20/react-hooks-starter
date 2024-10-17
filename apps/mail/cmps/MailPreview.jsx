@@ -70,7 +70,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                         <span className={`mail-subject ${mail.isRead ? "read" : ""}`}>{mail.subject}</span>
                         {/* Preview of the body */}
                         <span className="mail-body-preview">
-                            {isExpanded ? mail.body : mail.body.length > 40 ? `${mail.body.substring(0, 40)}...` : mail.body}
+                            {isExpanded ? mail.body : mail.body.length > 40 ? `- ${mail.body.substring(0, 40)}...` : mail.body}
                         </span>
                     </div>
 

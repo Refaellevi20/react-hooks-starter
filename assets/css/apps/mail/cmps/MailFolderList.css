@@ -10,6 +10,25 @@
     flex-direction: column;
 } */
 
+.persent-bar-container{
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    padding-left: 0;
+    border-radius: 2rem;
+    width: 80%;
+    background-color: white;
+}
+
+.persent-bar{
+    border-radius: 2rem;
+    background-color: rgb(82, 240, 82);
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 2px;
+}
+
+
 .side-bar-container {
     display: flex; 
     flex-direction: column; 

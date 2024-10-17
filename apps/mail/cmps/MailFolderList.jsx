@@ -8,6 +8,8 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
     const [isCheckedStar, setIsCheckedStar] = useState(false)
     const [inboxCount, setInboxCount] = useState('')
     const [language, setLanguage] = useState('English')
+    const [readPersent, setReadPersent] = useState(0)
+
     const [labels, setLabels] = useState(
         {
             sent: 'Sent',
@@ -17,6 +19,10 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
             delete: 'Delete',
         }
     )
+
+        
+    getInboxCount()
+    getReadBarPersent()
 
     useEffect(() => {
         onSetFilter(filterBy)
@@ -105,6 +111,15 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         }
     }
 
+    function getReadBarPersent(){
+        mailService.getReadPersent().then((persent) => setReadPersent(persent + '%'))
+    }
+
+    function getInboxCount() {
+        mailService.getInboxNum().then(setInboxCount)       
+    }
+
+
     return (
         <div className="side-bar-container ">
             {/* <button className="resize-btn" onClick={onResizeClick}>
@@ -139,6 +154,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
             </ul>
+            <div class="persent-bar-container"><div class="persent-bar" style={{width: `${readPersent}`}}>{readPersent}</div></div>
         </div>
     )
 }

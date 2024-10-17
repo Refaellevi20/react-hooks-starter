@@ -26,6 +26,8 @@ export const mailService = {
   getReadPersent,
   getMails,
   getMailById,
+  getInboxNum,
+  getReadPersent,
 
   // addReview,
   // getNextBookId,

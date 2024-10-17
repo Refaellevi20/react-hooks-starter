@@ -48,7 +48,12 @@ export function App() {
 }
 
 
-
+//! LongTxt
+//! read or unread to mobile
+//! home imgs 
+//! loaging img
+//! sort 
+//! canvas
 
 
 {/* <Route path="/mail/details" element={<MailDetails />} />

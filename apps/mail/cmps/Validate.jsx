@@ -54,3 +54,20 @@ export function MailFolderList2({ onSetFilter, onToggleCompose }) {
     )
 }
 
+
+
+
+
+// function sortByCriterion(criterion) {
+//     setSortBy(criterion)
+//     const sortedMails = [...mails]
+//     if (criterion === 'subject') {
+//         sortedMails.sort((a, b) => (a.subject.toLowerCase() > b.subject.toLowerCase()) ? 1 : -1)
+//     } else if (criterion === 'time') {
+//         sortedMails.sort((a, b) => (a.sentAt > b.sentAt) ? 1 : -1)
+//     } else if (criterion === 'from') {
+//         sortedMails.sort((a, b) => a.from.toLowerCase().localeCompare(b.from.toLowerCase()))
+//     }
+//     setMails(sortedMails)
+// } 
+

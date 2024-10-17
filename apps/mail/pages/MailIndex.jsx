@@ -39,7 +39,7 @@ export function MailIndex() {
 
     useEffect(() => {
         loadMails()
-    }, [filterBy])
+    }, [filterBy, mails])
 
     function loadMails() {
         mailService.query(filterBy)
@@ -122,29 +122,29 @@ export function MailIndex() {
                     {activeFilter === 'MainFilter' && (
                         <MainFilter onSetFilter={onSetFilter} />
                     )}
-                    {/*the other components */}
-                    <div className="sort-buttons">
-                        <button
-                            className={sortBy === 'subject' ? 'active' : ''}
-                            onClick={() => sortByCriterion('subject')}
-                        >
-                            <span className="material-symbols-outlined">sort_by_alpha</span> Sort by Title
-                        </button>
-                        <button
-                            className={sortBy === 'time' ? 'active' : ''}
-                            onClick={() => sortByCriterion('time')}
-                        >
-                            <span className="material-symbols-outlined">access_time</span> Sort by Time
-                        </button>
-                        <button
-                            className={sortBy === 'from' ? 'active' : ''}
-                            onClick={() => sortByCriterion('from')}
-                        >
-                            <span className="material-symbols-outlined">person</span> Sort by Sender
-                        </button>
-                    </div>
                 </div>
             </section>
+            <div className="sort-buttons">
+                <button
+                    className={sortBy === 'subject' ? 'active' : ''}
+                    onClick={() => sortByCriterion('subject')}
+                >
+                    <span className="material-symbols-outlined">sort_by_alpha</span> Sort by Title
+                </button>
+                <button
+                    className={sortBy === 'time' ? 'active' : ''}
+                    onClick={() => sortByCriterion('time')}
+                >
+                    <span className="material-symbols-outlined">access_time</span> Sort by Time
+                </button>
+                <button
+                    className={sortBy === 'from' ? 'active' : ''}
+                    onClick={() => sortByCriterion('from')}
+                >
+                    <span className="material-symbols-outlined">person</span> Sort by Sender
+                </button>
+            </div>
+
             <section className="mail-container">
                 <MailFolderList
                     mails={mails}

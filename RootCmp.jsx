@@ -54,7 +54,9 @@ export function App() {
 //! home imgs 
 //! loaging img
 //! sort 
-//! canvas
+//^ canvas
+//! star mobile
+
 
 
 {/* <Route path="/mail/details" element={<MailDetails />} />

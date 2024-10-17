@@ -48,10 +48,6 @@ export function App() {
 }
 
 
-//! He only entered one of them
-{/* <Route path="/mail/:mailId" element={<MailDetails />} />
-<Route path="/mail/:composeId" element={<ModalCompose />} /> */}
-//!
 
 
 

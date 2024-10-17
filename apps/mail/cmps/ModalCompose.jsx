@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { useNavigate,useParams } = ReactRouterDOM
+const { useNavigate, useParams } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
 import { EmojiSelector } from "./emojis.jsx"
@@ -8,6 +8,8 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
     const [draftMail, setDraftMail] = useState(mailService.getEmptyMailToDraft())
     const [isTimePassed, setIsTimePassed] = useState(false)
     const [file, setFile] = useState(null)
+    const [isComposeClicked, setIsComposeClicked] = useState(false)
+
     const navigate = useNavigate()
     // const { send  } = useParams()
 
@@ -23,7 +25,7 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
     //     }
     // }, [send])
 
-    
+
 
     function onAddMail(ev) {
         ev.preventDefault()
@@ -53,6 +55,10 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
         setTimeout(() => {
             setIsTimePassed(true)
         }, 5000)
+    }
+
+    function onToggleCompose() {
+        setIsComposeClicked(!isComposeClicked)
     }
 
     function onCloseCompose() {
@@ -107,8 +113,12 @@ export function ModalCompose({ addMail, onToggleCompose, saveDraft }) {
                     />
                 </div>
 
-                <span className="material-symbols-outlined arrow_forward" onClick={onCloseCompose} >arrow_forward</span>
-            </div>
+                <span
+                    className="material-symbols-outlined arrow_forward"
+                    onClick={onCloseCompose}
+                >
+                    arrow_forward
+                </span>            </div>
 
             <form onSubmit={onAddMail} className="email-compose-form">
                 <div className="email-compose-input-container">

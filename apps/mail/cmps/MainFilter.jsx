@@ -20,6 +20,8 @@ export function MainFilter({ onSetFilter, toggleIconsOnly }) {
         })
     }
 
+
+
     // function toggleIconsOnly  (){
     //     setShowIconsOnly(prevState => !prevState)
     // }

@@ -1,1 +1,38 @@
  /* mail index  */
+
+ .sort-buttons {
+    display: flex;      
+    justify-content:space-between;
+    gap: 50px;           
+    margin-right: 0;    
+}
+
+.sort-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;     
+    position: relative; 
+    color: black;      
+}
+
+.sort-buttons button.active {
+    color: blue;
+}
+
+.sort-buttons button::after {
+    content: "";
+    display: block;
+    height: 2px; 
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.sort-buttons button.active::after {
+    transform: scaleX(1);
+}

@@ -20,7 +20,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         }
     )
 
-        
+
     getInboxCount()
     getReadBarPersent()
 
@@ -111,12 +111,12 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         }
     }
 
-    function getReadBarPersent(){
+    function getReadBarPersent() {
         mailService.getReadPersent().then((persent) => setReadPersent(persent + '%'))
     }
 
     function getInboxCount() {
-        mailService.getInboxNum().then(setInboxCount)       
+        mailService.getInboxNum().then(setInboxCount)
     }
 
 
@@ -144,7 +144,8 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
                 <li onClick={() => onSetListFilter('all')} className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">mail</span>{labels.all}</li>
                 <li onClick={() => onSetListFilter('inbox')} className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}>
-                    <span className="material-symbols-outlined icon">inbox</span>{labels.inbox} <span>{inboxCount}</span></li>
+                    <span className="material-symbols-outlined icon">inbox </span> {labels.inbox} <span>&nbsp;{inboxCount}</span>
+                </li>
                 <li onClick={() => onSetListFilter('sent')} className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">send</span>{labels.sent}</li>
                 <li onClick={() => onStarFilter(!isCheckedStar)} className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}>
@@ -154,7 +155,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
             </ul>
-            <div className="persent-bar-container"><div className="persent-bar" style={{width: `${readPersent}`}}>{readPersent}</div></div>
+            <div className="persent-bar-container"><div className="persent-bar" style={{ width: `${readPersent}` }}>{readPersent}</div></div>
         </div>
     )
 }

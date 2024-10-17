@@ -32,10 +32,10 @@ export function App() {
                 <main>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/book/:bookId" element={<BookBDetails />} />
-                        <Route path='/book/edit' element={<BookEdit />}  />
-                        <Route path='/book/edit/:bookId' element={<BookEdit />}/>
-                        <Route path="/book" element={<BookIndex />} />
+                        {/* <Route path="/book/:bookId" element={<BookBDetails />} /> */}
+                        {/* <Route path='/book/edit' element={<BookEdit />}  /> */}
+                        {/* <Route path='/book/edit/:bookId' element={<BookEdit />}/> */}
+                        {/* <Route path="/book" element={<BookIndex />} /> */}
                         <Route path="/mail/send" element={<ModalCompose />} />
                         <Route path="/mail" element={<MailIndex />} />
                         <Route path="/mail/:mailId" element={<MailDetails />} />

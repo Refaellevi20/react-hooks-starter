@@ -119,7 +119,6 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         mailService.getInboxNum().then(setInboxCount)
     }
 
-
     return (
         <div className="side-bar-container ">
             {/* <button className="resize-btn" onClick={onResizeClick}>

@@ -31,7 +31,7 @@ export function MailTableHeader({ onSetFilter }) {
     //* Filter on everything
     return (
         <div className="mail-table-header">
-            <div className="table-header-btn-container flex">
+            {/* <div className="table-header-btn-container flex">
                 <span onClick={() => setIsClicked(!isClicked)} className="material-symbols-outlined read-filter">list</span>
                 <span onClick={() => window.location.reload()} className="material-symbols-outlined refresh">refresh</span>
             </div>
@@ -47,7 +47,7 @@ export function MailTableHeader({ onSetFilter }) {
                         Unread ({unreadCount}) 
                     </p>
                 </div>
-            )}
+            )} */}
         </div>
     )
 }

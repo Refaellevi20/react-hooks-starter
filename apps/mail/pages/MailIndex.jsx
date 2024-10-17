@@ -8,6 +8,7 @@ import { MailCompose } from '../cmps/mailCompose.jsx';
 import { mailService } from '../services/mail.service.js';
 import { MainFilter2 } from '../cmps/Modal.jsx';
 import { MailFolderList2 } from '../cmps/Validate.jsx';
+import { SortBy } from '../cmps/SortBy.jsx';
 
 export function MailIndex() {
 
@@ -99,18 +100,15 @@ export function MailIndex() {
         setIsSmall(!isSmall)
     }
 
-    function sortByCriterion(criterion) {
-        setSortBy(criterion)
-        const sortedMails = [...mails]
-        if (criterion === 'subject') {
-            sortedMails.sort((a, b) => (a.subject.toLowerCase() > b.subject.toLowerCase()) ? 1 : -1)
-        } else if (criterion === 'time') {
-            sortedMails.sort((a, b) => (a.sentAt > b.sentAt) ? 1 : -1)
-        } else if (criterion === 'from') {
-            sortedMails.sort((a, b) => a.from.toLowerCase().localeCompare(b.from.toLowerCase()))
-        }
-        setMails(sortedMails)
-    }
+    // function sortByCriterion(criterion) {
+    //     const sortedMails = [...mails]
+    //     sortedMails.sort((a, b) => {
+    //         if (criterion === 'subject') return a.subject.localeCompare(b.subject);
+    //         if (criterion === 'time') return a.sentAt - b.sentAt;
+    //         if (criterion === 'from') return a.from.localeCompare(b.from);
+    //     })
+    //     setMails(sortedMails)
+    // }
 
     return (
         <main>
@@ -124,27 +122,28 @@ export function MailIndex() {
                     )}
                 </div>
             </section>
-            <div className="sort-buttons">
+            <div className="sort-buttons-container">
+            {/* <div className="sort-buttons">
                 <button
-                    className={sortBy === 'subject' ? 'active' : ''}
-                    onClick={() => sortByCriterion('subject')}
-                >
-                    <span className="material-symbols-outlined">sort_by_alpha</span> Sort by Title
-                </button>
-                <button
-                    className={sortBy === 'time' ? 'active' : ''}
-                    onClick={() => sortByCriterion('time')}
-                >
-                    <span className="material-symbols-outlined">access_time</span> Sort by Time
-                </button>
-                <button
-                    className={sortBy === 'from' ? 'active' : ''}
+                    className={`sort-sender ${sortBy === 'from' ? 'active' : ''}`}
                     onClick={() => sortByCriterion('from')}
                 >
-                    <span className="material-symbols-outlined">person</span> Sort by Sender
+                    <span className="material-symbols-outlined ">person</span>Sender
                 </button>
+                <button
+                    className={`sort-alpha ${sortBy === 'subject' ? 'active' : ''}`}
+                    onClick={() => sortByCriterion('subject')}
+                >
+                    <span className="material-symbols-outlined">sort_by_alpha</span>Title
+                </button>
+                <button
+                    className={`sort-time ${sortBy === 'time' ? 'active' : ''}`}
+                    onClick={() => sortByCriterion('time')}
+                >
+                    <span className="material-symbols-outlined ">access_time</span>Time
+                </button>
+            </div> */}
             </div>
-
             <section className="mail-container">
                 <MailFolderList
                     mails={mails}

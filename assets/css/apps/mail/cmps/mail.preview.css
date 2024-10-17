@@ -239,3 +239,8 @@ td.mail-content {
     font-size: 14px;
     color: #888;
 }
+
+
+.mail-preview.read {
+  background-color: #e6e6e6;
+}

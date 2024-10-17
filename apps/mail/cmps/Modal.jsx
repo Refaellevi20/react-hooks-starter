@@ -16,8 +16,13 @@ export function MainFilter2({ onSetFilter, onToggleCompose, addMail, saveDraft }
     const [inboxCount, setInboxCount] = useState('')
     const navigate = useNavigate()
     const [isComposeOpen, setComposeOpen] = useState(false)
+    const [readPersent, setReadPersent] = useState(0)
 
-    //* not together
+
+    getInboxCount()
+    getReadBarPersent()
+
+
     const [labels, setLabels] = useState(
         {
             sent: 'Sent',
@@ -81,7 +86,13 @@ export function MainFilter2({ onSetFilter, onToggleCompose, addMail, saveDraft }
         }
     }, [])
 
+    function getReadBarPersent() {
+        mailService.getReadPersent().then((persent) => setReadPersent(persent + '%'))
+    }
 
+    function getInboxCount() {
+        mailService.getInboxNum().then(setInboxCount)
+    }
 
     return (
         <section>
@@ -225,12 +236,15 @@ export function MainFilter2({ onSetFilter, onToggleCompose, addMail, saveDraft }
                                     </li>
                                 </ul>
                                 <MailTableHeader onSetFilter={onSetFilter} />
+                                <div className="persent-bar-container"><div className="persent-bar" style={{ width: `${readPersent}` }}>{readPersent}</div></div>
 
                             </div>
                         </div>
                     </div>
+                    
                 )}
             </div>
+
         </section>
     )
 }

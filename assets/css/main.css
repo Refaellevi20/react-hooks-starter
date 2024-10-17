@@ -49,6 +49,26 @@
 @import './apps/note/cmps/note-creator.css';
 @import './apps/note/cmps/note-filter.css';
 
+/* book */
 
 
 
+@import './apps/book/pages/base.css';
+@import './apps/book/pages/book-preview.css';
+/* @import './apps/book/pages/forms.css'; */
+@import './apps/book/pages/helpers.css';
+/* @import './apps/book/pages/layout.css'; */
+@import './apps/book/pages/main-book.css';
+@import './apps/book/pages/sale-modal.css';
+@import './apps/book/pages/setup/typography.css';
+@import './apps/book/pages/setup/vars.css';
+
+@import './apps/book/cmps/aad-review.css';
+@import './apps/book/cmps/add-book.css';
+@import './apps/book/cmps/book-adit.css';
+@import './apps/book/cmps/book-deteils.css';
+@import './apps/book/cmps/Book-rreview.css';
+@import './apps/book/cmps/chart.css';
+@import './apps/book/cmps/sale.css';
+@import './apps/book/cmps/star-rating.css';
+@import './apps/book/cmps/user-msg.css';

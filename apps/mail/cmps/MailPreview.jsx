@@ -90,8 +90,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                                         onChange={handleTimeChange}
                                     />
                                 ) : (
-                                    <span onClick={(ev) => { ev.stopPropagation(); toggleTimeEdit(); }}
-                                        className="material-symbols-outlined clock-icon">schedule</span>
+                                    <span></span>
                                 )}
                             </div>
                         ) : (

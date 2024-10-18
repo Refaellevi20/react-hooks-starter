@@ -109,6 +109,7 @@ function getDefaultFilter() {
     return { txt: '', noteType: '' }
 }
 
+
 function _createNotes() {
     let notes = storageServices.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
@@ -119,10 +120,10 @@ function _createNotes() {
             type: 'NoteTxt', 
             isPinned: true, 
             style: { 
-              backgroundColor: '#FFFFFF' 
+              backgroundColor: '#e9e3d4'
             }, 
             info: { 
-              txt: 'Fullstack Me Babyyy!' 
+              txt: 'The only way to do great work is to love what you do.” - Steve Jobs' 
             } 
         },
         {
@@ -131,50 +132,82 @@ function _createNotes() {
             type: 'NoteTxt', 
             isPinned: true, 
             style: { 
-              backgroundColor: '#FFFFFF' 
+              backgroundColor:  '#efeff1' 
             }, 
             info: { 
-              txt: 'Fullstack Me Babyss!' 
+              txt: 'Don\'t forget to schedule dentist appointment for next Monday!'
             } 
         },
         {
             id: 'n105', 
             createdAt: 1112226, 
-            type: 'NoteTxt', 
+            type:  'NoteImg', 
             isPinned: true, 
             style: { 
-              backgroundColor: '#00d' 
+              backgroundColor: '#efeff1' 
             }, 
             info: { 
-              txt: 'Fullstack Me Baby!' 
-            } 
+              url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkU70BfA_n2W7nPgy2knY3TiSsYhuEuir59w&s', 
+              title: 'Sunset at Santorini' 
+          }
         },
         {
             id: 'n102', 
             createdAt: 1112223, 
-            type: 'NoteImg', 
+            type: 'NoteTodos', 
             isPinned: false, 
-            info: { 
-              url: 'http://some-img/me', 
-              title: 'Bobi and Me' 
-            }, 
             style: { 
-              backgroundColor: '##FFFFFF' 
-            }
+              backgroundColor: '#faafa8' 
+          },
+          info: { 
+              title: 'To-Do: React Project', 
+              todos: [ 
+                  { txt: 'Set up project repo'}, 
+                  { txt: 'Create main component' }, 
+                  { txt: 'Test API integration' },
+                  { txt: 'Write unit tests' }
+              ] 
+          }
         },
         {
             id: 'n103', 
             createdAt: 1112224, 
-            type: 'NoteTodos', 
+            type: 'NoteVid', 
             isPinned: false, 
-            info: { 
-              title: 'Get my stuff together', 
-              todos: [ 
-                { txt: 'Driving license', doneAt: null }, 
-                { txt: 'Coding power', doneAt: 187111111 } 
-              ] 
+            style: { 
+              backgroundColor: '#fff8b8' 
+          },
+          info: { 
+              url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 
+              title: 'How to Learn Web Development'
           }
+        },
+        {
+          id: 'n107', 
+          createdAt: Date.now(), 
+          type: 'NoteImg', 
+          isPinned: false, 
+          style: { 
+              backgroundColor: '#d3bfdb' 
+          },
+          info: { 
+              url: 'https://www.dogsforgood.org/app/smush-webp/2020/06/Dogs-For-Good-October-22-2019-308-1024x660.jpg.webp', 
+              title: 'My Dog is Adorable!' 
+          }
+        },
+        {
+          id: 'n108', 
+          createdAt: Date.now(), 
+          type: 'NoteTxt', 
+          isPinned: false, 
+          style: { 
+              backgroundColor: '#d3bfdb' 
+          },
+          info: { 
+           txt: 'Dinner reservation at the best restaurant!' 
         }
+        }
+        
   
       ]
       storageServices.saveToStorage(NOTE_KEY, notes)

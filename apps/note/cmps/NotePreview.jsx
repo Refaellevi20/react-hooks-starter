@@ -11,10 +11,9 @@ const { useNavigate } = ReactRouterDOM
 
 
 export function NotePreview({ type, note, editNote, removeNote, addNote }) {
-    // console.log("NotePreview note:", note);
-  
   const [editMode, setEditMode] = useState(false)
   const [showColorPicker, setShowColorPicker] = useState(false)
+  const [selectedColor, setSelectedColor] = useState(note.color || 'white')
   const navigate = useNavigate()
 
   function getNoteType(type) {
@@ -33,11 +32,15 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
     }
   }
 
-  const handleColorChange = (e, note) => {
-    const color = e.target.value;
-    const updatedNote = { ...note, color }
+  const handleColorChange = (newColor) => {
+   
+    setSelectedColor(newColor)
+    const updatedNote = { ...note, style: { backgroundColor: newColor }  } 
     editNote(updatedNote)
+    setShowColorPicker(false)
   }
+
+  
 
   const handlePinNote = () => {
     const updatedNote = { ...note, isPinned: note.isPinned ? false : true }
@@ -52,28 +55,60 @@ export function NotePreview({ type, note, editNote, removeNote, addNote }) {
 
   const mailNote = () => {
     let body
-    const { title, content } = noteService.getNoteEditData(note);
+    const { title, content } = noteService.getNoteEditData(note)
     if (note.type === 'NoteTxt') body = title
     else body = content
-    const params = new URLSearchParams({ body });
+    const params = new URLSearchParams({ body })
 
     navigate('/mail/?' + params.toString())
   }
 
 
   return (
-    <section className='note-preview' style={{ backgroundColor: note.color ? note.color : 'white' }}>
+    <section className='note-preview' key={note} style={{ backgroundColor:note.style ? note.style.backgroundColor  : 'white' }}>
       {getNoteType(type)}
-      <div className='note-actions-container hidden'>
+      
+      <div className='note-actions-container'>
         <div className='note-actions'>
           <span onClick={() => removeNote(note.id)} className="material-symbols-outlined ">delete</span>
           <span onClick={duplicateNote} className="material-symbols-outlined">content_copy</span>
           <span onClick={mailNote} className="material-symbols-outlined">mail</span>
           <span onClick={handlePinNote} className={note.isPinned ? "material-symbols-outlined pinned" : "material-symbols-outlined"}>push_pin</span>
-          <label htmlFor={"color" + note.id}><span className="material-symbols-outlined">palette</span></label>
-          <input style={{ display: 'none' }} onChange={(e) => handleColorChange(e, note)} type="color" name="color" id={"color" + note.id} />
-          {note.type !== "note-todos" ? <span onClick={() => setEditMode(prev => !prev)} className="material-symbols-outlined">edit</span> : null}
-          {editMode ? <NoteEdit note={note} editNote={editNote} setEditMode={setEditMode} /> : null}
+          
+          <span
+            onClick={() => setShowColorPicker(!showColorPicker)} 
+            className="material-symbols-outlined icon-btn"
+            title="Change color"
+          >
+            palette
+          </span>
+
+          
+          {showColorPicker && (
+            <div className="color-picker-container">
+            <ColorInput 
+              note={note} 
+              onSetnoteStyle={handleColorChange} 
+              backgroundColor={selectedColor} />
+                         </div>
+          )}
+
+         
+          {note.type !== "note-todos" && (
+                        <span
+                            onClick={() => setEditMode(!editMode)}
+                            className="material-symbols-outlined"
+                        >
+                            edit
+                        </span>
+                    )}
+                    {editMode && (
+                        <NoteEdit
+                            note={note}
+                            editNote={editNote}
+                            setEditMode={setEditMode}
+                        />
+                    )}
         </div>
       </div>
     </section>

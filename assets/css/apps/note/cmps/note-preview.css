@@ -17,8 +17,14 @@
   break-inside: avoid;
   margin: 10px auto;
   overflow-wrap: break-word;
+  overflow: hidden;
+
   transition: transform 0.2s ease-in-out;
-  font-size: 20px;
+  font-size: 18px;
+  line-height:24px;
+  font-family:"Google Sans", Roboto, Arial, sans-serif;
+
+  cursor: pointer;
 
 }
 
@@ -28,13 +34,20 @@
 }
 
 .note-actions {
-  margin: 0 auto;
+  opacity: 0; 
+  transition: opacity 0.2s ease-in-out; 
+  position: absolute; 
+  bottom: 10px; 
+  left: 10px; 
+  right: 10px;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   gap: 0.5rem;
   padding-top: 10px;
+}
 
+.note-preview:hover .note-actions {
+  opacity: 1; 
 }
 
 .icon-btn:hover {
@@ -43,8 +56,8 @@
 }
 
 .note-img {
-  height: 100%;
-
+  width: 100%;
+  height: auto;
 }
 
 .image-container {
@@ -56,7 +69,7 @@
 }
 
 .pinned {
-  color: black(255, 106, 0);
+  color: black;
   font-weight: 800;
 }
 

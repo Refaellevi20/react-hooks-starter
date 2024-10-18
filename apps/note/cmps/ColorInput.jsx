@@ -1,23 +1,28 @@
-
+const { useState,useEffect } = React
 export function ColorInput({ note, onSetnoteStyle, backgroundColor }) {
 
     const colors = [
         '#e9e3d4',
-        '##efeff1',
+        '#efeff1',
         '#aeccdc',
         '#faafa8',
         '#fff8b8',
         '#b4ddd3',
        ' #e2f6d3' ,
         '#d3bfdb' ,
-        '#aeccdc',
         '#f39f76'
     ]
 
-    function onSetColor(color) {
-        const noteStyle = { backgroundColor: color }
-        onSetnoteStyle(noteStyle)
+    const [selectedColor, setSelectedColor] = useState(backgroundColor || '#ffffff')
+    function onSetColor(color) {  
+        setSelectedColor(color)
+        onSetnoteStyle(color)
     }
+
+    useEffect(() => {
+        setSelectedColor(backgroundColor || '#ffffff')
+    }, [backgroundColor])
+
 
     return (
         <section className="color-input">
@@ -27,8 +32,11 @@ export function ColorInput({ note, onSetnoteStyle, backgroundColor }) {
                         key={color}
                         className={`item ${color === backgroundColor ? 'chosen' : ''}`}
                         style={{ backgroundColor: color }}
-                        onClick={() => onSetColor(color)}
-                    ></div>
+                        onClick={() => onSetColor(color)}> 
+                         {color === backgroundColor &&(
+                            <div className="color-indicator">✓</div>
+                        )}
+                        </div>
                 ))}
             </div>
         </section >

@@ -2,6 +2,7 @@ import { noteService } from "../services/note.service.js"
 import { NoteList } from "../cmps/NoteList.jsx"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
 import { NoteCreator } from "../cmps/NoteCreator.jsx"
+import { ColorInput } from "../cmps/ColorInput.jsx"
 
 const { useState, useEffect } = React
 
@@ -37,13 +38,6 @@ export function NoteIndex() {
     }
 
 
-    // function editColor(updatedNote) {
-    //     setNotes((prevNotes) => 
-    //         prevNotes.map(note => (note.id === updatedNote.id ? updatedNote : note))
-    //     )
-    //     return Promise.resolve()
-    // }
-
     function onEditNote(updatedNote) {
         noteService.save(updatedNote)
             .then(() => {
@@ -53,7 +47,7 @@ export function NoteIndex() {
                     )
                     return updatedNotes
                 })
-                loadNotes() // Reload all notes to ensure consistency
+                loadNotes() 
             })
             .catch(err => {
                 console.log('Problems editing note:', err)
@@ -88,6 +82,7 @@ export function NoteIndex() {
                 editNote={onEditNote} 
                 addNote={onAddNote} 
             />
+            {/* <ColorInput handleColorChange={onChangeColor}/> */}
         </section>
     )
 

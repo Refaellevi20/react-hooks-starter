@@ -62,7 +62,7 @@ export function MainFilter({ onSetFilter, toggleIconsOnly }) {
                     />
                 </form>
             </div>
-            <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Profile" class="img-logo3" alt="Profile" />
+            <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=P" class="img-logo3" alt="Profile" />
 
         </section>
     )

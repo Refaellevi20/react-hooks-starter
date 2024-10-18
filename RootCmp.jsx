@@ -50,11 +50,10 @@ export function App() {
 
 
 //! LongTxt
-//! read or unread to mobile
 //! home imgs 
 //! loaging img
 //! sort 
-//! star mobile
+
 
 
 

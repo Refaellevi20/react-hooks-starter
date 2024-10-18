@@ -152,7 +152,7 @@ export function MainFilter2({ onSetFilter, onToggleCompose, addMail, saveDraft }
                         onChange={handleChange}
                     />
                 </form>
-                <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Profile" class="img-logo4" alt="Profile" />
+                <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=P" className="img-logo4" alt="Profile" />
 
                 {isModalOpen && (
                     <div className="main-screen" onClick={toggleModal} >

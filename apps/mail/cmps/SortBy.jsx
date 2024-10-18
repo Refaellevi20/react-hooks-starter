@@ -27,9 +27,9 @@ export function SortBy() {
     function sortByCriterion(criterion) {
         const sortedMails = [...mails]
         sortedMails.sort((a, b) => {
-            if (criterion === 'subject') return a.subject.localeCompare(b.subject);
-            if (criterion === 'time') return a.sentAt - b.sentAt;
-            if (criterion === 'from') return a.from.localeCompare(b.from);
+            if (criterion === 'subject') return a.subject.localeCompare(b.subject)
+            if (criterion === 'time') return a.sentAt - b.sentAt
+            if (criterion === 'from') return a.from.localeCompare(b.from)
         })
         setMails(sortedMails)
         setSortBy(criterion)

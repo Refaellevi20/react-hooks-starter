@@ -16,7 +16,7 @@ export function NoteIndex() {
     }, [filterBy])
 
     function loadNotes() {
-        // setLoading(true)
+       
         noteService.query(filterBy)
             .then(setNotes)
             .catch(err => {
@@ -48,7 +48,7 @@ export function NoteIndex() {
                     )
                     return updatedNotes
                 })
-                // loadNotes() 
+                
             })
             .catch(err => {
                 console.log('Problems editing note:', err)
@@ -68,7 +68,7 @@ export function NoteIndex() {
     }
 
     function onSetFilter(filterByToEdit) {
-        // setFilterBy({ ...filterBy, ...filterByToEdit })
+        
         setFilterBy(prevFilter => ({...prevFilter, ...filterByToEdit}))
     }
 
@@ -84,7 +84,7 @@ export function NoteIndex() {
                 editNote={onEditNote} 
                 addNote={onAddNote} 
             />
-            {/* <ColorInput handleColorChange={onChangeColor}/> */}
+           
         </section>
     )
 

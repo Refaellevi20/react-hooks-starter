@@ -1,7 +1,7 @@
 
 const { useState } = React
 
-import { noteService } from "../services/note.service.js";
+import { noteService } from "../services/note.service.js"
 
 
 const PLACEHOLDER = {
@@ -16,7 +16,7 @@ export function NoteCreator({ addNote }) {
 
     function handleSubmitNote(ev) {
         ev.preventDefault()
-        const { target } = ev;
+        const { target } = ev
         const textInput = target.txt.value
         const noteData = target.noteData ? target.noteData.value : false
         target.txt.value = ''
@@ -36,8 +36,8 @@ export function NoteCreator({ addNote }) {
   }
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();  // Prevent new line behavior in textarea
-      handleSubmitNote(e);  // Submit the form when Enter is pressed
+      e.preventDefault()
+      handleSubmitNote(e)
     }
   }
     return (

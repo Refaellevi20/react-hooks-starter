@@ -1,15 +1,15 @@
-import { noteService } from "../services/note.service.js";
+import { noteService } from "../services/note.service.js"
 
 const { useState, useEffect } = React
 
 export function NoteEdit({ note, editNote, setEditMode }) {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [titleField, setTitleField] = useState('');
-  const [contentField, setContentField] = useState('');
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const [titleField, setTitleField] = useState('')
+  const [contentField, setContentField] = useState('')
 
   useEffect(() => {
-    const { title, content, titleField, contentField } = noteService.getNoteEditData(note);
+    const { title, content, titleField, contentField } = noteService.getNoteEditData(note)
     setTitle(title)
     setContent(content)
     setTitleField(titleField)
@@ -17,7 +17,7 @@ export function NoteEdit({ note, editNote, setEditMode }) {
   }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const updatedNote = {
       ...note, info: {
         ...note.info,
@@ -25,7 +25,7 @@ export function NoteEdit({ note, editNote, setEditMode }) {
         ...(contentField ? { [contentField]: content } : {})
       }
     }
-    editNote(updatedNote);
+    editNote(updatedNote)
     setEditMode(false)
   }
 

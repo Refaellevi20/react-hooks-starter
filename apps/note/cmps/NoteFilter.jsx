@@ -4,7 +4,7 @@ const { useState, useEffect } = React
 export function NoteFilter({ onSetFilter, noResults  }) {
   const [FilterByEdit, setFilterByEdit] = useState(noteService.getDefaultFilter)
   const [activeFilter, setActiveFilter] = useState('')
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true)
   
 
   function handleTypeChange(ev) {
@@ -24,9 +24,7 @@ export function NoteFilter({ onSetFilter, noResults  }) {
     setActiveFilter(type)
     onSetFilter({ ...FilterByEdit, noteType: type })
   }
-  // useEffect(() => {
-  //   onSetFilter(FilterByEdit)
-  // }, [FilterByEdit, onSetFilter])
+  
 
   function toggleSidebar() {
     setIsSidebarCollapsed(!isSidebarCollapsed)
@@ -48,9 +46,6 @@ export function NoteFilter({ onSetFilter, noResults  }) {
       onChange={handleTypeChange}
       value={FilterByEdit.txt} 
       />
-      {/* <button className="filterBtn" type="submit">  */}
-      
-      {/* </button> */}
       </div>
     </form>
 {/* Sidebar for note types */}
@@ -100,22 +95,3 @@ export function NoteFilter({ onSetFilter, noResults  }) {
 }
 
 
-// return (
-//         <div className="side-bar-container ">
-
-//             <ul className="folder-list-container">
-//                 <li onClick={() => onSetListFilter('all')} className={filterBy.status === 'all' ? "folder-list-item checked" : "folder-list-item"}>
-//                     <span className="material-symbols-outlined icon">mail</span>{labels.all}</li>
-//                 <li onClick={() => onSetListFilter('inbox')} className={filterBy.status === 'inbox' ? "folder-list-item checked inbox" : "folder-list-item inbox"}>
-//                     <span className="material-symbols-outlined icon">inbox</span>{labels.inbox} <span>{inboxCount}</span></li>
-//                 <li onClick={() => onSetListFilter('sent')} className={filterBy.status === 'sent' ? "folder-list-item checked" : "folder-list-item"}>
-//                     <span className="material-symbols-outlined icon">send</span>{labels.sent}</li>
-//                 <li onClick={() => onStarFilter(!isCheckedStar)} className={isCheckedStar ? "folder-list-item checked" : "folder-list-item"}>
-//                     <span className="material-symbols-outlined icon">star</span>Stared</li>
-//                 <li onClick={() => onSetListFilter('trash')} className={filterBy.status === 'trash' ? "folder-list-item checked" : "folder-list-item"}>
-//                     <span className="material-symbols-outlined icon">delete</span>{labels.delete}</li>
-//                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
-//                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}</li>
-//             </ul>
-//         </div>
-//     )

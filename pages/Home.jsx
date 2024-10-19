@@ -9,7 +9,7 @@ export function Home() {
             </p>
             <div className="icon-container">
                 <NavLink onClick={() => setIsClicked(false)} to="/book">
-                    <img src="assets/img/books.png" className="img-logo" alt="Book" />
+                    <img src="assets/img/svg/book.svg" className="img-logo" alt="Book" />
                 </NavLink>
                 <NavLink onClick={() => setIsClicked(false)} to="/mail">
                     <img src="assets/img/email.png" className="img-logo" alt="Mail" />
@@ -23,9 +23,7 @@ export function Home() {
                 <li><strong>Email:</strong> Send and receive emails from within the app.</li>
                 <li><strong>Missbook:</strong> Organize appointments and tasks effortlessly.</li>
             </ul>
-            <p className="start-text">
-                Select a feature to get started!
-            </p>
+
         </section>
     )
 }

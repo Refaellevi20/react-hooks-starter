@@ -6,7 +6,7 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <Link to="/">
-                <img src="assets/img/svg/hours.svg" className="img-logo img-home" alt="Logo" />
+                <img src="assets/img/svg/hours.svg" className="img-logo7 img-home" alt="Logo" />
             </Link>
             <nav>
                 <span 
@@ -21,7 +21,7 @@ export function AppHeader() {
                             <img src="assets/img/home.png" className="img-logo" alt="Home" />
                         </NavLink>
                         <NavLink onClick={() => setIsClicked(false)} to="/book">
-                            <img src="assets/img/books.png" className="img-logo" alt="Book" />
+                        <img src="assets/img/svg/book.svg" className="img-logo" alt="Book" />
                         </NavLink>
                         <NavLink onClick={() => setIsClicked(false)} to="/mail">
                             <img src="assets/img/email.png" className="img-logo" alt="Mail" />

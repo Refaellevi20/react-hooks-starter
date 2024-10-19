@@ -1,9 +1,9 @@
 const { useState, useEffect } = React
 
 import { mailService } from '../services/mail.service.js';
-import  {MailSize} from '../cmps/MailSize.jsx'
+import { MailSize } from '../cmps/MailSize.jsx'
 
-export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeClick }) {
+export function MailFolderList({ onSetFilter, onToggleCompose, mails, onResizeClick }) {
 
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCheckedStar, setIsCheckedStar] = useState(false)
@@ -49,7 +49,7 @@ export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeCli
         setLanguage(ev.target.value)
     }
 
-   
+
 
     function handleTranslate() {
         switch (language) {
@@ -124,9 +124,9 @@ export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeCli
         mailService.getDraftNum().then(setDraftCount)
     }
 
-     function toggleIconsOnly  (){
+    function toggleIconsOnly() {
         setShowIconsOnly(!showIconsOnly)
-      }
+    }
 
     return (
         <div className="side-bar-container ">
@@ -163,9 +163,9 @@ export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeCli
                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}<span>&nbsp;{draftCount}</span></li>
             </ul>
-            <div className="">            
-            <MailSize mails={mails} />
-        </div>
+            <div className="">
+                <MailSize mails={mails} />
+            </div>
             <div className="persent-bar-container"><div className="persent-bar" style={{ width: `${readPersent}` }}>{readPersent}</div></div>
         </div>
     )

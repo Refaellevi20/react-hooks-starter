@@ -79,7 +79,7 @@ export function MailCompose({ addMail, onToggleCompose, saveDraft, mailsSent }) 
                 </span>
             </button>
                 <span className="close-compose" onClick={onCloseCompose}>
-                    X
+                    <strong style={{ fontSize: '24px', lineHeight: '1' }}>X</strong>
                 </span>
             </div>
             <form onSubmit={onAddMail} className="compose-form">

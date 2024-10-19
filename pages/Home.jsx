@@ -3,7 +3,7 @@ const { Link, NavLink } = ReactRouterDOM
 export function Home() {
     return (
         <section className="home">
-            <h1>Welcome to the Notes & Missbook & Email Application!</h1>
+            <h1>Hello & Welcome to APPSUS!</h1>
             <p className="intro-text">
                 Manage your notes, emails, and appointments easily!
             </p>

@@ -1,65 +1,33 @@
+
 .home {
    background-image: url("../../img/home-up.png");
-   background-size: cover;
+   
+   background-size: cover; 
    background-position: center;
-   height: 100vh;
-
+   background-repeat: no-repeat; 
+   height: 100vh; 
    color: white;
-   /* display: flex; */
+   display: flex;
    align-items: center;
    justify-content: center;
    text-align: center;
-   margin: 0;
-   padding: 0;
-
+   position: relative; 
+   overflow: hidden;
 }
 
-.img-logo {
-   width: 50px;
-}
-
-main {
-   /* background-color: rgb(51, 69, 231); */
-   margin: 0;
-   padding: 0;
-}
-
-.home {
-   max-width: 900px;
-   margin: auto;
+.home .content {
+   max-width: 900px; 
    padding: 40px 20px;
    text-align: center;
-   background-color: #f9f9f9;
+   background-color: rgba(249, 249, 249, 0.9); 
    border-radius: 10px;
    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   z-index: 10; 
 }
 
-.home h1 {
-   color: #007BFF;
-   font-size: 2.8rem;
-   margin-bottom: 20px;
-   font-weight: 600;
-}
-
-.home .intro-text {
-   font-size: 2.2rem;
-   color: #73aef1;
-   margin-bottom: 30px;
-}
-
-.icon-container {
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   margin: 30px 0;
-}
-
-img.img-logo {
-   width: 200px;
-}
 
 .img-logo {
-   width: 120px;
+   width: 300px;
    height: auto;
    transition: transform 0.3s ease;
    cursor: pointer;
@@ -69,9 +37,8 @@ img.img-logo {
    transform: scale(1.1);
 }
 
+
 .features-list {
-   display: flex;
-   gap: 10px;
    list-style-type: none;
    padding-left: 0;
    margin-bottom: 30px;
@@ -88,8 +55,22 @@ img.img-logo {
 }
 
 .features-list li:hover {
-   background-color: #e2f3ff;
+   background-color: #9e2506;
    transform: translateY(-5px);
+}
+
+
+.home h1 {
+   color:#9e2506;
+   font-size: 2.8rem;
+   margin-bottom: 20px;
+   font-weight: 600;
+}
+
+.home .intro-text {
+   font-size: 2.2rem;
+   color: #9e2506;
+   margin-bottom: 30px;
 }
 
 .home strong {
@@ -99,10 +80,38 @@ img.img-logo {
 
 .home .start-text {
    font-size: 1.2rem;
-   color: blue;
+   color: #333;
    margin-top: 20px;
 }
 
 .intro-text {
    font-size: 4em;
+}
+
+
+.home {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+.icon-container {
+   display: flex;
+   justify-content: space-between; 
+   align-items: center;
+   margin: 30px 0;
+}
+
+.img-logo {
+   width: 150px; 
+   height: auto;
+   transition: transform 0.3s ease;
+   cursor: pointer;
+   margin: 0 20px; 
+}
+
+.img-logo:hover {
+   transform: scale(1.1);
 }

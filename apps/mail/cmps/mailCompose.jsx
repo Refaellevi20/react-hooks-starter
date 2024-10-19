@@ -2,7 +2,7 @@ const { useState } = React
 import { mailService } from "../services/mail.service.js"
 import { EmojiSelector } from "./emojis.jsx"
 
-export function MailCompose({ addMail, onToggleCompose, saveDraft }) {
+export function MailCompose({ addMail, onToggleCompose, saveDraft, mailsSent }) {
 
     const [draftMail, setDraftMail] = useState(mailService.getEmptyMailToDraft())
     const [isTimePassed, setIsTimePassed] = useState(false)

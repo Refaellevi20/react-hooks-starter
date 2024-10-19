@@ -22,12 +22,12 @@ export const mailService = {
   getDefaultFilter,
   getEmptyMailToSend,
   getEmptyMailToDraft,
-  getInboxNum,
   getReadPersent,
   getMails,
   getMailById,
   getInboxNum,
-  getReadPersent,
+  getDraftNum,
+  getSize,
 
   // addReview,
   // getNextBookId,
@@ -104,10 +104,26 @@ function getReadPersent(){
     })
 }
 
+function getSize(){
+  return storageService.query(MAIL_KEY)
+    .then(mails => {
+      const newMails = mails.filter(mail => mail.isRead)
+      return Math.ceil((newMails.length / mails.length) * 100)
+    })
+}
+
 function getInboxNum() {
   return storageService.query(MAIL_KEY)
     .then(mails => {
       const newMails = mails.filter(mail => mail.status === 'inbox')
+      return newMails.length
+    })
+}
+
+function getDraftNum() {
+  return storageService.query(MAIL_KEY)
+    .then(mails => {
+      const newMails = mails.filter(mail => mail.status === 'draft')
       return newMails.length
     })
 }
@@ -126,7 +142,8 @@ function getEmptyMailToSend() {
     sentAt: Date.now(),
     to: '',
     status: 'sent',
-    isStared: false
+    isStared: false,
+    size: 5406 * 1024
   }
 }
 
@@ -140,7 +157,8 @@ function getEmptyMailToDraft() {
     sentAt: Date.now(),
     to: '',
     status: 'draft',
-    isStared: false
+    isStared: false,
+    size: 5406 * 1024
   }
 }
 
@@ -160,7 +178,8 @@ function _createMails() {
         sentAt: 1672228849000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: true
+        isStared: true,
+        size: 5406 * 1024
       },
       {
         id: 'e103',
@@ -172,7 +191,8 @@ function _createMails() {
         sentAt: 1671883249000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: false
+        isStared: false,
+        size: 34033 * 1024
       },
       {
         id: 'e104',
@@ -184,7 +204,8 @@ function _createMails() {
         sentAt: 1671883239000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: true
+        isStared: true,
+        size: 83340 * 1024
       },
       {
         id: 'e105',
@@ -196,7 +217,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: 'makemoney@momo.com',
         status: 'sent',
-        isStared: true
+        isStared: true,
+        size: 22240 * 1024
       },
       {
         id: 'e106',
@@ -208,7 +230,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: 'puki@momo.com',
         status: 'sent',
-        isStared: true
+        isStared: true,
+        size: 4042 * 1024
       },
       {
         id: 'e107',
@@ -220,7 +243,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: false
+        isStared: false,
+        size: 540 ** 1024
       },
       {
         id: 'e108',
@@ -232,7 +256,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: false
+        isStared: false,
+        size: 520 ** 1024
       },
       {
         id: 'e109',
@@ -244,7 +269,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: true
+        isStared: true,
+        size: 140 * 1024
       },
       {
         id: 'e110',
@@ -256,7 +282,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: 'hagar@momo.com',
         status: 'sent',
-        isStared: true
+        isStared: true,
+        size: 240 * 1024
       },
       {
         id: 'e111',
@@ -268,7 +295,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: true
+        isStared: true,
+        size: 40 * 1024
       },
       {
         id: 'e112',
@@ -280,7 +308,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: 'shuki@momo.com',
         status: 'sent',
-        isStared: true
+        isStared: true,
+        size: 40 * 1024
       },
       {
         id: 'e113',
@@ -292,7 +321,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: loggedinUser.email,
         status: 'inbox',
-        isStared: false
+        isStared: false,
+        size: 440 * 1024
       },
       {
         id: 'e114',
@@ -316,7 +346,8 @@ function _createMails() {
         sentAt: 1671883149000,
         to: 'makemoney@momo.com',
         status: 'sent',
-        isStared: true
+        isStared: true,
+        size: 740 * 1024
       }
 
     ]

@@ -4,7 +4,8 @@
 
 .custom-select {
     padding: 0.5em 0.75em;
-    width: 13.75em;
+    width: 15.75em;
+    margin-left: 0.625em;
     border-radius: 0.25em;
     border: 0.0625em solid #ccc;
     background-color: #fff; 
@@ -26,7 +27,7 @@
 }
 
 .custom-button {
-    padding: 0.5em 1em; 
+    padding: 7px 10px; 
     margin-left: 0.625em;
     background-color: #007bff; 
     color: white;

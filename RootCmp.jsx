@@ -9,9 +9,9 @@ import { AppHeader } from "./cmps/AppHeader.jsx"
 import { Home } from "./pages/Home.jsx"
 // import { MailIndex } from "./apps/mail/pages/MailIndex.jsx" 
 import { NoteIndex } from "./apps/note/pages/NoteIndex.jsx"
-// import { UserMsg } from "./cmps/UserMsg.jsx"
+import { UserMsg } from "./cmps/UserMsg.jsx"
 // import { MailDetails } from "./apps/mail/pages/mailDetails.jsx"
-import { BookIndex } from "./apps/book/pages/BookIndex.jsx" 
+import { BookIndex } from "./apps/book/pages/Bookindex.jsx" 
 import { BookBDetails } from "./apps/book/pages/BookDeteils.jsx" 
 import { BookEdit} from "./apps/book/pages/BookEdit.jsx" 
 // import { MailCompose } from "./apps/mail/pages/ModalDetails.jsx" 
@@ -42,7 +42,7 @@ export function App() {
                         <Route path="/note" element={<NoteIndex />} />
                     </Routes>
                 </main>
-                {/* <UserMsg /> */}
+                <UserMsg />
             </section>
         </Router>
     )
@@ -50,11 +50,10 @@ export function App() {
 
 
 //! LongTxt
-//! read or unread to mobile
 //! home imgs 
 //! loaging img
 //! sort 
-//! star mobile
+
 
 
 

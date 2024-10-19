@@ -28,8 +28,7 @@ export function MainFilter({ onSetFilter, toggleIconsOnly }) {
 
     return (
         <section className="mail-filter">
-
-            {/* <onlyIcons /> */}
+        {/* <onlyIcons /> */}
             <div
                 className="hamburger-menu"
                 aria-expanded="true"
@@ -63,6 +62,8 @@ export function MainFilter({ onSetFilter, toggleIconsOnly }) {
                     />
                 </form>
             </div>
+            <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=P" className="img-logo3" alt="Profile" />
+
         </section>
     )
 }

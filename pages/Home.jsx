@@ -19,9 +19,9 @@ export function Home() {
                 </NavLink>
             </div>
             <ul className="features-list">
-                <li><strong>Notes:</strong> Create, edit, and delete notes to stay organized.</li>
-                <li><strong>Email:</strong> Send and receive emails from within the app.</li>
                 <li><strong>Missbook:</strong> Organize appointments and tasks effortlessly.</li>
+                <li><strong>Email:</strong> Send and receive emails from with in the app.</li>
+                <li><strong>Notes:</strong> Create, edit, and delete notes to stay organized.</li>
             </ul>
 
         </section>

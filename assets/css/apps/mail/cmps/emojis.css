@@ -53,6 +53,7 @@
 
 .prev-page,
 .next-page {
+    position: absolute;
     border: none;
     background-color: goldenrod;
     color: var(--white);
@@ -64,7 +65,7 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s ease;
-
+display: none;
 }
 
 .prev-page:hover,
@@ -93,7 +94,8 @@ div.compose-actions {
 }
 
 
-.emoji-btn {
+span.emoji-btn {
+    position: absolute;
     cursor: pointer; 
     font-size: 1.5rem; 
 }

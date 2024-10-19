@@ -1,4 +1,4 @@
-const { useState } = React
+const { useState,useRef } = React
 import { mailService } from "../services/mail.service.js"
 import { EmojiSelector } from "./emojis.jsx"
 
@@ -6,6 +6,8 @@ export function MailCompose({ addMail, onToggleCompose, saveDraft, mailsSent }) 
 
     const [draftMail, setDraftMail] = useState(mailService.getEmptyMailToDraft())
     const [isTimePassed, setIsTimePassed] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false)
+    const modalRef = useRef(null);
 
 
 
@@ -41,6 +43,7 @@ export function MailCompose({ addMail, onToggleCompose, saveDraft, mailsSent }) 
             saveDraft(draftMail)
         }
     }
+
     function handleAddLine(emoji) {
         const textarea = document.getElementById('body')
         const start = textarea.selectionStart
@@ -49,25 +52,36 @@ export function MailCompose({ addMail, onToggleCompose, saveDraft, mailsSent }) 
         setDraftMail(prev => ({ ...prev, body: newBody }))
         // Move cursor to the right of the inserted emoji
         textarea.setSelectionRange(start + emoji.length, start + emoji.length)
-        textarea.focus();
+        textarea.focus()
     }
+
+   function toggleFullScreen (){
+        if (!document.fullscreenElement) {
+            modalRef.current.requestFullscreen().catch(err => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen()
+        }
+    }
+
+    function toggleSize(){
+        setIsExpanded(prev => !prev)
+    }
+    
     return (
-        <div className="compose-modal">
-              <div className="compose-header">
-            <p>New Message</p>
-            {/* <img
-                className="Hq aUG"
-                id=":yr"
-                src="images/cleardot.gif" 
-                alt="Pop-out"
-                aria-label="Full screen (Shift for pop-out)"
-                data-tooltip-delay="800"
-                data-tooltip="Full screen (Shift for pop-out)"
-            /> */}
-            <span className="close-compose" onClick={onCloseCompose}>
-                X
-            </span>
-        </div>
+        <div className={`compose-modal ${isExpanded ? 'expanded' : ''}`} ref={modalRef}>
+            <div className="compose-header">
+                <p>New Message</p>
+                <button onClick={toggleSize} className="fullscreen-btn">
+                <span className="material-symbols-outlined">
+                    {isExpanded ? <i className="fa-solid fa-down-left-and-up-right-to-center"></i> : <i className="fa-solid fa-up-right-and-down-left-from-center"></i>}
+                </span>
+            </button>
+                <span className="close-compose" onClick={onCloseCompose}>
+                    X
+                </span>
+            </div>
             <form onSubmit={onAddMail} className="compose-form">
                 <input type="text"
                     id="to"

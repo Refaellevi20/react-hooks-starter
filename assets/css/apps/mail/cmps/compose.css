@@ -87,9 +87,32 @@
 }
 
 input#to.compose-input {
-    border-bottom: 1px solid wheat;
+    border-bottom: 1px solid black;
 }
 
 input#subject.compose-input {
-    border-bottom: 1px solid wheat;
+    border-bottom: 1px solid black;
+}
+
+.compose-modal.expanded {
+    width: 85vw; 
+    height: 85vh; 
+    max-width: none; 
+    max-height: none; 
+}
+
+.compose-modal.expanded {
+    width: 85vw; 
+    height: 85vh; 
+    max-width: none; 
+    max-height: none; 
+    top: 70px; 
+    left: 50%; 
+    transform: translate(-50%, 0); 
+}
+
+button.fullscreen-btn {
+    margin-left: 25em; 
+    border: none;
+    cursor: pointer; 
 }

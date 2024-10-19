@@ -48,9 +48,9 @@ export function NoteFilter({ onSetFilter, noResults  }) {
       onChange={handleTypeChange}
       value={FilterByEdit.txt} 
       />
-      <button className="filterBtn" type="submit"> 
+      {/* <button className="filterBtn" type="submit">  */}
       
-      </button>
+      {/* </button> */}
       </div>
     </form>
 {/* Sidebar for note types */}

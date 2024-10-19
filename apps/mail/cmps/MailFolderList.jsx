@@ -3,7 +3,7 @@ const { useState, useEffect } = React
 import { mailService } from '../services/mail.service.js';
 import  {MailSize} from '../cmps/MailSize.jsx'
 
-export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, mails, onResizeClick }) {
+export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeClick }) {
 
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCheckedStar, setIsCheckedStar] = useState(false)

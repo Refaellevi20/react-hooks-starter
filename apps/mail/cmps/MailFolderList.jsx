@@ -163,7 +163,7 @@ export function MailFolderList({onSetFilter, onToggleCompose, mails, onResizeCli
                 <li onClick={() => onSetListFilter('draft')} className={filterBy.status === 'draft' ? "folder-list-item checked" : "folder-list-item"}>
                     <span className="material-symbols-outlined icon">draft</span>{labels.draft}<span>&nbsp;{draftCount}</span></li>
             </ul>
-            <div className="side-bar-container">            
+            <div className="">            
             <MailSize mails={mails} />
         </div>
             <div className="persent-bar-container"><div className="persent-bar" style={{ width: `${readPersent}` }}>{readPersent}</div></div>

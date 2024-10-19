@@ -11,6 +11,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
     const [draftCount, setDraftCount] = useState('')
     const [language, setLanguage] = useState('English')
     const [readPersent, setReadPersent] = useState(0)
+    const [showIconsOnly, setShowIconsOnly] = useState(0)
 
     const [labels, setLabels] = useState(
         {
@@ -48,9 +49,7 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         setLanguage(ev.target.value)
     }
 
-    // function toggleIconsOnly  (){
-    //     setShowIconsOnly(prevState => !prevState)
-    //   }
+   
 
     function handleTranslate() {
         switch (language) {
@@ -125,6 +124,10 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
         mailService.getDraftNum().then(setDraftCount)
     }
 
+     function toggleIconsOnly  (){
+        setShowIconsOnly(!showIconsOnly)
+      }
+
     return (
         <div className="side-bar-container ">
             {/* <button className="resize-btn" onClick={onResizeClick}>
@@ -168,3 +171,50 @@ export function MailFolderList({ showIconsOnly, onSetFilter, onToggleCompose, ma
     )
 }
 
+//   return (
+//         <ul className="folder-list-container">
+//             <li
+//                 onClick={() => onSetListFilter('all')}
+//                 className={filterBy.status === 'all' ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">mail</span>
+//                 {!showIconsOnly && <span>{labels.all}</span>}
+//             </li>
+//             <li
+//                 onClick={() => onSetListFilter('inbox')}
+//                 className={filterBy.status === 'inbox' ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">inbox</span>
+//                 {!showIconsOnly && <span>{`${labels.inbox} (${inboxCount})`}</span>}
+//             </li>
+//             <li
+//                 onClick={() => onSetListFilter('sent')}
+//                 className={filterBy.status === 'sent' ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">send</span>
+//                 {!showIconsOnly && <span>{labels.sent}</span>}
+//             </li>
+//             <li
+//                 onClick={() => onStarFilter(!isCheckedStar)}
+//                 className={isCheckedStar ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">star</span>
+//                 {!showIconsOnly && <span>Starred</span>}
+//             </li>
+//             <li
+//                 onClick={() => onSetListFilter('trash')}
+//                 className={filterBy.status === 'trash' ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">delete</span>
+//                 {!showIconsOnly && <span>{labels.delete}</span>}
+//             </li>
+//             <li
+//                 onClick={() => onSetListFilter('draft')}
+//                 className={filterBy.status === 'draft' ? 'folder-list-item checked' : 'folder-list-item'}
+//             >
+//                 <span className="material-symbols-outlined icon">draft</span>
+//                 {!showIconsOnly && <span>{labels.draft}</span>}
+//             </li>
+//         </ul>
+//     )
+// }

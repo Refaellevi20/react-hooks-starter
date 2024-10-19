@@ -99,6 +99,7 @@ export function MailIndex() {
     function onResizeClick() {
         setIsSmall(!isSmall)
     }
+    
 
     // function sortByCriterion(criterion) {
     //     const sortedMails = [...mails]

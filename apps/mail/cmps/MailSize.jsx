@@ -7,7 +7,6 @@ export function MailSize({ mails }) {
     const [totalSize, setTotalSize] = useState(0)
 
     useEffect(() => {
-        console.log('Calculating total size for mails:', mails)
         calculateTotalSize()
     }, [mails])
 

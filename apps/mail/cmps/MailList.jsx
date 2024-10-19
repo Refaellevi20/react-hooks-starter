@@ -1,7 +1,7 @@
 import { MailPreview } from "./MailPreview.jsx" 
 import { MailTableHeader } from "./MailTableHeader.jsx" 
 
-export function MailList({ mails, setStared, removeMail, onSetFilter, setReadMail, setToggleRead }) {
+export function MailList({ mails, setStared, removeMail, onSetFilter, setReadMail, setToggleRead,archiveMail }) {
     return (
         <section className="mail-list">
             <MailTableHeader onSetFilter={onSetFilter} />
@@ -14,6 +14,7 @@ export function MailList({ mails, setStared, removeMail, onSetFilter, setReadMai
                         removeMail={removeMail}
                         setReadMail={setReadMail}
                         setToggleRead={setToggleRead}
+                        archiveMail={archiveMail}
                     />
                 ))}
             </div>

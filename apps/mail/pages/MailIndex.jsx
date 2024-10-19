@@ -99,6 +99,16 @@ export function MailIndex() {
     function onResizeClick() {
         setIsSmall(!isSmall)
     }
+
+    
+    function handleArchiveMail(mail) {
+        mailService.archiveMail(mail)
+        .then(() => {
+            loadMails()
+        })
+        .catch(err => console.log('Error archiving mail:', err))
+    }
+
     
 
     // function sortByCriterion(criterion) {
@@ -158,7 +168,9 @@ export function MailIndex() {
                     removeMail={removeMail}
                     onSetFilter={onSetFilter}
                     setReadMail={setReadMail}
-                    setToggleRead={setToggleRead} />
+                    setToggleRead={setToggleRead}
+                    archiveMail={handleArchiveMail} 
+                    />
                 {isComposeClicked && <MailCompose
                     addMail={addMail}
                     onToggleCompose={onToggleCompose}

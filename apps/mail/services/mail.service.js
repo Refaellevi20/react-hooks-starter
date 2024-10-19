@@ -1,7 +1,7 @@
 
 import { utilService } from '../../../services/util.service.js' 
 import { storageService } from '../../../services/async-storage.service.js' 
-
+import { showSuccessMsg } from '../../../services/event-bus.service.js'
 
 const MAIL_KEY = 'mailDB'
 const loggedinUser = {
@@ -28,6 +28,7 @@ export const mailService = {
   getInboxNum,
   getDraftNum,
   getSize,
+  archiveMail
 
   // addReview,
   // getNextBookId,
@@ -39,6 +40,20 @@ function getMailById(id) {
   return mail || null
 }
 
+function archiveMail(mail) {
+  console.log('Archiving mail:', mail)
+  mail.status = 'archived'
+  return storageService.put(MAIL_KEY, mail) 
+      .then(() => {
+        showSuccessMsg('Mail archived successfully')
+
+          console.log('Mail archived successfully')
+      })
+      .catch(err => {
+        console.error('Error archiving mail:', err)
+        showSuccessMsg('Failed to archive mail')
+    })
+}
 
 function getMails() {
   return storageService.query(MAIL_KEY) 

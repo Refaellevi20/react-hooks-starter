@@ -5,7 +5,7 @@ import { LongTxt } from './LongTxt.jsx';
 
 import { utilService } from '../../../services/util.service.js'; 
 
-export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggleRead }) {
+export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggleRead,archiveMail }) {
 
     const [isExpanded, setIsExpanded] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
@@ -48,6 +48,11 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
         setIsEditingTime(!isEditingTime)
     }
 
+    function onArchiveMail(ev) {
+        ev.stopPropagation()
+        archiveMail(mail)
+    }
+
     return (
         <Fragment>
             <div className={`mail-preview ${mail.isRead ? "read" : ""}`}
@@ -82,6 +87,7 @@ export function MailPreview({ mail, setStared, removeMail, setReadMail, setToggl
                                 <span onClick={onToggleRead} className="material-symbols-outlined icon">
                                     {mail.isRead ? 'mail' : 'drafts'}
                                 </span>
+                                <span onClick={onArchiveMail} className="material-symbols-outlined icon">archive</span>
                                 {isEditingTime ? (
                                     <input
                                         type="datetime-local"

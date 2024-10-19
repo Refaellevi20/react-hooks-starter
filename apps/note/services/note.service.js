@@ -33,8 +33,6 @@ function query(filterBy = getDefaultFilter()) {
         if (filterBy.noteType) {
           notes = notes.filter(note => (note.type === filterBy.noteType))
         }
-  
-        console.log(notes)
         return notes
       })
   }
@@ -125,7 +123,19 @@ function _createNotes() {
             info: { 
               txt: 'The only way to do great work is to love what you do.” - Steve Jobs' 
             } 
-        },
+        }, 
+        {
+          id: 'n109', 
+          createdAt: 1112222, 
+          type: 'NoteTxt', 
+          isPinned: true, 
+          style: { 
+            backgroundColor: '#e9e3d4'
+          }, 
+          info: { 
+            txt: 'Hope is the only thing stronger than fear.” - President Snow' 
+          } 
+      },
         {
             id: 'n104', 
             createdAt: 1112225, 
@@ -139,6 +149,18 @@ function _createNotes() {
             } 
         },
         {
+          id: 'n110', 
+          createdAt: 1112225, 
+          type: 'NoteTxt', 
+          isPinned: true, 
+          style: { 
+            backgroundColor:  '#efeff1' 
+          }, 
+          info: { 
+            txt: 'Don\'t forget to go to the library on Tuesday!'
+          } 
+      },
+        {
             id: 'n105', 
             createdAt: 1112226, 
             type:  'NoteImg', 
@@ -151,6 +173,19 @@ function _createNotes() {
               title: 'Sunset at Santorini' 
           }
         },
+        {
+          id: 'n111', 
+          createdAt: 1112226, 
+          type:  'NoteImg', 
+          isPinned: true, 
+          style: { 
+            backgroundColor: '#efeff1' 
+          }, 
+          info: { 
+            url: 'https://www.state.gov/wp-content/uploads/2023/07/shutterstock_433413835v2-768x512.jpg', 
+            title: 'My trip to Rome!' 
+        }
+      },
         {
             id: 'n102', 
             createdAt: 1112223, 
@@ -170,6 +205,25 @@ function _createNotes() {
           }
         },
         {
+          id: 'n112', 
+          createdAt: 1112223, 
+          type: 'NoteTodos', 
+          isPinned: false, 
+          style: { 
+            backgroundColor: '#faafa8' 
+        },
+        info: { 
+            title: 'To-Do: Clean my room', 
+            todos: [ 
+                { txt: 'Pick up any clothes '}, 
+                { txt: 'Tidy up surfaces' }, 
+                { txt: 'Dust - Wipe down any shelves, furniture, or electronics.' },
+                { txt: 'Sweep the floor' },
+                { txt: 'Organize ' }
+            ] 
+        }
+      },
+        {
             id: 'n103', 
             createdAt: 1112224, 
             type: 'NoteVid', 
@@ -182,6 +236,19 @@ function _createNotes() {
               title: 'How to Learn Web Development'
           }
         },
+        {
+          id: 'n113', 
+          createdAt: 1112224, 
+          type: 'NoteVid', 
+          isPinned: false, 
+          style: { 
+            backgroundColor: '#fff8b8' 
+        },
+        info: { 
+            url: 'https://www.youtube.com/watch?v=Oa_RSwwpPaA', 
+            
+        }
+      },
         {
           id: 'n107', 
           createdAt: Date.now(), 
@@ -205,6 +272,18 @@ function _createNotes() {
           },
           info: { 
            txt: 'Dinner reservation at the best restaurant!' 
+        }
+        },
+        {
+          id: 'n120', 
+          createdAt: Date.now(), 
+          type: 'NoteTxt', 
+          isPinned: false, 
+          style: { 
+              backgroundColor: '#d3bfdb' 
+          },
+          info: { 
+           txt: '12.03 Date night!' 
         }
         }
         

@@ -1,11 +1,9 @@
- /* note list */
-
- /* .note-list {
+ .note-list {
     list-style: none;
     padding: 15px 0 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
    
 }
 
@@ -14,20 +12,22 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--purple1);
     border-radius: 10px;
-} */
+    padding: 10px;
+}
 
 .memo-container {
-    column-count: 3;
-    column-gap: 20px;
+    column-count: 5;
+    column-gap: 10px;
+    margin-left: 90px;
   }
   
   
   .memo-pined-container {
-    column-count: 3;
-    column-gap: 20px;
+    column-count: 5;
+    column-gap: 10px;
     margin-bottom: 90px;
+    margin-left: 90px;
   }
 
   .memo {
@@ -35,22 +35,45 @@
   
   }
   
+
   @media screen and (max-width: 1050px) {
+    
     .memo-container {
-      column-count: 2;
+      column-count: 4; 
     }
   
+    .memo-pined-container {
+      column-count: 4;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    
+    .memo-container {
+      column-count: 3; 
+    }
+  
+    .memo-pined-container {
+      column-count: 3;
+    }
+  }
+  
+  @media screen and (max-width: 700px) {
+   
+    .memo-container {
+      column-count: 2; 
+    }
   
     .memo-pined-container {
       column-count: 2;
     }
   }
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 500px) {
+    
     .memo-container {
-      column-count: 1;
+      column-count: 1; 
     }
-  
   
     .memo-pined-container {
       column-count: 1;

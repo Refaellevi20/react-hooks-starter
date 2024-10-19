@@ -1,79 +1,22 @@
-/* .note-creator-container {
-    display: flex;
-    padding: 0.7rem 1rem;
-    gap: 10px;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-    border-radius: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #f1f3f4;
-    line-height:27px;
-    font-size: 27px;
-    width:1000px;
-    height: 70px;
-}
-
-.input{
-    background-color: #f1f3f4;
-}
-
-
-
-.options-container{
-    display: flex;
-    align-items: baseline;
-    justify-self: start;
-}
-
-.options-container label{
-    padding-top: 2px;
-}
-
-.create-form {
-    justify-content: center;
-}
-
-.create-form input {
-    padding: 0.5rem;
-    border: none;
-}
-
-.create-form input:focus-visible {
-    outline: none;
-}
-
-.create-note-btn {
-    background-color: white;
-    border: none;
-    padding: 2px 2px 0 2px;
-}
-
-.create-note-btn:hover {
-    background-color: rgb(240, 240, 240);
-    border-radius: 50%;
-}
-
-.radio-btn-hidden {
-    display: none;
-} */
-
-/* The note creator container */
 .note-creator-container {
     display: flex;
-    align-items: center; /* Vertically center elements */
-    justify-content: space-between; /* Space out the elements */
+    align-items: center; 
+    justify-content: space-between; 
     padding: 0.7rem 1rem;
     gap: 10px;
-    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px; /* Light shadow like Google Keep */
-    border-radius: 20px; /* Rounded edges */
-    background-color: #fff; /* White background */
-    width: 100%; /* Full width */
-    max-width: 600px; /* Limit max width */
-    margin: 20px auto; /* Centered in the page */
-    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition */
+    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px; 
+    border-radius: 10px; 
+    background-color: #fff; 
+    width: 80%; 
+    /* width: 600px;  */
+    height: 50px;
+    margin: 20px auto; 
+    transition: box-shadow 0.3s ease-in-out; 
 }
 
-/* Input field */
+
+
+
 .input {
     background-color: #fff;
     padding: 0.5rem 1rem;
@@ -90,7 +33,7 @@
     box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
 }
 
-/* Button styling */
+
 .create-note-btn {
     background-color: #f1f3f4;
     border: none;
@@ -131,9 +74,27 @@
     overflow: hidden;
     white-space: nowrap;
 }
+.close-btn {
+    background-color: white;
+    border: none;
+    color: #202124;
+    width: 60px; /* Icon button width */
+    height:30px; /* Icon button height */
+    border-radius: 10%; /* Circular button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); /* Light shadow for lift effect */
+    transition: all 0.3s ease; /* Smooth transition for hover and active */
+    /* padding: 0; */
+    /* position: absolute; */
+    /* bottom: 10px; Position it at the bottom */
+    /* left: 10px; Position it to the left */
+    z-index: 2;
+}
 
-
-
-
-
-
+.close-btn:hover {
+    background-color: #f1f3f4; /* Subtle gray background on hover */
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+}

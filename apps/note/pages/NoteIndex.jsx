@@ -16,6 +16,7 @@ export function NoteIndex() {
     }, [filterBy])
 
     function loadNotes() {
+        // setLoading(true)
         noteService.query(filterBy)
             .then(setNotes)
             .catch(err => {
@@ -47,7 +48,7 @@ export function NoteIndex() {
                     )
                     return updatedNotes
                 })
-                loadNotes() 
+                // loadNotes() 
             })
             .catch(err => {
                 console.log('Problems editing note:', err)
@@ -67,6 +68,7 @@ export function NoteIndex() {
     }
 
     function onSetFilter(filterByToEdit) {
+        // setFilterBy({ ...filterBy, ...filterByToEdit })
         setFilterBy(prevFilter => ({...prevFilter, ...filterByToEdit}))
     }
 
@@ -74,8 +76,8 @@ export function NoteIndex() {
 
     return (
         <section className="note-index">
-            <NoteCreator addNote={onAddNote} />
             <NoteFilter onSetFilter={onSetFilter} filterBy={filterBy} />
+            <NoteCreator addNote={onAddNote} />
             <NoteList 
                 notes={notes} 
                 removeNote={onRemoveNote} 

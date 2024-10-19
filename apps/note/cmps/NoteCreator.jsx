@@ -8,6 +8,7 @@ const PLACEHOLDER = {
     'NoteImg': 'Enter image url',
     'NoteVid': 'Enter video url',
     'NoteTodos': 'Enter comma-separated todos',
+    'NoteTxt' : 'Take a note...'
 }
 
 export function NoteCreator({ addNote }) {
@@ -33,24 +34,33 @@ export function NoteCreator({ addNote }) {
 
     setNoteType(mappedType)
   }
-
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();  // Prevent new line behavior in textarea
+      handleSubmitNote(e);  // Submit the form when Enter is pressed
+    }
+  }
     return (
         <form onSubmit={handleSubmitNote} className="flex create-form">
             <section className="note-creator-container">
                 <div>
-                    <input type="textarea"
-                        id="txt"
-                        name="txt"
-                        placeholder={noteType === '' ? 'Enter text' : 'Enter title'}
-                    />
-                    {noteType !== 'note-txt' ? (
+                {noteType === 'NoteTxt' ? (
+                        <input
+                            id="txt"
+                            name="txt"
+                            type="text"
+                            placeholder={PLACEHOLDER[noteType]}
+                            onKeyDown={handleKeyDown}
+                        />
+                    ) : (
                         <input
                             className="note-data"
                             placeholder={PLACEHOLDER[noteType]}
-                            type='text'
-                            id='noteData'
-                            name='noteData' />
-                    ) : null}
+                            type="text"
+                            id="noteData"
+                            name="noteData"
+                        />
+                    )}
                 </div>
                 <div className="options-container">
                     <label htmlFor="note-txt"><span className="material-symbols-outlined icon-btn">article</span></label>
@@ -80,7 +90,7 @@ export function NoteCreator({ addNote }) {
                         onChange={handleNoteTypeChange} />
                 </div>
 
-                <button className="create-note-btn"><span className="material-symbols-outlined icon-btn">add</span></button>
+                <button className="close-btn" ><p>Close</p> </button>
             </section>
         </form>
     )
